@@ -1,2 +1,20 @@
-<p>Login Funciona!</p>
-<a [routerLink]="'/aaaaaa'">Pagenotfound</a>
+<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    <form #formulario="ngForm">
+        <p><b>Iniciar Sesión</b></p>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Correo</mat-label>
+          <input matInput placeholder="test@test.com" required type="email" name="correo" [(ngModel)]="email">
+          <mat-icon matSuffix>mail</mat-icon>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Contraseña</mat-label>
+          <input matInput placeholder="******" required type="password" name="contrasena" [(ngModel)]="password" minlength="4">
+          <mat-icon matSuffix>password</mat-icon>
+        </mat-form-field>
+      </p>
+      <button mat-flat-button color="primary" (click)="iniciarSesion()" [disabled]="formulario.invalid || !btnLogin">Iniciar Sesión</button>
+    </form>
+</div>

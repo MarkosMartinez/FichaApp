@@ -10,7 +10,12 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LoginComponent {
 
-  constructor(private authservice: AuthService, private router: Router){
+  btnLogin: boolean = false;
+  email: string = "";
+  password: string = "";
+
+
+  constructor(private authService: AuthService, private router: Router){
 
   }
 
@@ -20,8 +25,20 @@ export class LoginComponent {
   }
 
   checkLogueo(){
-    if(this.authservice.isAuthenticated()){
+    if(this.authService.isAuthenticated()){
       this.router.navigate(['/']);
+    }else{
+      this.btnLogin = true;
+    }
+  }
+
+  iniciarSesion() {
+    this.btnLogin = false;
+    console.log("Correo/Contraseña: " + this.email + " / " + this.password);
+    if(this.authService.iniciarSesion(this.email, this.password)){
+      console.log("Logueado correctamente!")
+    }else{
+      this.btnLogin = true;
     }
   }
 

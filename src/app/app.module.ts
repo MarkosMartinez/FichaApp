@@ -3,13 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './component/app/app.component';
+import { AngularMaterialModule } from './modules/angular-material/angular-material.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { LoginComponent } from './component/login/login.component';
 import { PagenotfoundComponent } from './component/pagenotfound/pagenotfound.component';
 import { MainComponent } from './component/main/main.component';
-import {MatButtonModule} from '@angular/material/button';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatIconModule} from '@angular/material/icon';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -21,9 +21,9 @@ import {MatIconModule} from '@angular/material/icon';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule
+    AngularMaterialModule,
+    HttpClientModule
+
   ],
   providers: [
     provideAnimationsAsync()
