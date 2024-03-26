@@ -1,8 +1,9 @@
+  @if(isLoggedIn()){
   <mat-drawer-container class="container" autosize>
     <button mat-mini-fab color="primary" style="position: absolute;" (click)="drawer.toggle()" aria-label="Ocultar / Mostrar menu lateral">
         <mat-icon>menu</mat-icon>
     </button>
-    <mat-drawer #drawer class="sidenav" mode="side"> <!--opened-->
+    <mat-drawer #drawer class="sidenav" mode="side" opened> <!--opened-->
       <p>Otro componente</p>
     </mat-drawer>
   
@@ -11,4 +12,6 @@
     </div>
   
   </mat-drawer-container>
-  
+}@else{
+  <router-outlet/>
+}

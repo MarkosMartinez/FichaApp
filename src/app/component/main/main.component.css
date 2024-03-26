@@ -14,3 +14,7 @@
 .sidenav {
     padding: 20px;
 }
+
+#btnPanel{
+    right: -20px;
+}

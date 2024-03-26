@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
-import {MatButtonModule} from '@angular/material/button';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-main',
@@ -8,5 +7,9 @@ import {MatSidenavModule} from '@angular/material/sidenav';
   styleUrl: './main.component.css'
 })
 export class MainComponent {
+  constructor(private authService: AuthService) { }
 
+  isLoggedIn(): boolean {
+    return this.authService.isAuthenticated();
+  }
 }
