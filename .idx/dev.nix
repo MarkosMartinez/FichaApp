@@ -23,10 +23,10 @@
         manager = "web";
         id = "web";
       }
-      {
-        id = "ios";
-        manager = "ios";
-      }
+      # {
+      #   id = "ios";
+      #   manager = "ios";
+      # }
     ];
   };
 }
