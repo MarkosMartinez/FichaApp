@@ -41,10 +41,10 @@ export class AuthService {
     let token = this.cookieService.get('token');
     if (token) {
       let headers = new HttpHeaders({
-        'Content-Type':  'application/json',
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`
       });
-      return this.http.post<any>(`${apiDomain}/api/check-login`, null, { headers }).pipe(
+      return this.http.get<any>(`${apiDomain}/api/check-token`, { headers }).pipe(
         map(response => {
           // console.log('Respuesta de la API:', response);
           if (response.success) {
@@ -58,6 +58,7 @@ export class AuthService {
       return of(false);
     }
   }
+  
 
   cerrarSesion(): Observable<any> {
     let token = this.cookieService.get('token');
