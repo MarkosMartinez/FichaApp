@@ -1,10 +1,24 @@
-  @if(isLoggedIn()){
-  <mat-drawer-container class="container" autosize>
-    <button mat-mini-fab color="primary" style="position: absolute;" (click)="drawer.toggle()" aria-label="Ocultar / Mostrar menu lateral">
-        <mat-icon>menu</mat-icon>
-    </button>
+@if(isLoggedIn()){
+  <mat-drawer-container class="container" autosize> <!--autosize-->
+      <mat-toolbar style="position: absolute; background-color: #38b7ee;">
+        <button mat-icon-button (click)="drawer.toggle()" aria-label="Ocultar / Mostrar menu lateral">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>FichaApp</span>
+        <span class="example-spacer"></span>
+        <button mat-icon-button class="example-icon" aria-label="Cerrar sesion" (click)="cerrarSesion()">
+          <mat-icon>logout</mat-icon>
+        </button>
+      </mat-toolbar>
+
     <mat-drawer #drawer class="sidenav" mode="side" opened> <!--opened-->
-      <p>Otro componente</p>
+      <button mat-icon-button style="position: absolute; right: 0; top: 5px;" class="pin-button">
+        <mat-icon>push_pin</mat-icon> <!--Icono pulsado-->
+        <!--<mat-icon (click)="pinUnpinSidenav()">{{ isPinned ? 'close' : 'push_pin' }}</mat-icon>-->
+      </button>
+    
+      <div class="espacio"></div>
+      <p>Menu lateral</p>
     </mat-drawer>
   
     <div class="sidenav-content">

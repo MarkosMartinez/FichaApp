@@ -15,6 +15,11 @@
     padding: 20px;
 }
 
-#btnPanel{
-    right: -20px;
+.espacio {
+    padding-top: 20px;
 }
+
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  

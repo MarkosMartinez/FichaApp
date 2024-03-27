@@ -41,13 +41,36 @@ export class AuthService {
     let token = this.cookieService.get('token');
     if (token) {
       let headers = new HttpHeaders({
-        'Authorization': `Bearer ${token}`
+        'Content-Type':  'application/json',
+        Authorization: `Bearer ${token}`
       });
       return this.http.post<any>(`${apiDomain}/api/check-login`, null, { headers }).pipe(
         map(response => {
           // console.log('Respuesta de la API:', response);
           if (response.success) {
             return true;
+          } else {
+            return false;
+          }
+        }),
+      );
+    } else {
+      return of(false);
+    }
+  }
+
+  cerrarSesion(): Observable<any> {
+    let token = this.cookieService.get('token');
+    if (token) {
+      let headers = new HttpHeaders({
+        'Content-Type':  'application/json',
+        Authorization: `Bearer ${token}`
+      });
+      return this.http.get<any>(`${apiDomain}/api/logout`, { headers: headers }).pipe(
+        map(response => {
+          // console.log('Respuesta de la API:', response);
+          if (response) {
+            return true
           } else {
             return false;
           }

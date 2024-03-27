@@ -9,6 +9,7 @@ import { LoginComponent } from './component/login/login.component';
 import { PagenotfoundComponent } from './component/pagenotfound/pagenotfound.component';
 import { MainComponent } from './component/main/main.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     LoginComponent,
     PagenotfoundComponent,
-    MainComponent
+    MainComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

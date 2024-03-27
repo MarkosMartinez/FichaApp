@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { AuthGuard } from './guards/auth.guard';
 import { MainComponent } from './component/main/main.component';
 import { LoginComponent } from './component/login/login.component';
 import { PagenotfoundComponent } from './component/pagenotfound/pagenotfound.component';
-import { AuthGuard } from './guards/auth.guard';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
+
 
 const routes: Routes = [
   {path: '', component: MainComponent, children: [
   { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: PagenotfoundComponent, pathMatch: 'full', canActivate: [AuthGuard] },
+  { path: 'dashboard', component: DashboardComponent, pathMatch: 'full', canActivate: [AuthGuard] },
+  { path: '', component: DashboardComponent, pathMatch: 'full', canActivate: [AuthGuard] },
   { path: '**', component: PagenotfoundComponent, pathMatch: 'full', canActivate: [AuthGuard] }
   ]}
   

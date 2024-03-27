@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { AuthService } from '../../services/auth.service';
 
@@ -26,7 +26,7 @@ export class LoginComponent {
 
   checkLogueo(){
     if(this.authService.isAuthenticated()){
-      this.router.navigate(['/']);
+      this.router.navigate(['dashboard']);
     }else{
       this.btnLogin = true;
     }
@@ -36,7 +36,7 @@ export class LoginComponent {
     this.btnLogin = false;
     this.authService.iniciarSesion(this.email, this.password).subscribe(resultado =>{
       if(resultado){
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['dashboard']);
       }else{
         //TODO Mostrar mensaje de error
         this.btnLogin = true;
