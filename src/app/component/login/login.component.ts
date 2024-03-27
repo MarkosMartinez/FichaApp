@@ -35,11 +35,14 @@ export class LoginComponent {
   iniciarSesion() {
     this.btnLogin = false;
     console.log("Correo/Contraseña: " + this.email + " / " + this.password);
-    if(this.authService.iniciarSesion(this.email, this.password)){
-      console.log("Logueado correctamente!")
-    }else{
-      this.btnLogin = true;
-    }
+    this.authService.iniciarSesion(this.email, this.password).subscribe(resultado =>{
+      if(resultado){
+        this.router.navigate(['/dashboard']);
+      }else{
+        //TODO Mostrar mensaje de error
+        this.btnLogin = true;
+      }
+    });
   }
 
 }

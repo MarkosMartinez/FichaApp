@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MatMenuModule } from '@angular/material/menu';
-import { MatButtonModule } from '@angular/material/button';
+import { MatButtonModule, MatMiniFabButton  } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -38,6 +38,7 @@ const modules = [
     MatMenuModule,
     MatCardModule,
     MatButtonModule,
+    MatMiniFabButton,
     MatToolbarModule,
     MatTooltipModule,
     MatIconModule,
