@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service';
+import { apiDomain } from '../../environment';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,7 @@ export class AuthService {
   }
 
   iniciarSesion(correo: string, contraseña: string): Observable<boolean> {
-    return this.http.post<any>('https://fichaapp-api.fly.dev/api/login', { "email": correo, "password": contraseña }).pipe(
+    return this.http.post<any>(`${apiDomain}/api/login`, { "email": correo, "password": contraseña }).pipe(
       map(response => {
         // console.log('Respuesta de la API:', response);
         if (response.success) {
@@ -35,5 +36,28 @@ export class AuthService {
       }),
     );
   }
+
+  checkValidToken(): Observable<boolean> {
+    let token = this.cookieService.get('token');
+    if (token) {
+      let headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      });
+      return this.http.post<any>(`${apiDomain}/api/check-login`, null, { headers }).pipe(
+        map(response => {
+          // console.log('Respuesta de la API:', response);
+          if (response.success) {
+            return true;
+          } else {
+            return false;
+          }
+        }),
+      );
+    } else {
+      return of(false);
+    }
+  }
+
+
 
 }

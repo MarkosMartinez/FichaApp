@@ -34,7 +34,6 @@ export class LoginComponent {
 
   iniciarSesion() {
     this.btnLogin = false;
-    console.log("Correo/Contraseña: " + this.email + " / " + this.password);
     this.authService.iniciarSesion(this.email, this.password).subscribe(resultado =>{
       if(resultado){
         this.router.navigate(['/dashboard']);
