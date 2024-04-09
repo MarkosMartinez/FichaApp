@@ -10,6 +10,7 @@ import { PagenotfoundComponent } from './component/pagenotfound/pagenotfound.com
 import { MainComponent } from './component/main/main.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { UsersComponent } from './component/users/users.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
     LoginComponent,
     PagenotfoundComponent,
     MainComponent,
-    DashboardComponent
+    DashboardComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,

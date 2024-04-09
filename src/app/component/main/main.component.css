@@ -21,5 +21,8 @@
 
 .example-spacer {
     flex: 1 1 auto;
-  }
-  
+}
+
+#lista_menu {
+    list-style-type: none;
+}

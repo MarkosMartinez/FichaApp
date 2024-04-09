@@ -12,13 +12,18 @@
       </mat-toolbar>
 
     <mat-drawer #drawer class="sidenav" mode="side" opened> <!--opened-->
-      <button mat-icon-button style="position: absolute; right: 0; top: 5px;" class="pin-button">
+      <button mat-icon-button style="position: absolute; right: 0; top: 5px;" class="pin-button" (click)="pin()">
         <mat-icon>push_pin</mat-icon> <!--Icono pulsado-->
         <!--<mat-icon (click)="pinUnpinSidenav()">{{ isPinned ? 'close' : 'push_pin' }}</mat-icon>-->
       </button>
     
       <div class="espacio"></div>
       <p>Menu lateral</p>
+      <ul id="lista_menu">
+        @if(isManager()){
+          <li><a [routerLink]="'/users'"><mat-icon>person_outline</mat-icon></a></li>
+        }
+      </ul>
     </mat-drawer>
   
     <div class="sidenav-content">

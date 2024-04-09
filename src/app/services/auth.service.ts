@@ -22,13 +22,18 @@ export class AuthService {
 
   }
 
+  getRol(){
+    return this.cookieService.get('rol');
+  }
+
   iniciarSesion(correo: string, contraseña: string): Observable<boolean> {
     return this.http.post<any>(`${apiDomain}/api/login`, { "email": correo, "password": contraseña }).pipe(
       map(response => {
         // console.log('Respuesta de la API:', response);
         if (response.success) {
           this.cookieService.set('token', response.data.token);
-          this.cookieService.set('nombre', response.data.name);
+          this.cookieService.set('name', response.data.name);
+          this.cookieService.set('rol', response.data.rol);
           return true;
         } else {
           return false;

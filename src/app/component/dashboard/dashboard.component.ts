@@ -17,7 +17,7 @@ export class DashboardComponent {
     this.authService.checkValidToken().subscribe(resultado =>{
       if(!resultado){
         this.cookieService.delete('token');
-        this.cookieService.delete('nombre');
+        this.cookieService.delete('name');
         this.router.navigate(['login']);
       }
     });
