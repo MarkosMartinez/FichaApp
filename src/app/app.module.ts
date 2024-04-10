@@ -11,6 +11,8 @@ import { MainComponent } from './component/main/main.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { UsersComponent } from './component/users/users.component';
+import { AdduserComponent } from './component/adduser/adduser.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -20,13 +22,15 @@ import { UsersComponent } from './component/users/users.component';
     PagenotfoundComponent,
     MainComponent,
     DashboardComponent,
-    UsersComponent
+    UsersComponent,
+    AdduserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularMaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
 
   ],
   providers: [

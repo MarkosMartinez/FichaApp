@@ -1,0 +1,58 @@
+<!--Añadir un "ToolBar"-->
+<form #formulario="ngForm">
+<div>
+    <mat-form-field appearance="outline" style="padding: 20px 5px 10px 10px;">
+      <mat-label>Email</mat-label>
+      <input matInput [formControl]="email" placeholder="ejemplo@ejemplo.com">
+      @if (email.invalid) {
+        <mat-error>{{errorMessages.email}}</mat-error>
+      }
+      <mat-icon matSuffix>email_outline</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="padding: 20px 5px 10px 5px;">
+        <mat-label>Nombre</mat-label>
+        <input matInput [formControl]="name" placeholder="Aitor Etxaide">
+        @if (name.invalid) {
+            <mat-error>{{errorMessages.name}}</mat-error>
+        }
+        <mat-icon matSuffix>badge</mat-icon>
+    </mat-form-field>
+</div>
+<div>
+    <mat-form-field appearance="outline" style="padding: 15px 5px 10px 10px;">
+        <mat-label>Contraseña</mat-label>
+        <input matInput [formControl]="password" [type]="hide ? 'password' : 'text'">
+        @if (password.invalid) {
+            <mat-error>{{errorMessages.password}}</mat-error>
+        }
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Ocultar contraseña'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="padding: 15px 5px 10px 5px;">
+        <mat-label>Confirmar contraseña</mat-label>
+        <input matInput [formControl]="confirmPassword" [type]="hide ? 'password' : 'text'">
+        @if (confirmPassword.invalid) {
+            <mat-error>{{errorMessages.confirmPassword}}</mat-error>
+        }
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Ocultar contraseña'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+    </mat-form-field>
+</div>
+<div>
+    <mat-form-field appearance="outline" style="padding: 15px 5px 10px 10px;">
+        <mat-label>Rol</mat-label>
+        <mat-select  [formControl]="role">
+          <mat-option value="employee">Empleado</mat-option>
+          <mat-option value="manager">Gestor</mat-option>
+        </mat-select>
+        @if (role.invalid) {
+            <mat-error>{{errorMessages.role}}</mat-error>
+        }
+      </mat-form-field>
+</div>
+<div id="bntSubmmit">
+    <button mat-flat-button color="primary" [disabled]="formulario.invalid || !btnAdd" (click)="addUser()">Añadir</button>
+</div>
+</form>

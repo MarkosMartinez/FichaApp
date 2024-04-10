@@ -1,3 +1,13 @@
 table {
   width: 100%;
 }
+#btnAddUser{
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+
+#btnAddUser p{
+  font-size: 24px;
+  margin-top: 23px;
+}
