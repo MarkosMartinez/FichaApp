@@ -14,7 +14,7 @@ import { AdduserComponent } from '../adduser/adduser.component';
 export class UsersComponent {
 
   usuarios = [];
-  columnas = ["id", "name", "email", "rol"];
+  columnas = ["id", "name", "email", "role"];
 
   constructor(private usersService: UsersService, private router: Router, public dialog: MatDialog) { }
 
@@ -34,6 +34,12 @@ export class UsersComponent {
     let dialogRef = this.dialog.open(AdduserComponent, {
       height: '400px',
       width: '540px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      //console.log(result);
+      if(result == "Success")
+        this.loadUsers();
     });
   }
 }

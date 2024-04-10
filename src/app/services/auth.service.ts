@@ -23,17 +23,17 @@ export class AuthService {
   }
 
   getRol(){
-    return this.cookieService.get('rol');
+    return this.cookieService.get('role');
   }
 
-  iniciarSesion(correo: string, contraseña: string): Observable<boolean> {
-    return this.http.post<any>(`${apiDomain}/api/login`, { "email": correo, "password": contraseña }).pipe(
+  iniciarSesion(email: string, password: string): Observable<boolean> {
+    return this.http.post<any>(`${apiDomain}/api/login`, { "email": email, "password": password }).pipe(
       map(response => {
         // console.log('Respuesta de la API:', response);
         if (response.success) {
           this.cookieService.set('token', response.data.token);
           this.cookieService.set('name', response.data.name);
-          this.cookieService.set('rol', response.data.rol);
+          this.cookieService.set('role', response.data.role);
           return true;
         } else {
           return false;

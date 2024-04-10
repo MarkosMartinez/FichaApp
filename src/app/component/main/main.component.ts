@@ -27,13 +27,13 @@ export class MainComponent {
       if(resultado){
         this.cookieService.delete('token');
         this.cookieService.delete('name');
-        this.cookieService.delete('rol');
+        this.cookieService.delete('role');
         this.router.navigate(['login']);
       }else{
         //TODO Mostrar aviso de que se va a cerrar mal la sesion?
         this.cookieService.delete('token');
         this.cookieService.delete('name');
-        this.cookieService.delete('rol');
+        this.cookieService.delete('role');
         this.router.navigate(['login']);
       }
     });

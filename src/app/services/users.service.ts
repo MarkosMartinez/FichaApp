@@ -30,5 +30,26 @@ export class UsersService {
     }
   }
 
+  addUser(name: string, email: string, password: string, confirmPassword: string, role: string): Observable<boolean> {
+    let token = this.cookieService.get('token');
+    if (token) {
+      let headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
+      });
+      return this.http.post<any>(`${apiDomain}/api/add-user`, { "name": name, "email": email, "password": password, "c_password": confirmPassword, "role": role }, { headers }).pipe(
+        map(response => {
+          //console.log('Respuesta de la API:', response);
+          if (response.success) {
+            return true;
+          } else {
+            return false;
+          }
+        }),
+      );
+  } else {
+    return of(false);
+  }
+  }
 
 }

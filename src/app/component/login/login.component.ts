@@ -13,6 +13,7 @@ export class LoginComponent {
   btnLogin: boolean = false;
   email: string = "";
   password: string = "";
+  hide: boolean = true;
 
 
   constructor(private authService: AuthService, private router: Router){
