@@ -3,6 +3,7 @@ import { FormControl, FormGroupDirective, NgForm, Validators, FormsModule, React
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { merge } from 'rxjs';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 import { UsersService } from '../../services/users.service';
 
 
