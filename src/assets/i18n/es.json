@@ -1,5 +1,46 @@
 {
     "LOGIN": {
-        "login_label": "Inició de Sesion"
+        "login_label": "Inició de Sesion",
+        "email": "Correo",
+        "password": "Contraseña",
+        "btn_login": "Acceder"
+    },
+    "MAIN": {
+        
+    },
+    "DASHBOARD": {
+
+    },
+    "USER_ROLE": {
+        "manager": "Gestor",
+        "employee": "Empleado"
+    },
+    "USERS": {
+        "id": "Id",
+        "name": "Nombre",
+        "email": "Correo",
+        "role": "Rol"
+    },
+    "ADD_USER": {
+        "email": "Correo",
+        "name": "Nombre",
+        "password": "Contraseña",
+        "confirm_password": "Confirmar contraseña",
+        "role": "Rol",
+        "btn_add": "Añadir",
+        "error_required_email": "Tienes que escribir un email",
+        "error_invalid_email": "No es un email valido",
+        "error_required_password": "Tienes que escribir una contraseña",
+        "error_invalid_password": "La contraseña debe tener al menos 4 caracteres",
+        "error_required_confirm_password": "Tienes que confirmar la contraseña",
+        "error_invalid_confirm_password": "La confirmación de la contraseña debe tener al menos 4 caracteres",
+        "error_different_password": "La confirmación de la contraseña no coincide",
+        "error_required_name": "Tienes que escribir un nombre",
+        "error_invalid_name": "El nombre debe tener al menos 2 caracteres",
+        "error_required_role": "Tienes que seleccionar un rol"
+    },
+    "PAGE_NOT_FOUND": {
+        "title": "ERROR 404",
+        "label": "Vaya, no hemos podido encontrar esa página"
     }
 }

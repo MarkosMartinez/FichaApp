@@ -5,6 +5,7 @@ import { merge } from 'rxjs';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { UsersService } from '../../services/users.service';
+import { TranslateService } from "@ngx-translate/core";
 
 
 @Component({
@@ -33,7 +34,7 @@ export class AdduserComponent {
     role: false
   };
 
-  constructor(private usersService: UsersService, public dialogRef: MatDialogRef<AdduserComponent>,) {
+  constructor(private usersService: UsersService, private translate: TranslateService, public dialogRef: MatDialogRef<AdduserComponent>,) {
     merge(
       this.email.statusChanges,
       this.email.valueChanges,
@@ -55,20 +56,20 @@ export class AdduserComponent {
 
   updateErrorMessages() {
     
-    this.errorMessages.email = this.email.hasError('required') ? 'Tienes que escribir un email' :
-      this.email.hasError('email') ? 'No es un email valido' : '';
+    this.errorMessages.email = this.email.hasError('required') ? this.translate.instant('ADD_USER.error_required_email') :
+      this.email.hasError('email') ? this.translate.instant('ADD_USER.error_invalid_email') : '';
   
-    this.errorMessages.password = this.password.hasError('required') ? 'Tienes que escribir una contraseña' :
-      this.password.hasError('minlength') ? 'La contraseña debe tener al menos 4 caracteres' : '';
+    this.errorMessages.password = this.password.hasError('required') ? this.translate.instant('ADD_USER.error_required_password') :
+      this.password.hasError('minlength') ? this.translate.instant('ADD_USER.error_invalid_password') : '';
   
-    this.errorMessages.confirmPassword = this.confirmPassword.hasError('required') ? 'Tienes que confirmar la contraseña' :
-      this.confirmPassword.hasError('minlength') ? 'La confirmación de la contraseña debe tener al menos 4 caracteres' :
-      this.confirmPassword.value !== this.password.value ? 'La confirmación de la contraseña no coincide' : '';
+    this.errorMessages.confirmPassword = this.confirmPassword.hasError('required') ? this.translate.instant('ADD_USER.error_required_confirm_password') :
+      this.confirmPassword.hasError('minlength') ? this.translate.instant('ADD_USER.error_invalid_confirm_password') :
+      this.confirmPassword.value !== this.password.value ? this.translate.instant('ADD_USER.error_different_password') : '';
   
-    this.errorMessages.name = this.name.hasError('required') ? 'Tienes que escribir un nombre' :
-      this.name.hasError('minlength') ? 'El nombre debe tener al menos 2 caracteres' : '';
+    this.errorMessages.name = this.name.hasError('required') ? this.translate.instant('ADD_USER.error_required_name') :
+      this.name.hasError('minlength') ? this.translate.instant('ADD_USER.error_invalid_name') : '';
       
-    this.errorMessages.role = this.role.hasError('required') ? 'Tienes que seleccionar un rol' : '';
+    this.errorMessages.role = this.role.hasError('required') ? this.translate.instant('ADD_USER.error_required_rol') : '';
   }
 
   checkValid(){

@@ -1,5 +1,46 @@
 {
     "LOGIN": {
-        "login_label": "Login"
+        "login_label": "Login",
+        "email": "Email",
+        "password": "Password",
+        "btn_login": "Sign in"
+    },
+    "MAIN": {
+        
+    },
+    "DASHBOARD": {
+
+    },
+    "USER_ROLE": {
+        "manager": "Manager",
+        "employee": "Employee"
+    },
+    "USERS": {
+        "id": "Id",
+        "name": "Name",
+        "email": "Email",
+        "role": "Role"
+    },
+    "ADD_USER": {
+        "email": "Email",
+        "name": "Name",
+        "password": "Password",
+        "confirm_password": "Confirma password",
+        "role": "Role",
+        "btn_add": "Add",
+        "error_required_email": "You need to enter an email",
+        "error_invalid_email": "It is not a valid email",
+        "error_required_password": "You need to enter a password",
+        "error_invalid_password": "The password must have at least 4 characters",
+        "error_required_confirm_password": "You need to confirm the password",
+        "error_invalid_confirm_password": "The password confirmation must have at least 4 characters",
+        "error_different_password": "The password confirmation does not match",
+        "error_required_name": "You need to enter a name",
+        "error_invalid_name": "The name must have at least 2 characters",
+        "error_required_role": "You need to select a role"
+    },
+    "PAGE_NOT_FOUND": {
+        "title": "ERROR 404",
+        "label": "Oops, we couldn't find that page."
     }
 }
