@@ -7,13 +7,15 @@ import { LoginComponent } from './component/login/login.component';
 import { PagenotfoundComponent } from './component/pagenotfound/pagenotfound.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { UsersComponent } from './component/users/users.component';
+import { ConfigComponent } from './component/config/config.component';
 
 
 const routes: Routes = [
   {path: '', component: MainComponent, children: [
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent, pathMatch: 'full', canActivate: [AuthGuard] },
-  { path: 'users', component: UsersComponent, pathMatch: 'full', canActivate: [AuthGuard] },
+  { path: 'users', component: UsersComponent, pathMatch: 'full', canActivate: [AuthGuard], data: { roles: ['manager']} },
+  { path: 'config', component: ConfigComponent, pathMatch: 'full', canActivate: [AuthGuard], data: { roles: ['manager']} },
   { path: '', component: DashboardComponent, pathMatch: 'full', canActivate: [AuthGuard] },
   { path: '**', component: PagenotfoundComponent, pathMatch: 'full', canActivate: [AuthGuard] }
   ]}

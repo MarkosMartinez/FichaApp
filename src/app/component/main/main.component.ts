@@ -20,7 +20,7 @@ export class MainComponent {
   }
 
   isManager(): boolean {
-    if(this.authService.getRol() == "manager") return true;
+    if(this.cookieService.get('role') == "manager") return true;
     return false;
   }
 

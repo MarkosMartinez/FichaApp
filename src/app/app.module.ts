@@ -11,13 +11,14 @@ import { MainComponent } from './component/main/main.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { UsersComponent } from './component/users/users.component';
 import { AdduserComponent } from './component/adduser/adduser.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // import ngx-translate and the http loader
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AlertComponent } from './component/alert/alert.component';
+import { ConfigComponent } from './component/config/config.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { AlertComponent } from './component/alert/alert.component';
     DashboardComponent,
     UsersComponent,
     AdduserComponent,
-    AlertComponent
+    AlertComponent,
+    ConfigComponent
   ],
   imports: [
     BrowserModule,

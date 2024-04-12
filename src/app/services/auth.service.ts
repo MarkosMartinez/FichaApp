@@ -22,9 +22,7 @@ export class AuthService {
 
   }
 
-  getRol(){
-    return this.cookieService.get('role');
-  }
+  getRol(){} //Desde la llamada a la API?
 
   iniciarSesion(email: string, password: string): Observable<boolean> {
     return this.http.post<any>(`${apiDomain}/api/login`, { "email": email, "password": password }).pipe(
