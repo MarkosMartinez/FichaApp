@@ -45,4 +45,11 @@ export class LoginComponent {
     });
   }
 
+  handleKeyPress(event: KeyboardEvent) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      this.iniciarSesion();
+    }
+  }
+
 }

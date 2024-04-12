@@ -3,7 +3,9 @@ import { AuthService } from '../../services/auth.service';
 
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
-
+import { MatDialog } from '@angular/material/dialog';
+import { TranslateService } from "@ngx-translate/core";
+import { AlertComponent } from '../alert/alert.component';
 
 @Component({
   selector: 'app-main',
@@ -11,7 +13,7 @@ import { Router } from '@angular/router';
   styleUrl: './main.component.css'
 })
 export class MainComponent {
-  constructor(private authService: AuthService, private router: Router, private cookieService: CookieService) { }
+  constructor(private authService: AuthService, public dialog: MatDialog, private translate: TranslateService, private router: Router, private cookieService: CookieService) { }
 
   isLoggedIn(): boolean {
     return this.authService.isAuthenticated();
@@ -30,11 +32,20 @@ export class MainComponent {
         this.cookieService.delete('role');
         this.router.navigate(['login']);
       }else{
-        //TODO Mostrar aviso de que se va a cerrar mal la sesion?
-        this.cookieService.delete('token');
-        this.cookieService.delete('name');
-        this.cookieService.delete('role');
-        this.router.navigate(['login']);
+        let dialogRef = this.dialog.open(AlertComponent, {
+          height: '250px',
+          width: '400px',
+          data: {btn: 2, msg: this.translate.instant('MAIN.error_logout')}
+        });
+        dialogRef.afterClosed().subscribe(result => {
+         if (result == "Ok"){
+          this.cookieService.delete('token');
+          this.cookieService.delete('name');
+          this.cookieService.delete('role');
+          this.router.navigate(['login']);
+         }
+        });
+        
       }
     });
   }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service';
 import { apiDomain } from '../../environment';
 
@@ -39,6 +39,10 @@ export class AuthService {
           return false;
         }
       }),
+      catchError(error => {
+        console.error('Error en la solicitud:', error);
+        return of(false);
+      })
     );
   }
 
@@ -58,6 +62,10 @@ export class AuthService {
             return false;
           }
         }),
+        catchError(error => {
+          console.error('Error en la solicitud:', error);
+          return of(false);
+        })
       );
     } else {
       return of(false);
@@ -81,6 +89,10 @@ export class AuthService {
             return false;
           }
         }),
+        catchError(error => {
+          console.error('Error en la solicitud:', error);
+          return of(false);
+        })
       );
     } else {
       return of(false);

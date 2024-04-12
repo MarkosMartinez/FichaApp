@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { apiDomain } from '../../environment';
 import { Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
@@ -46,6 +46,10 @@ export class UsersService {
             return false;
           }
         }),
+        catchError(error => {
+          console.error('Error en la solicitud:', error);
+          return of(false);
+        })
       );
   } else {
     return of(false);
