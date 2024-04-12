@@ -17,6 +17,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { AlertComponent } from './component/alert/alert.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
     MainComponent,
     DashboardComponent,
     UsersComponent,
-    AdduserComponent
+    AdduserComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,

@@ -37,10 +37,15 @@
         "error_different_password": "La confirmación de la contraseña no coincide",
         "error_required_name": "Tienes que escribir un nombre",
         "error_invalid_name": "El nombre debe tener al menos 2 caracteres",
-        "error_required_role": "Tienes que seleccionar un rol"
+        "error_required_role": "Tienes que seleccionar un rol",
+        "error_msg": "Error al crear el usuario, comprueba que los datos esten bien"
     },
     "PAGE_NOT_FOUND": {
         "title": "ERROR 404",
         "label": "Vaya, no hemos podido encontrar esa página"
+    },
+    "ALERT": {
+        "btn_ok": "Aceptar",
+        "btn_cancel": "Cancelar"
     }
 }

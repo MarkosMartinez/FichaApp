@@ -37,10 +37,15 @@
         "error_different_password": "The password confirmation does not match",
         "error_required_name": "You need to enter a name",
         "error_invalid_name": "The name must have at least 2 characters",
-        "error_required_role": "You need to select a role"
+        "error_required_role": "You need to select a role",
+        "error_msg": "Error creating user, check that the data is correct"
     },
     "PAGE_NOT_FOUND": {
         "title": "ERROR 404",
         "label": "Oops, we couldn't find that page."
+    },
+    "ALERT": {
+        "btn_ok": "Acept",
+        "btn_cancel": "Cancel"
     }
 }

@@ -5,6 +5,7 @@ import { merge } from 'rxjs';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { UsersService } from '../../services/users.service';
+import { AlertComponent } from '../alert/alert.component';
 import { TranslateService } from "@ngx-translate/core";
 
 
@@ -34,7 +35,7 @@ export class AdduserComponent {
     role: false
   };
 
-  constructor(private usersService: UsersService, private translate: TranslateService, public dialogRef: MatDialogRef<AdduserComponent>,) {
+  constructor(private usersService: UsersService, public dialog: MatDialog, private translate: TranslateService, public dialogRef: MatDialogRef<AdduserComponent>,) {
     merge(
       this.email.statusChanges,
       this.email.valueChanges,
@@ -88,11 +89,16 @@ export class AdduserComponent {
   addUser(){
     this.btnAdd = false;
     this.usersService.addUser(this.name.value || '', this.email.value || '', this.password.value || '', this.confirmPassword.value || '', this.role.value || '').subscribe(resultado =>{
-      if(resultado)
+      if(resultado){
         this.dialogRef.close("Success");
-      else
-      //TODO Añadir mensaje de que algo no ha ido bien
-      this.btnAdd = true;
+      }else{
+        this.dialog.open(AlertComponent, {
+          height: '250px',
+          width: '400px',
+          data: {btn: 1, msg: this.translate.instant('ADD_USER.error_msg')}
+        });
+        this.btnAdd = true;
+      }
     });
   }
 
