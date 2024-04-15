@@ -50,9 +50,10 @@
     },
     "CONFIG": {
         "lang_label": "Idioma de la aplicación",
-        "lang_updated_snack": "Idioma actualizado",
-        "lang_updated_error_snack": "Error al actualizar el idioma",
+        "config_updated_snack": "Configuración actualizada",
+        "config_updated_error_snack": "Error al actualizar la configuración",
         "accept_snack": "Aceptar",
-        "update_label": "Actualizar"
+        "update_label": "Actualizar",
+        "app_name_label": "Nombre de la aplicación"
     }
 }

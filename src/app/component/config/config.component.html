@@ -1,4 +1,5 @@
-<mat-form-field >
+<div>
+  <mat-form-field > <!--appearance="outline"-->
     <mat-label>{{'CONFIG.lang_label' | translate}}</mat-label>
     <mat-select [(ngModel)]="idiomaSeleccionado">
         @for (idioma of idiomas; track idioma) {
@@ -6,4 +7,13 @@
           }
     </mat-select>
   </mat-form-field>
-  <button mat-flat-button color="primary" [disabled]="idiomaSeleccionado === '' || updateDesactivado" (click)="updateIdioma()">{{'CONFIG.update_label' | translate}}</button>
+  <button mat-flat-button color="primary" [disabled]="idiomaSeleccionado == '' || updateDesactivado" (click)="updateIdioma()">{{'CONFIG.update_label' | translate}}</button>
+</div>
+
+<div>
+  <mat-form-field >
+      <mat-label>{{'CONFIG.app_name_label' | translate}}</mat-label>
+      <input matInput [(ngModel)]="appName">
+  </mat-form-field>
+  <button mat-flat-button color="primary" [disabled]="appName == '' || updateDesactivado" (click)="updateAppName()">{{'CONFIG.update_label' | translate}}</button>
+</div>

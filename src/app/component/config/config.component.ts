@@ -13,6 +13,7 @@ export class ConfigComponent {
   config: any;
   idiomas = ["es", "en"];
   idiomaSeleccionado = "";
+  appName = ""
   updateDesactivado: boolean = false;
 
   constructor(private translate: TranslateService, private _snackBar: MatSnackBar, private configService: ConfigService) { }
@@ -29,23 +30,41 @@ export class ConfigComponent {
       
       this.config = JSON.stringify(resultado);
       this.idiomaSeleccionado = JSON.parse(this.config)[0].language;
+      this.appName = JSON.parse(this.config)[0].app_name;
     });
   }
 
   updateIdioma(){
-    //TODO
     this.updateDesactivado = true;
     this.configService.updateConfig("language", this.idiomaSeleccionado).subscribe(resultado =>{
       if(resultado){
         this.translate.use(this.idiomaSeleccionado);
         setTimeout(() => {
-          this._snackBar.open(this.translate.instant('CONFIG.lang_updated_snack'), this.translate.instant('CONFIG.accept_snack'), {
+          this._snackBar.open(this.translate.instant('CONFIG.config_updated_snack'), this.translate.instant('CONFIG.accept_snack'), {
             duration: 3 * 1000, // 3 Segundos
           });
         }, 250);
         this.updateDesactivado = false;
       }else{
-        this._snackBar.open(this.translate.instant('CONFIG.lang_updated_error_snack'), this.translate.instant('CONFIG.accept_snack'), {
+        this._snackBar.open(this.translate.instant('CONFIG.config_updated_error_snack'), this.translate.instant('CONFIG.accept_snack'), {
+          duration: 3 * 1000, // 3 Segundos
+        });
+        this.updateDesactivado = false;
+      }
+    });
+  }
+
+  updateAppName(){
+    this.updateDesactivado = true;
+    this.configService.updateConfig("app_name", this.appName).subscribe(resultado =>{
+      if(resultado){
+          this._snackBar.open(this.translate.instant('CONFIG.config_updated_snack'), this.translate.instant('CONFIG.accept_snack'), {
+            duration: 3 * 1000, // 3 Segundos
+          });
+        this.updateDesactivado = false;
+        //this.loadConfig();
+      }else{
+        this._snackBar.open(this.translate.instant('CONFIG.config_updated_error_snack'), this.translate.instant('CONFIG.accept_snack'), {
           duration: 3 * 1000, // 3 Segundos
         });
         this.updateDesactivado = false;
