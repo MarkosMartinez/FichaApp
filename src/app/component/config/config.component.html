@@ -1,1 +1,9 @@
-<p>Config Funciona!</p>
+<mat-form-field >
+    <mat-label>{{'CONFIG.lang_label' | translate}}</mat-label>
+    <mat-select [(ngModel)]="idiomaSeleccionado">
+        @for (idioma of idiomas; track idioma) {
+            <mat-option [value]=idioma>{{ idioma }}</mat-option>
+          }
+    </mat-select>
+  </mat-form-field>
+  <button mat-flat-button color="primary" [disabled]="idiomaSeleccionado === '' || updateDesactivado" (click)="updateIdioma()">{{'CONFIG.update_label' | translate}}</button>

@@ -47,5 +47,12 @@
     "ALERT": {
         "btn_ok": "Acept",
         "btn_cancel": "Cancel"
+    },
+    "CONFIG": {
+        "lang_label": "App language",
+        "lang_updated_snack": "Language updated",
+        "lang_updated_error_snack": "Error updating language",
+        "accept_snack": "Accept",
+        "update_label": "Update"
     }
 }

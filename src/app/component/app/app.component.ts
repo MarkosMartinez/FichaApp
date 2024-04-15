@@ -16,14 +16,13 @@ export class AppComponent {
     translate.setDefaultLang('es');
   }
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-
+    
       this.configService.getConfig().subscribe(resultado =>{
-        console.log(resultado);
+        //console.log(resultado);
         sessionStorage.setItem("config", JSON.stringify(resultado));
         this.aplicarConfig();
       });
+
   }
 
   aplicarConfig(){
