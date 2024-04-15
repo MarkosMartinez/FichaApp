@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from "@ngx-translate/core";
 import { AlertComponent } from '../alert/alert.component';
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-main',
@@ -13,7 +14,25 @@ import { AlertComponent } from '../alert/alert.component';
   styleUrl: './main.component.css'
 })
 export class MainComponent {
-  constructor(private authService: AuthService, public dialog: MatDialog, private translate: TranslateService, private router: Router, private cookieService: CookieService) { }
+  config: any;
+  app_name = 'FichaApp';
+  constructor(private authService: AuthService, private title: Title, public dialog: MatDialog, private translate: TranslateService, private router: Router, private cookieService: CookieService) { }
+
+  ngOnInit(): void {
+    this.aplicarConfig();  
+
+  }
+
+  aplicarConfig(){
+    this.config = sessionStorage.getItem("config");
+    //console.log(this.config);
+    if(this.config){
+      this.config = JSON.parse(this.config);
+      this.app_name = this.config[0].app_name;
+      this.title.setTitle(this.config[0].app_name);
+    }else
+      this.app_name = 'FichaApp';
+  }
 
   isLoggedIn(): boolean {
     return this.authService.isAuthenticated();

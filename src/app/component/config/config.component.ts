@@ -3,6 +3,8 @@ import { ConfigService } from '../../services/config.service';
 import { TranslateService } from "@ngx-translate/core";
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+import { MainComponent } from '../main/main.component';
+
 @Component({
   selector: 'app-config',
   templateUrl: './config.component.html',
@@ -16,14 +18,14 @@ export class ConfigComponent {
   appName = ""
   updateDesactivado: boolean = false;
 
-  constructor(private translate: TranslateService, private _snackBar: MatSnackBar, private configService: ConfigService) { }
+  constructor(private translate: TranslateService, private mainComponent: MainComponent, private _snackBar: MatSnackBar, private configService: ConfigService) { }
 
   ngOnInit(): void {
     this.loadConfig();
 
   }
 
-  loadConfig(){
+  loadConfig(modo: number = 0){
     this.configService.getConfig().subscribe(resultado =>{
       //console.log(resultado);
       sessionStorage.setItem("config", JSON.stringify(resultado));
@@ -31,6 +33,8 @@ export class ConfigComponent {
       this.config = JSON.stringify(resultado);
       this.idiomaSeleccionado = JSON.parse(this.config)[0].language;
       this.appName = JSON.parse(this.config)[0].app_name;
+
+      if(modo == 1) this.mainComponent.aplicarConfig();
     });
   }
 
@@ -62,7 +66,7 @@ export class ConfigComponent {
             duration: 3 * 1000, // 3 Segundos
           });
         this.updateDesactivado = false;
-        //this.loadConfig();
+        this.loadConfig(1);
       }else{
         this._snackBar.open(this.translate.instant('CONFIG.config_updated_error_snack'), this.translate.instant('CONFIG.accept_snack'), {
           duration: 3 * 1000, // 3 Segundos

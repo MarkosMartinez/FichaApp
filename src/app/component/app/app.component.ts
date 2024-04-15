@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from "@ngx-translate/core";
 import { ConfigService } from '../../services/config.service';
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-root',
@@ -8,11 +9,11 @@ import { ConfigService } from '../../services/config.service';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'FichaApp'; //TODO Usar esto
+  app_name = 'FichaApp'; //TODO Usar esto
   language = 'es';
   config: any;
 
-  constructor(private translate: TranslateService, private configService: ConfigService) {
+  constructor(private translate: TranslateService, private title: Title, private configService: ConfigService) {
     translate.setDefaultLang('es');
   }
   ngOnInit(): void {
@@ -31,11 +32,12 @@ export class AppComponent {
       this.config = JSON.parse(this.config);
 
       this.language = this.config[0].language;
-      this.title = this.config[0].app_name;
+      this.app_name = this.config[0].app_name;
       this.translate.use(this.language);
+      this.title.setTitle(this.config[0].app_name);
     }else{
       this.language = 'es';
-      this.title = 'FichaApp';
+      this.app_name = 'FichaApp';
       this.translate.use(this.language);
     }
   }
