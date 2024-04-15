@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import {TranslateService} from "@ngx-translate/core";
+import { TranslateService } from "@ngx-translate/core";
+import { ConfigService } from '../../services/config.service';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +8,36 @@ import {TranslateService} from "@ngx-translate/core";
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'FichaApp';
-  constructor(private translate: TranslateService) {
+  title = 'FichaApp'; //TODO Usar esto
+  language = 'es';
+  config: any;
+
+  constructor(private translate: TranslateService, private configService: ConfigService) {
     translate.setDefaultLang('es');
-    translate.use('es');
+  }
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+
+      this.configService.getConfig().subscribe(resultado =>{
+        console.log(resultado);
+        sessionStorage.setItem("config", JSON.stringify(resultado));
+        this.aplicarConfig();
+      });
+  }
+
+  aplicarConfig(){
+    this.config = sessionStorage.getItem("config");
+    if(this.config){
+      this.config = JSON.parse(this.config);
+
+      this.language = this.config[0].language;
+      this.title = this.config[0].app_name;
+      this.translate.use(this.language);
+    }else{
+      this.language = 'es';
+      this.title = 'FichaApp';
+      this.translate.use(this.language);
+    }
   }
 }

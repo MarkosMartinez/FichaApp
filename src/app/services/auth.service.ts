@@ -53,7 +53,7 @@ export class AuthService {
       });
       return this.http.get<any>(`${apiDomain}/api/check-token`, { headers }).pipe(
         map(response => {
-          // console.log('Respuesta de la API:', response);
+          // console.log('Respuesta de la API:' + response);
           if (response.success) {
             return true;
           } else {
