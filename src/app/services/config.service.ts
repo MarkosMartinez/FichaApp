@@ -30,14 +30,14 @@ export class ConfigService {
     );
   }
 
-  updateConfig(key: string, value: string): Observable<boolean> {
+  updateConfig(language: string, app_name: string): Observable<boolean> {
     let token = this.cookieService.get('token');
     if (token) {
       let headers = new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`
       });
-      return this.http.post<any>(`${apiDomain}/api/set-config`, { "key": key, "value": value }, { headers }).pipe(
+      return this.http.post<any>(`${apiDomain}/api/set-config`, { "language": language, "app_name": app_name }, { headers }).pipe(
         map(response => {
           //console.log('Respuesta de la API:', response);
           if (response.success) {

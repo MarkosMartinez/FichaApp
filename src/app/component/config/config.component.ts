@@ -38,9 +38,9 @@ export class ConfigComponent {
     });
   }
 
-  updateIdioma(){
+  updateConfig(){
     this.updateDesactivado = true;
-    this.configService.updateConfig("language", this.idiomaSeleccionado).subscribe(resultado =>{
+    this.configService.updateConfig(this.idiomaSeleccionado, this.appName).subscribe(resultado =>{
       if(resultado){
         this.translate.use(this.idiomaSeleccionado);
         setTimeout(() => {
@@ -48,23 +48,6 @@ export class ConfigComponent {
             duration: 3 * 1000, // 3 Segundos
           });
         }, 250);
-        this.updateDesactivado = false;
-      }else{
-        this._snackBar.open(this.translate.instant('CONFIG.config_updated_error_snack'), this.translate.instant('CONFIG.accept_snack'), {
-          duration: 3 * 1000, // 3 Segundos
-        });
-        this.updateDesactivado = false;
-      }
-    });
-  }
-
-  updateAppName(){
-    this.updateDesactivado = true;
-    this.configService.updateConfig("app_name", this.appName).subscribe(resultado =>{
-      if(resultado){
-          this._snackBar.open(this.translate.instant('CONFIG.config_updated_snack'), this.translate.instant('CONFIG.accept_snack'), {
-            duration: 3 * 1000, // 3 Segundos
-          });
         this.updateDesactivado = false;
         this.loadConfig(1);
       }else{

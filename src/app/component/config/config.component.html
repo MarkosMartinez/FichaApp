@@ -7,7 +7,6 @@
           }
     </mat-select>
   </mat-form-field>
-  <button mat-flat-button color="primary" [disabled]="idiomaSeleccionado == '' || updateDesactivado" (click)="updateIdioma()">{{'CONFIG.update_label' | translate}}</button>
 </div>
 
 <div>
@@ -15,5 +14,6 @@
       <mat-label>{{'CONFIG.app_name_label' | translate}}</mat-label>
       <input matInput [(ngModel)]="appName">
   </mat-form-field>
-  <button mat-flat-button color="primary" [disabled]="appName == '' || updateDesactivado" (click)="updateAppName()">{{'CONFIG.update_label' | translate}}</button>
 </div>
+
+<button mat-flat-button color="primary" [disabled]="idiomaSeleccionado == '' || appName == '' || updateDesactivado" (click)="updateConfig()">{{'CONFIG.update_label' | translate}}</button>
