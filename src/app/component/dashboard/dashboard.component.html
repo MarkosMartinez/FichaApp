@@ -1,4 +1,4 @@
-<button mat-flat-button color="primary" (click)="fichar()">
+<button mat-flat-button color="primary" [disabled]="!ficharHabilitado" (click)="fichar()">
     @if(modoEntrada){
         {{'DASHBOARD.btn_punchin' | translate}}
     }@else{

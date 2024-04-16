@@ -28,9 +28,9 @@ export class ConfigComponent {
   loadConfig(modo: number = 0){
     this.configService.getConfig().subscribe(resultado =>{
       //console.log(resultado);
-      sessionStorage.setItem("config", JSON.stringify(resultado));
+      sessionStorage.setItem("config", JSON.stringify(resultado.config));
       
-      this.config = JSON.stringify(resultado);
+      this.config = JSON.stringify(resultado.config);
       this.idiomaSeleccionado = JSON.parse(this.config)[0].language;
       this.appName = JSON.parse(this.config)[0].app_name;
 

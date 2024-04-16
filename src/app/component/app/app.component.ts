@@ -20,7 +20,7 @@ export class AppComponent {
     
       this.configService.getConfig().subscribe(resultado =>{
         //console.log(resultado);
-        sessionStorage.setItem("config", JSON.stringify(resultado));
+        sessionStorage.setItem("config", JSON.stringify(resultado.config));
         this.aplicarConfig();
       });
 

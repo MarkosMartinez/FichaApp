@@ -16,6 +16,7 @@ export class DashboardComponent {
 
   registros = [];
   modoEntrada: boolean = true;
+  ficharHabilitado: boolean = false;
 
   constructor(private translate: TranslateService, private authService: AuthService, private punchinoutService: PunchinoutService, private _snackBar: MatSnackBar, private router: Router, private cookieService: CookieService){}
 
@@ -31,11 +32,14 @@ export class DashboardComponent {
     this.obtenerRegistros();
   }
 
-  obtenerRegistros() {
+  obtenerRegistros(fichado: boolean = false) {
     this.punchinoutService.getSignings().subscribe(resultado =>{
       if(resultado){
         this.registros = resultado;
-        this.checkEntradaSalida();
+        if(fichado)
+          this.checkEntradaSalida(true);
+        else
+          this.checkEntradaSalida();
         //console.log(resultado);
       }else{
         //TODO Mensaje de error?
@@ -43,11 +47,19 @@ export class DashboardComponent {
     });
   }
 
-  checkEntradaSalida(){
+  checkEntradaSalida(fichado: boolean = false){
     if(this.registros[0]["exit_time"] != null)
       this.modoEntrada = true;
     else
       this.modoEntrada = false;
+    this.ficharHabilitado = true;
+    if(fichado){
+      let message = this.modoEntrada ? this.translate.instant('DASHBOARD.punchin_successfully') : this.translate.instant('DASHBOARD.punchout_successfully');
+      this._snackBar.open(message, this.translate.instant('CONFIG.accept_snack'), {
+        duration: 3 * 1000, // 3 Segundos
+      });
+
+    }
     //console.log("Modo entrada: " + this.modoEntrada);
   }
 
@@ -55,7 +67,7 @@ export class DashboardComponent {
     this.punchinoutService.puchInOut().subscribe(resultado =>{
       //console.log(resultado);
       if(resultado){
-        this.obtenerRegistros();
+        this.obtenerRegistros(true);
       }else{
         //TODO Mensaje de error?
       }

@@ -10,6 +10,8 @@
     },
     "DASHBOARD": {
         "punchinout_successfully": "Fichado correctamente",
+        "punchin_successfully": "Fichado correctamente",
+        "punchout_successfully": "Fichado correctamente",
         "btn_punchinout": "Fichar",
         "btn_punchin": "Fichar la entrada",
         "btn_punchout": "Fichar la salida",

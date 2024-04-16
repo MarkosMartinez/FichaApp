@@ -10,6 +10,8 @@
     },
     "DASHBOARD": {
         "punchinout_successfully": "Punch In/Out successfully",
+        "punchin_successfully": "Punch in successfully",
+        "punchout_successfully": "Punch out successfully",
         "btn_punchinout": "Punch In/Out",
         "btn_punchin": "Punch In",
         "btn_punchout": "Punch Out",
