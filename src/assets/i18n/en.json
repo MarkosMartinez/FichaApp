@@ -1,6 +1,6 @@
 {
     "LOGIN": {
-        "login_label": "Login",
+        "label_login": "Login",
         "email": "Email",
         "password": "Password",
         "btn_login": "Sign in"
@@ -9,7 +9,12 @@
         "error_logout": "Error when trying to log out. Do you want to continue anyway?"
     },
     "DASHBOARD": {
-
+        "punchinout_successfully": "Punch In/Out successfully",
+        "btn_punchinout": "Punch In/Out",
+        "btn_punchin": "Punch In",
+        "btn_punchout": "Punch Out",
+        "label_signings_history": "History of signings",
+        "label_no_signings": "There is no signing yet"
     },
     "USER_ROLE": {
         "manager": "Manager",

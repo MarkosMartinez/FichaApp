@@ -1,6 +1,6 @@
 {
     "LOGIN": {
-        "login_label": "Inició de Sesion",
+        "label_login": "Inició de Sesion",
         "email": "Correo",
         "password": "Contraseña",
         "btn_login": "Acceder"
@@ -9,7 +9,12 @@
         "error_logout": "Error al intentar cerrar la sesion. Quieres continuar de todas formas?"
     },
     "DASHBOARD": {
-
+        "punchinout_successfully": "Fichado correctamente",
+        "btn_punchinout": "Fichar",
+        "btn_punchin": "Fichar la entrada",
+        "btn_punchout": "Fichar la salida",
+        "label_signings_history": "Historial de fichajes",
+        "label_no_signings": "No hay ningun fichaje todavia"
     },
     "USER_ROLE": {
         "manager": "Gestor",

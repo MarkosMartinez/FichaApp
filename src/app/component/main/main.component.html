@@ -20,6 +20,7 @@
       <div class="espacio"></div>
       <p>Menu lateral</p>
       <ul id="lista_menu">
+        <li><a [routerLink]="'/dashboard'"><mat-icon>more_time</mat-icon></a></li>
         @if(isManager()){
           <li><a [routerLink]="'/users'"><mat-icon>person_outline</mat-icon></a></li>
           <li><a [routerLink]="'/config'"><mat-icon>settings</mat-icon></a></li>

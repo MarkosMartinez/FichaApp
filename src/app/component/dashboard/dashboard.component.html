@@ -1,1 +1,21 @@
-<p>Dashboard Funciona!</p>
+<button mat-flat-button color="primary" (click)="fichar()">
+    @if(modoEntrada){
+        {{'DASHBOARD.btn_punchin' | translate}}
+    }@else{
+        {{'DASHBOARD.btn_punchout' | translate}}
+    }
+</button>
+
+<div> <!--TODO Poner icono cargando?-->
+    <h2>{{'DASHBOARD.label_signings_history' | translate}}:</h2>
+    <ul id="lista_registros">
+    @for (registro of registros; track registro) {
+        @if(registro['exit_time']){
+            <li><mat-icon>logout</mat-icon> {{ registro['exit_time'] }}</li>
+        }
+        <li><mat-icon>login</mat-icon> {{ registro['enter_time'] }}</li>
+      } @empty {
+        <li>{{'DASHBOARD.label_no_signings' | translate}}</li>
+      }
+    </ul>
+</div>
