@@ -33,7 +33,7 @@ export class UsersComponent {
 
   loadUsers(){
     this.usersService.loadUsers().subscribe(resultado =>{
-      if(resultado.status){
+      if(resultado.success){
         this.usuarios = []
         resultado.users.forEach((usuario: Usuario) => {
           usuario.role = this.translate.instant('USER_ROLE.' + usuario.role);
@@ -55,7 +55,7 @@ export class UsersComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       //console.log(result);
-      if(result == "Success")
+      //if(result == "Success")
         this.loadUsers();
     });
   }

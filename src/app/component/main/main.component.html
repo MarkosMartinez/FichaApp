@@ -13,20 +13,31 @@
 
     <mat-drawer #drawer class="sidenav" mode="side" opened> <!--opened-->
       <button mat-icon-button style="position: absolute; right: 0; top: 5px;" class="pin-button" (click)="pin()">
-        <mat-icon>push_pin</mat-icon> <!--Icono pulsado-->
+        <mat-icon>{{ !isPinned ? 'close' : 'push_pin' }}</mat-icon> <!--Icono pulsado-->
         <!--<mat-icon (click)="pinUnpinSidenav()">{{ isPinned ? 'close' : 'push_pin' }}</mat-icon>-->
       </button>
     
       <div class="espacio"></div>
       <p>Menu lateral</p>
-      <ul id="lista_menu">
-        <li><a [routerLink]="'/dashboard'"><mat-icon>more_time</mat-icon></a></li>
-        <li><a [routerLink]="'/trip'"><mat-icon>luggage</mat-icon></a></li>
-        @if(isManager()){
-          <li><a [routerLink]="'/users'"><mat-icon>person_outline</mat-icon></a></li>
-          <li><a [routerLink]="'/config'"><mat-icon>settings</mat-icon></a></li>
-        }
-      </ul>
+      @if(isPinned){
+        <ul id="lista_menu">
+          <li><a [routerLink]="'/dashboard'"><mat-icon>more_time</mat-icon></a></li>
+          <li><a [routerLink]="'/trip'"><mat-icon>luggage</mat-icon></a></li>
+          @if(isManager()){
+            <li><a [routerLink]="'/users'"><mat-icon>person_outline</mat-icon></a></li>
+            <li><a [routerLink]="'/config'"><mat-icon>settings</mat-icon></a></li>
+          }
+        </ul>
+      }@else{
+        <ul id="lista_menu">
+          <li><a [routerLink]="'/dashboard'" (click)="drawer.toggle()"><mat-icon>more_time</mat-icon></a></li>
+          <li><a [routerLink]="'/trip'" (click)="drawer.toggle()"><mat-icon>luggage</mat-icon></a></li>
+          @if(isManager()){
+            <li><a [routerLink]="'/users'" (click)="drawer.toggle()"><mat-icon>person_outline</mat-icon></a></li>
+            <li><a [routerLink]="'/config'" (click)="drawer.toggle()"><mat-icon>settings</mat-icon></a></li>
+          }
+        </ul>
+      }
     </mat-drawer>
   
     <div class="sidenav-content">

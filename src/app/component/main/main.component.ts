@@ -16,6 +16,8 @@ import { Title } from "@angular/platform-browser";
 export class MainComponent {
   config: any;
   app_name = 'FichaApp';
+  isPinned: boolean = true;
+  
   constructor(private authService: AuthService, private title: Title, public dialog: MatDialog, private translate: TranslateService, private router: Router, private cookieService: CookieService) { }
 
   ngOnInit(): void {
@@ -70,7 +72,7 @@ export class MainComponent {
   }
 
   pin(){
-    console.log("BtnPin pulsado");
+    this.isPinned = !this.isPinned;
   }
 
 }
