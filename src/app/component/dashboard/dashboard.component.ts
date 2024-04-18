@@ -36,10 +36,14 @@ export class DashboardComponent {
     this.punchinoutService.getSignings().subscribe(resultado =>{
       if(resultado){
         this.registros = resultado;
+        if(this.registros.length > 0){
         if(fichado)
           this.checkEntradaSalida(true);
         else
           this.checkEntradaSalida();
+        }else{
+          this.ficharHabilitado = true;
+        }
         //console.log(resultado);
       }else{
         //TODO Mensaje de error?

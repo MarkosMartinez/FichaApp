@@ -13,6 +13,8 @@
 
 .sidenav {
     padding: 20px;
+    background-color: gray;
+    border: none;
 }
 
 .espacio {
@@ -26,3 +28,17 @@
 #lista_menu {
     list-style-type: none;
 }
+
+#lista_menu > li {
+    padding: 10px 0 10px 0;
+}
+
+#lista_menu > li > a{
+    border-radius: 15px;
+    padding: 15px 5px 5px 5px;
+}
+
+#lista_menu > li.selected > a{
+    background-color: #009fe3;
+  }
+  

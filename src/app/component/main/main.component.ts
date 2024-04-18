@@ -17,6 +17,7 @@ export class MainComponent {
   config: any;
   app_name = 'FichaApp';
   isPinned: boolean = true;
+  seleccion: number = 0;
   
   constructor(private authService: AuthService, private title: Title, public dialog: MatDialog, private translate: TranslateService, private router: Router, private cookieService: CookieService) { }
 
