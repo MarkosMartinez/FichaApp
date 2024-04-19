@@ -1,6 +1,6 @@
 {
     "LOGIN": {
-        "label_login": "Inició de Sesion",
+        "label_login": "Inicio de Sesión",
         "email": "Correo",
         "password": "Contraseña",
         "btn_login": "Acceder"
