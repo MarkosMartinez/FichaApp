@@ -17,7 +17,10 @@ export class ConfigService {
     return this.http.get<any>(`${apiDomain}/api/get-config`).pipe(
       map(response => {
         // console.log('Respuesta de la API:', response);
-        return response;
+        if(response.success)
+          return response;
+        else
+          return false;
       }),
       catchError(error => {
         console.error('Error en la solicitud:', error);

@@ -1,3 +1,23 @@
 /* #lista_registros {
     list-style-type: none;
 } */
+
+.enter_time_icon{
+    color: green;
+}
+
+.exit_time_icon{
+    color: red;
+}
+
+#titulo{
+    position: absolute;
+    top: 70px;
+    left: 25px;
+}
+
+#fecha{
+    position: absolute;
+    top: 100px;
+    left: 25px;
+}

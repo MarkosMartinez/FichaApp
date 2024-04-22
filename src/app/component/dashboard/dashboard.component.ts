@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { AuthService } from '../../services/auth.service';
+import { TimeService } from '../../services/time.service';
 import { PunchinoutService } from '../../services/punchinout.service';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
@@ -17,19 +18,42 @@ export class DashboardComponent {
   registros = [];
   modoEntrada: boolean = true;
   ficharHabilitado: boolean = false;
+  userName = "";
+  serverTime: Date = new Date(0);
+  errorTime: Date = new Date(0);
 
-  constructor(private translate: TranslateService, private authService: AuthService, private punchinoutService: PunchinoutService, private _snackBar: MatSnackBar, private router: Router, private cookieService: CookieService){}
+  constructor(private translate: TranslateService, private timeService: TimeService, private authService: AuthService, private punchinoutService: PunchinoutService, private _snackBar: MatSnackBar, private router: Router, private cookieService: CookieService){}
 
   ngOnInit(): void {
     this.authService.checkValidToken().subscribe(resultado =>{
       if(!resultado){
         this.cookieService.delete('token');
+        this.cookieService.delete('rol');
         this.cookieService.delete('name');
         this.router.navigate(['login']);
       }
     });
-
+    this.obtenerHora();
+    this.userName = this.cookieService.get('name');
     this.obtenerRegistros();
+  }
+
+  obtenerHora(){
+    this.timeService.getTime().subscribe(resultado =>{
+      if(resultado && resultado != this.serverTime){
+        this.serverTime = resultado;
+        this.serverTime.setSeconds(this.serverTime.getSeconds() + 1);
+        this.actualizarHora();
+      }
+    });
+  }
+
+  actualizarHora() {
+    setInterval(() => {
+      let nuevaFecha = new Date(this.serverTime.getTime());
+      nuevaFecha.setSeconds(nuevaFecha.getSeconds() + 1);
+      this.serverTime = nuevaFecha;
+    }, 1000);
   }
 
   obtenerRegistros(fichado: boolean = false) {

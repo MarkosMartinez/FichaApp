@@ -1,3 +1,10 @@
+<h3 id="titulo">Bienvenido {{ userName }}</h3>
+@if (serverTime.getTime() == errorTime.getTime()) {
+    <h4 id="fecha">Hora actual: No Disponible</h4> <!--(<i>El fichaje funcionara igualmente</i>)-->
+} @else {
+    <h4 id="fecha">Hora actual: {{ serverTime | date: 'HH:mm:ss' }}</h4>
+}
+
 <button mat-flat-button color="primary" [disabled]="!ficharHabilitado" (click)="fichar()">
     @if(modoEntrada){
         {{'DASHBOARD.btn_punchin' | translate}}
@@ -11,9 +18,9 @@
     <ul id="lista_registros">
     @for (registro of registros; track registro) {
         @if(registro['exit_time']){
-            <li><mat-icon>logout</mat-icon> {{ registro['exit_time'] }}</li>
+            <li><mat-icon class="exit_time_icon">logout</mat-icon> {{ registro['exit_time'] }}</li>
         }
-        <li><mat-icon>login</mat-icon> {{ registro['enter_time'] }}</li>
+        <li><mat-icon class="enter_time_icon">login</mat-icon> {{ registro['enter_time'] }}</li>
       } @empty {
         <li>{{'DASHBOARD.label_no_signings' | translate}}</li>
       }
