@@ -15,7 +15,7 @@
         "btn_punchinout": "Punch In/Out",
         "btn_punchin": "Punch In",
         "btn_punchout": "Punch Out",
-        "label_signings_history": "History of signings",
+        "label_last_signings": "Last signings",
         "label_no_signings": "There is no signing yet"
     },
     "USER_ROLE": {

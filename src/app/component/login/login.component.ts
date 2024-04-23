@@ -14,6 +14,8 @@ export class LoginComponent {
   email: string = "";
   password: string = "";
   hide: boolean = true;
+  title: string = "FichaApp";
+  config: any;
 
 
   constructor(private authService: AuthService, private router: Router){
@@ -22,6 +24,12 @@ export class LoginComponent {
 
   ngOnInit(): void {
     this.checkLogueo();
+    
+    this.config = localStorage.getItem("config");
+    if(this.config && this.config != undefined){
+      this.config = JSON.parse(this.config);
+      this.title = this.config[0].app_name;
+    }
 
   }
 

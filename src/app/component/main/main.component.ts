@@ -27,9 +27,9 @@ export class MainComponent {
   }
 
   aplicarConfig(){
-    this.config = sessionStorage.getItem("config");
+    this.config = localStorage.getItem("config");
     //console.log(this.config);
-    if(this.config){
+    if(this.config && this.config != undefined){
       this.config = JSON.parse(this.config);
       this.app_name = this.config[0].app_name;
       this.title.setTitle(this.config[0].app_name);

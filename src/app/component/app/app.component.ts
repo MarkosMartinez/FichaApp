@@ -17,18 +17,18 @@ export class AppComponent {
     translate.setDefaultLang('es');
   }
   ngOnInit(): void {
-      if(sessionStorage.getItem("config")) this.aplicarConfig();
+      if(localStorage.getItem("config")) this.aplicarConfig();
 
       this.configService.getConfig().subscribe(resultado =>{
-        sessionStorage.setItem("config", JSON.stringify(resultado.config));
+        localStorage.setItem("config", JSON.stringify(resultado.config));
         this.aplicarConfig();
       });
 
   }
 
   aplicarConfig(){
-    this.config = sessionStorage.getItem("config");
-    if(this.config){
+    this.config = localStorage.getItem("config");
+    if(this.config && this.config != undefined){
       this.config = JSON.parse(this.config);
       this.language = this.config[0].language;
       this.app_name = this.config[0].app_name;

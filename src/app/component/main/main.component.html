@@ -14,30 +14,30 @@
     <mat-drawer #drawer class="sidenav" mode="side" opened> <!--opened-->
       @if(isPinned){
         <button mat-icon-button style="position: absolute; right: 0; top: 5px;" class="pin-button" (click)="pin(); drawer.toggle()">
-          <mat-icon>push_pin</mat-icon>
+          <mat-icon style="transform: scale(1.1);">push_pin</mat-icon>
         </button>
       }@else{
         <button mat-icon-button style="position: absolute; right: 0; top: 5px;" class="pin-button" (click)="pin()">
-          <mat-icon>close</mat-icon>
+          <mat-icon style="transform: scale(1.1);">close</mat-icon>
         </button>
       }
       <div class="espacio"></div>
       @if(isPinned){
         <ul id="lista_menu">
-          <li [ngClass]="{'selected': seleccion == 0}" (click)="seleccion = 0"><a [routerLink]="'/dashboard'"><mat-icon style="color: white">more_time</mat-icon></a></li>
-          <li [ngClass]="{'selected': seleccion == 1}" (click)="seleccion = 1"><a [routerLink]="'/holidays'"><mat-icon style="color: white">luggage</mat-icon></a></li>
+          <li [ngClass]="{'selected': seleccion == 0}" (click)="seleccion = 0" class="opcion-menu"><a [routerLink]="'/dashboard'"><mat-icon style="color: white;">more_time</mat-icon></a></li>
+          <li [ngClass]="{'selected': seleccion == 1}" (click)="seleccion = 1" class="opcion-menu"><a [routerLink]="'/holidays'"><mat-icon style="color: white">luggage</mat-icon></a></li>
           @if(isManager()){
-            <li [ngClass]="{'selected': seleccion == 2}" (click)="seleccion = 2"><a [routerLink]="'/users'"><mat-icon style="color: white">person_outline</mat-icon></a></li>
-            <li [ngClass]="{'selected': seleccion == 3}" (click)="seleccion = 3"><a [routerLink]="'/config'"><mat-icon style="color: white">settings</mat-icon></a></li>
+            <li [ngClass]="{'selected': seleccion == 2}" (click)="seleccion = 2" class="opcion-menu"><a [routerLink]="'/users'"><mat-icon style="color: white">person</mat-icon></a></li>
+            <li [ngClass]="{'selected': seleccion == 3}" (click)="seleccion = 3" class="opcion-menu"><a [routerLink]="'/config'"><mat-icon style="color: white">settings</mat-icon></a></li>
           }
         </ul>
       }@else{
         <ul id="lista_menu">
-          <li [ngClass]="{'selected': seleccion == 0}" (click)="seleccion = 0"><a [routerLink]="'/dashboard'" (click)="drawer.toggle()"><mat-icon style="color: white">more_time</mat-icon></a></li>
-          <li [ngClass]="{'selected': seleccion == 1}" (click)="seleccion = 1"><a [routerLink]="'/holidays'" (click)="drawer.toggle()"><mat-icon style="color: white">luggage</mat-icon></a></li>
+          <li [ngClass]="{'selected': seleccion == 0}" (click)="seleccion = 0" class="opcion-menu"><a [routerLink]="'/dashboard'" (click)="drawer.toggle()"><mat-icon style="color: white">more_time</mat-icon></a></li>
+          <li [ngClass]="{'selected': seleccion == 1}" (click)="seleccion = 1" class="opcion-menu"><a [routerLink]="'/holidays'" (click)="drawer.toggle()"><mat-icon style="color: white">luggage</mat-icon></a></li>
           @if(isManager()){
-            <li [ngClass]="{'selected': seleccion == 2}" (click)="seleccion = 2"><a [routerLink]="'/users'" (click)="drawer.toggle()"><mat-icon style="color: white">person_outline</mat-icon></a></li>
-            <li [ngClass]="{'selected': seleccion == 3}" (click)="seleccion = 3"><a [routerLink]="'/config'" (click)="drawer.toggle()"><mat-icon style="color: white">settings</mat-icon></a></li>
+            <li [ngClass]="{'selected': seleccion == 2}" (click)="seleccion = 2" class="opcion-menu"><a [routerLink]="'/users'" (click)="drawer.toggle()"><mat-icon style="color: white">person</mat-icon></a></li>
+            <li [ngClass]="{'selected': seleccion == 3}" (click)="seleccion = 3" class="opcion-menu"><a [routerLink]="'/config'" (click)="drawer.toggle()"><mat-icon style="color: white">settings</mat-icon></a></li>
           }
         </ul>
       }

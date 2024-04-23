@@ -30,7 +30,7 @@
 }
 
 #lista_menu > li {
-    padding: 10px 0 10px 0;
+    padding: 20px 0 15px 0;
 }
 
 #lista_menu > li > a{
@@ -45,4 +45,8 @@
 ul {
     margin: 20px;
     padding: 0;
+}
+
+.opcion-menu{
+    transform: scale(1.3);
 }
