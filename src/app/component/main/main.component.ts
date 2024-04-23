@@ -23,7 +23,7 @@ export class MainComponent {
 
   ngOnInit(): void {
     this.aplicarConfig();  
-
+    this.seleccion = Number(localStorage.getItem("seleccion"));
   }
 
   aplicarConfig(){
@@ -52,6 +52,7 @@ export class MainComponent {
         this.cookieService.delete('token');
         this.cookieService.delete('name');
         this.cookieService.delete('role');
+        localStorage.removeItem("seleccion");
         this.router.navigate(['login']);
       }else{
         let dialogRef = this.dialog.open(AlertComponent, {
@@ -64,6 +65,7 @@ export class MainComponent {
           this.cookieService.delete('token');
           this.cookieService.delete('name');
           this.cookieService.delete('role');
+          localStorage.removeItem("seleccion");
           this.router.navigate(['login']);
          }
         });
@@ -76,4 +78,9 @@ export class MainComponent {
     this.isPinned = !this.isPinned;
   }
 
+  seleccionar(seleccion: number){
+    this.seleccion = seleccion;
+    localStorage.setItem("seleccion", String(seleccion));
+
+  }
 }

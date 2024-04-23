@@ -21,8 +21,9 @@ interface Usuario {
 
 export class UsersComponent {
 
-  usuarios: any = [];
-  columnas = ["id", "name", "email", "role"];
+  users: any = [];
+  colums = ["id", "name", "email", "role"];
+  refreshDisabled: boolean = false;
 
   constructor(private usersService: UsersService, private mainComponent: MainComponent, private translate: TranslateService, public dialog: MatDialog) { }
 
@@ -34,11 +35,12 @@ export class UsersComponent {
   loadUsers(){
     this.usersService.loadUsers().subscribe(resultado =>{
       if(resultado.success){
-        this.usuarios = []
+        this.users = []
         resultado.users.forEach((usuario: Usuario) => {
           usuario.role = this.translate.instant('USER_ROLE.' + usuario.role);
-          this.usuarios.push(usuario);
+          this.users.push(usuario);
         });
+        this.refreshDisabled = false;
       }else{
         if(resultado.error == "Unauthorised"){
           this.mainComponent.cerrarSesion();
@@ -58,5 +60,10 @@ export class UsersComponent {
       //if(result == "Success")
         this.loadUsers();
     });
+  }
+
+  refresh(){
+    this.refreshDisabled = true;
+    this.loadUsers();
   }
 }

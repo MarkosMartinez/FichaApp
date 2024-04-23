@@ -1,4 +1,4 @@
-<table mat-table [dataSource]="usuarios" class="mat-elevation-z8">
+<table mat-table [dataSource]="users" class="mat-elevation-z8">
 
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef> {{('USERS.id' | translate).toUpperCase()}} </th>
@@ -20,8 +20,9 @@
         <td mat-cell *matCellDef="let user"> {{user.role | titlecase}} </td>
         </ng-container>
   
-    <tr mat-header-row *matHeaderRowDef="columnas"></tr>
-    <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
+    <tr mat-header-row *matHeaderRowDef="colums"></tr>
+    <tr mat-row *matRowDef="let row; columns: colums;"></tr>
   </table>
   
   <button mat-fab color="primary" id="btnAddUser" (click)="addUser()"><p>+</p></button>
+  <button mat-fab color="primary" id="btnRefresh" [disabled]="refreshDisabled" (click)="refresh()"><mat-icon>refresh</mat-icon></button>

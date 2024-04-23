@@ -30,6 +30,7 @@ export class DashboardComponent {
         this.cookieService.delete('token');
         this.cookieService.delete('rol');
         this.cookieService.delete('name');
+        localStorage.removeItem("seleccion");
         this.router.navigate(['login']);
       }
     });

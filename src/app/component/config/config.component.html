@@ -17,3 +17,4 @@
 </div>
 
 <button mat-flat-button color="primary" [disabled]="idiomaSeleccionado == '' || appName == '' || updateDesactivado" (click)="updateConfig()">{{'CONFIG.update_label' | translate}}</button>
+<button mat-fab color="primary" id="btnRefresh" [disabled]="refreshDisabled" (click)="refresh()"><mat-icon>refresh</mat-icon></button>
