@@ -8,12 +8,14 @@ import { PagenotfoundComponent } from './component/pagenotfound/pagenotfound.com
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { UsersComponent } from './component/users/users.component';
 import { ConfigComponent } from './component/config/config.component';
+import { ProfileComponent } from './component/profile/profile.component';
 
 
 const routes: Routes = [
-  {path: '', component: MainComponent, children: [
+  { path: '', component: MainComponent, children: [
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent, pathMatch: 'full', canActivate: [AuthGuard] },
+  { path: 'profile', component: ProfileComponent, pathMatch: 'full', canActivate: [AuthGuard] },
   { path: 'users', component: UsersComponent, pathMatch: 'full', canActivate: [AuthGuard], data: { roles: ['manager']} },
   { path: 'config', component: ConfigComponent, pathMatch: 'full', canActivate: [AuthGuard], data: { roles: ['manager']} },
   { path: '', component: DashboardComponent, pathMatch: 'full', canActivate: [AuthGuard] },
@@ -23,7 +25,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {useHash: true})],
+  imports: [RouterModule.forRoot(routes, {useHash: true})], //{useHash: true}
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

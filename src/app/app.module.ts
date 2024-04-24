@@ -19,6 +19,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AlertComponent } from './component/alert/alert.component';
 import { ConfigComponent } from './component/config/config.component';
+import { ProfileComponent } from './component/profile/profile.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { ConfigComponent } from './component/config/config.component';
     UsersComponent,
     AdduserComponent,
     AlertComponent,
-    ConfigComponent
+    ConfigComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

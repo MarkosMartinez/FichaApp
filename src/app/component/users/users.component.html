@@ -24,5 +24,5 @@
     <tr mat-row *matRowDef="let row; columns: colums;"></tr>
   </table>
   
-  <button mat-fab color="primary" id="btnAddUser" (click)="addUser()"><p>+</p></button>
+  <button mat-fab color="primary" id="btnAddUser" (click)="addUser()"><mat-icon>add</mat-icon></button>
   <button mat-fab color="primary" id="btnRefresh" [disabled]="refreshDisabled" (click)="refresh()"><mat-icon>refresh</mat-icon></button>

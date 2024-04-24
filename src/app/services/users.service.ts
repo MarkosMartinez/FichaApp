@@ -24,6 +24,10 @@ export class UsersService {
           //console.log('Respuesta de la API:', response);
           return response;
         }),
+        catchError(error => {
+          console.error('Error en la solicitud:', error);
+          return of(false);
+        })
       );
     } else {
       return of(false);
