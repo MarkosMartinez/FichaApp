@@ -1,6 +1,6 @@
 @if (loading) {
   <mat-progress-spinner mode="indeterminate" class="loading-spinner"></mat-progress-spinner>
-}
+} @else {
 <div class="info-arriba">
   <!--<h3 id="titulo">Bienvenido {{ userName }}</h3>--> <!--👋-->
   @if (serverTime.getTime() != errorTime.getTime()) {
@@ -29,3 +29,4 @@
     }
   </ul>
 </div>
+}

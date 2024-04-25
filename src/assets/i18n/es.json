@@ -6,7 +6,7 @@
         "btn_login": "Acceder"
     },
     "MAIN": {
-        "error_logout": "Error al intentar cerrar la sesion. Quieres continuar de todas formas?"
+        "error_logout": "Error al intentar cerrar la sesion. Quieres continuar de todas maneras?"
     },
     "DASHBOARD": {
         "punchinout_successfully": "Fichado correctamente",
