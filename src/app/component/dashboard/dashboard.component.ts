@@ -10,14 +10,14 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatIcon } from '@angular/material/icon';
 import { MatButton } from '@angular/material/button';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
-import { NgIf, DatePipe } from '@angular/common';
+import { DatePipe } from '@angular/common';
 
 @Component({
     selector: 'app-dashboard',
     templateUrl: './dashboard.component.html',
     styleUrl: './dashboard.component.css',
     standalone: true,
-    imports: [NgIf, MatProgressSpinner, MatButton, MatIcon, DatePipe, TranslateModule]
+    imports: [MatProgressSpinner, MatButton, MatIcon, DatePipe, TranslateModule]
 })
 export class DashboardComponent {
 

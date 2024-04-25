@@ -12,14 +12,14 @@ import { FormsModule } from '@angular/forms';
 import { MatSelect } from '@angular/material/select';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
-import { NgIf } from '@angular/common';
+
 
 @Component({
     selector: 'app-config',
     templateUrl: './config.component.html',
     styleUrl: './config.component.css',
     standalone: true,
-    imports: [NgIf, MatProgressSpinner, MatFormField, MatLabel, MatSelect, FormsModule, MatOption, MatInput, MatButton, MatFabButton, MatIcon, TranslateModule]
+    imports: [MatProgressSpinner, MatFormField, MatLabel, MatSelect, FormsModule, MatOption, MatInput, MatButton, MatFabButton, MatIcon, TranslateModule]
 })
 export class ConfigComponent {
 

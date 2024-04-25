@@ -1,29 +1,31 @@
-<mat-progress-spinner mode="indeterminate" *ngIf="loading" class="loading-spinner"></mat-progress-spinner>
+@if (loading) {
+  <mat-progress-spinner mode="indeterminate" class="loading-spinner"></mat-progress-spinner>
+}
 <div class="info-arriba">
-    <!--<h3 id="titulo">Bienvenido {{ userName }}</h3>--> <!--👋-->
-    @if (serverTime.getTime() != errorTime.getTime()) {
-        <h3 id="fecha">Hora actual: {{ serverTime | date: 'HH:mm:ss' }}</h3>
-    }
+  <!--<h3 id="titulo">Bienvenido {{ userName }}</h3>--> <!--👋-->
+  @if (serverTime.getTime() != errorTime.getTime()) {
+    <h3 id="fecha">Hora actual: {{ serverTime | date: 'HH:mm:ss' }}</h3>
+  }
 </div>
 
 <button mat-flat-button color="primary" [disabled]="!ficharHabilitado" (click)="fichar()">
-    @if(modoEntrada){
-        {{'DASHBOARD.btn_punchin' | translate}}
+  @if(modoEntrada){
+    {{'DASHBOARD.btn_punchin' | translate}}
     }@else{
-        {{'DASHBOARD.btn_punchout' | translate}}
-    }
+    {{'DASHBOARD.btn_punchout' | translate}}
+  }
 </button>
 
 <div> <!--TODO Poner icono cargando?-->
-    <h2>{{'DASHBOARD.label_last_signings' | translate}}:</h2>
-    <ul id="lista_registros">
+  <h2>{{'DASHBOARD.label_last_signings' | translate}}:</h2>
+  <ul id="lista_registros">
     @for (registro of registros; track registro) {
-        @if(registro['exit_time']){
-            <li><mat-icon class="exit_time_icon">logout</mat-icon> {{ registro['exit_time'] }}</li>
-        }
-        <li><mat-icon class="enter_time_icon">login</mat-icon> {{ registro['enter_time'] }}</li>
-      } @empty {
-        <li>{{'DASHBOARD.label_no_signings' | translate}}</li>
+      @if(registro['exit_time']){
+        <li><mat-icon class="exit_time_icon">logout</mat-icon> {{ registro['exit_time'] }}</li>
       }
-    </ul>
+      <li><mat-icon class="enter_time_icon">login</mat-icon> {{ registro['enter_time'] }}</li>
+      } @empty {
+      <li>{{'DASHBOARD.label_no_signings' | translate}}</li>
+    }
+  </ul>
 </div>
