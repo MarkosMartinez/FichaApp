@@ -2,16 +2,23 @@ import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 
 import { CookieService } from 'ngx-cookie-service';
-import { Router } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from "@ngx-translate/core";
 import { AlertComponent } from '../alert/alert.component';
 import { Title } from "@angular/platform-browser";
+import { NgClass } from '@angular/common';
+import { MatIcon } from '@angular/material/icon';
+import { MatIconButton } from '@angular/material/button';
+import { MatToolbar } from '@angular/material/toolbar';
+import { MatDrawerContainer, MatDrawer } from '@angular/material/sidenav';
 
 @Component({
-  selector: 'app-main',
-  templateUrl: './main.component.html',
-  styleUrl: './main.component.css'
+    selector: 'app-main',
+    templateUrl: './main.component.html',
+    styleUrl: './main.component.css',
+    standalone: true,
+    imports: [MatDrawerContainer, MatToolbar, MatIconButton, MatIcon, MatDrawer, NgClass, RouterLink, RouterOutlet]
 })
 export class MainComponent {
   config: any;

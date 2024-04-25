@@ -22,42 +22,7 @@ import { ConfigComponent } from './component/config/config.component';
 import { ProfileComponent } from './component/profile/profile.component';
 
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    PagenotfoundComponent,
-    MainComponent,
-    DashboardComponent,
-    UsersComponent,
-    AdduserComponent,
-    AlertComponent,
-    ConfigComponent,
-    ProfileComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    AngularMaterialModule,
-    HttpClientModule,
-    ReactiveFormsModule,
 
-    // ngx-translate and the loader module
-    HttpClientModule,
-    TranslateModule.forRoot({
-        loader: {
-            provide: TranslateLoader,
-            useFactory: HttpLoaderFactory,
-            deps: [HttpClient]
-        }
-    })
-  ],
-  providers: [
-    provideAnimationsAsync()
-  ],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);

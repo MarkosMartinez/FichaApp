@@ -1,14 +1,25 @@
 import { Component } from '@angular/core';
 import { ConfigService } from '../../services/config.service';
-import { TranslateService } from "@ngx-translate/core";
+import { TranslateService, TranslateModule } from "@ngx-translate/core";
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { MainComponent } from '../main/main.component';
+import { MatIcon } from '@angular/material/icon';
+import { MatButton, MatFabButton } from '@angular/material/button';
+import { MatInput } from '@angular/material/input';
+import { MatOption } from '@angular/material/core';
+import { FormsModule } from '@angular/forms';
+import { MatSelect } from '@angular/material/select';
+import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-config',
-  templateUrl: './config.component.html',
-  styleUrl: './config.component.css'
+    selector: 'app-config',
+    templateUrl: './config.component.html',
+    styleUrl: './config.component.css',
+    standalone: true,
+    imports: [NgIf, MatProgressSpinner, MatFormField, MatLabel, MatSelect, FormsModule, MatOption, MatInput, MatButton, MatFabButton, MatIcon, TranslateModule]
 })
 export class ConfigComponent {
 

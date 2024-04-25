@@ -2,11 +2,14 @@ import { Component, Inject } from '@angular/core';
 
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from "@ngx-translate/core";
+import { MatButton } from '@angular/material/button';
 
 @Component({
-  selector: 'app-alert',
-  templateUrl: './alert.component.html',
-  styleUrl: './alert.component.css'
+    selector: 'app-alert',
+    templateUrl: './alert.component.html',
+    styleUrl: './alert.component.css',
+    standalone: true,
+    imports: [MatButton]
 })
 export class AlertComponent {
   btn: number = 1;

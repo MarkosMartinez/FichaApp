@@ -2,11 +2,14 @@ import { Component } from '@angular/core';
 import { TranslateService } from "@ngx-translate/core";
 import { ConfigService } from '../../services/config.service';
 import { Title } from "@angular/platform-browser";
+import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.css',
+    standalone: true,
+    imports: [RouterOutlet]
 })
 export class AppComponent {
   app_name = 'FichaApp'; //TODO Usar esto

@@ -4,7 +4,12 @@ import { UsersService } from '../../services/users.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AdduserComponent } from '../adduser/adduser.component';
 import { MainComponent } from '../main/main.component';
-import { TranslateService } from "@ngx-translate/core";
+import { TranslateService, TranslateModule } from "@ngx-translate/core";
+import { MatIcon } from '@angular/material/icon';
+import { MatFabButton } from '@angular/material/button';
+import { MatTable, MatColumnDef, MatHeaderCellDef, MatHeaderCell, MatCellDef, MatCell, MatHeaderRowDef, MatHeaderRow, MatRowDef, MatRow } from '@angular/material/table';
+import { MatProgressBar } from '@angular/material/progress-bar';
+import { NgIf, TitleCasePipe } from '@angular/common';
 
 interface Usuario {
   id: number;
@@ -14,9 +19,11 @@ interface Usuario {
 }
 
 @Component({
-  selector: 'app-users',
-  templateUrl: './users.component.html',
-  styleUrl: './users.component.css'
+    selector: 'app-users',
+    templateUrl: './users.component.html',
+    styleUrl: './users.component.css',
+    standalone: true,
+    imports: [NgIf, MatProgressBar, MatTable, MatColumnDef, MatHeaderCellDef, MatHeaderCell, MatCellDef, MatCell, MatHeaderRowDef, MatHeaderRow, MatRowDef, MatRow, MatFabButton, MatIcon, TitleCasePipe, TranslateModule]
 })
 
 export class UsersComponent {

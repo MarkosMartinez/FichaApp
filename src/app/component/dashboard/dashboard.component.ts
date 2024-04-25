@@ -5,13 +5,19 @@ import { TimeService } from '../../services/time.service';
 import { PunchinoutService } from '../../services/punchinout.service';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { TranslateService } from "@ngx-translate/core";
+import { TranslateService, TranslateModule } from "@ngx-translate/core";
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatIcon } from '@angular/material/icon';
+import { MatButton } from '@angular/material/button';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { NgIf, DatePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.css'
+    selector: 'app-dashboard',
+    templateUrl: './dashboard.component.html',
+    styleUrl: './dashboard.component.css',
+    standalone: true,
+    imports: [NgIf, MatProgressSpinner, MatButton, MatIcon, DatePipe, TranslateModule]
 })
 export class DashboardComponent {
 

@@ -3,16 +3,23 @@ import { FormControl, FormGroupDirective, NgForm, Validators, FormsModule, React
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { merge } from 'rxjs';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button';
+import { MatButtonModule, MatIconButton, MatButton } from '@angular/material/button';
 import { UsersService } from '../../services/users.service';
 import { AlertComponent } from '../alert/alert.component';
-import { TranslateService } from "@ngx-translate/core";
+import { TranslateService, TranslateModule } from "@ngx-translate/core";
+import { MatOption } from '@angular/material/core';
+import { MatSelect } from '@angular/material/select';
+import { MatIcon } from '@angular/material/icon';
+import { MatInput } from '@angular/material/input';
+import { MatFormField, MatLabel, MatError, MatSuffix } from '@angular/material/form-field';
 
 
 @Component({
-  selector: 'app-adduser',
-  templateUrl: './adduser.component.html',
-  styleUrls: ['./adduser.component.css']
+    selector: 'app-adduser',
+    templateUrl: './adduser.component.html',
+    styleUrls: ['./adduser.component.css'],
+    standalone: true,
+    imports: [FormsModule, MatFormField, MatLabel, MatInput, ReactiveFormsModule, MatError, MatIcon, MatSuffix, MatIconButton, MatSelect, MatOption, MatButton, TranslateModule]
 })
 export class AdduserComponent {
   email = new FormControl('', [Validators.required, Validators.email]);
