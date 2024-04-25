@@ -17,7 +17,7 @@ export class ConfigComponent {
   idiomaSeleccionado = "";
   appName = ""
   updateDesactivado: boolean = false;
-  refreshDisabled: boolean = false;
+  loading: boolean = true;
 
   constructor(private translate: TranslateService, private mainComponent: MainComponent, private _snackBar: MatSnackBar, private configService: ConfigService) { }
 
@@ -36,7 +36,7 @@ export class ConfigComponent {
       this.appName = JSON.parse(this.config)[0].app_name;
 
       if(modo == 1) this.mainComponent.aplicarConfig();
-      this.refreshDisabled = false;
+      this.loading = false;
     });
   }
 
@@ -62,7 +62,7 @@ export class ConfigComponent {
   }
 
   refresh(){
-    this.refreshDisabled = true;
+    this.loading = true;
     this.loadConfig();
   }
 

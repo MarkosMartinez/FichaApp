@@ -21,6 +21,7 @@ export class DashboardComponent {
   userName = "";
   serverTime: Date = new Date(0);
   errorTime: Date = new Date(0);
+  loading: boolean = true;
 
   constructor(private translate: TranslateService, private timeService: TimeService, private authService: AuthService, private punchinoutService: PunchinoutService, private _snackBar: MatSnackBar, private router: Router, private cookieService: CookieService){}
 
@@ -69,6 +70,7 @@ export class DashboardComponent {
         }else{
           this.ficharHabilitado = true;
         }
+        this.loading = false;
         //console.log(resultado);
       }else{
         //TODO Mensaje de error?

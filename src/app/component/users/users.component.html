@@ -1,3 +1,4 @@
+<mat-progress-bar mode="indeterminate" *ngIf="users.length === 0 || loading"></mat-progress-bar>
 <table mat-table [dataSource]="users" class="mat-elevation-z8">
 
     <ng-container matColumnDef="id">
@@ -23,6 +24,7 @@
     <tr mat-header-row *matHeaderRowDef="colums"></tr>
     <tr mat-row *matRowDef="let row; columns: colums;"></tr>
   </table>
+  <!-- <mat-progress-bar mode="indeterminate" *ngIf="users.length === 0"></mat-progress-bar> -->
   
   <button mat-fab color="primary" id="btnAddUser" (click)="addUser()"><mat-icon>add</mat-icon></button>
-  <button mat-fab color="primary" id="btnRefresh" [disabled]="refreshDisabled" (click)="refresh()"><mat-icon>refresh</mat-icon></button>
+  <button mat-fab color="primary" id="btnRefresh" [disabled]="loading" (click)="refresh()"><mat-icon>refresh</mat-icon></button>

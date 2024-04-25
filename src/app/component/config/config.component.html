@@ -1,3 +1,4 @@
+<mat-progress-spinner mode="indeterminate" *ngIf="loading" class="loading-spinner"></mat-progress-spinner>
 <div>
   <mat-form-field appearance="outline">
     <mat-label>{{'CONFIG.lang_label' | translate}}</mat-label>
@@ -17,4 +18,4 @@
 </div>
 
 <button mat-flat-button color="primary" [disabled]="idiomaSeleccionado == '' || appName == '' || updateDesactivado" (click)="updateConfig()">{{'CONFIG.update_label' | translate}}</button>
-<button mat-fab color="primary" id="btnRefresh" [disabled]="refreshDisabled" (click)="refresh()"><mat-icon>refresh</mat-icon></button>
+<button mat-fab color="primary" id="btnRefresh" [disabled]="loading" (click)="refresh()"><mat-icon>refresh</mat-icon></button>

@@ -1,5 +1,6 @@
+<mat-progress-spinner mode="indeterminate" *ngIf="loading" class="loading-spinner"></mat-progress-spinner>
 <div class="info-arriba">
-    <h3 id="titulo">Bienvenido {{ userName }}</h3> <!--👋-->
+    <!--<h3 id="titulo">Bienvenido {{ userName }}</h3>--> <!--👋-->
     @if (serverTime.getTime() != errorTime.getTime()) {
         <h3 id="fecha">Hora actual: {{ serverTime | date: 'HH:mm:ss' }}</h3>
     }

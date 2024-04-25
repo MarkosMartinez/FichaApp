@@ -19,6 +19,8 @@ export class ProfileComponent {
   //updated_at: Date = new Date();
   profileForm: any;
 
+  btnUpdate: boolean = true;
+
   constructor(private authService: AuthService, private profileService: ProfileService) { }
 
   ngOnInit(): void {
@@ -37,6 +39,10 @@ export class ProfileComponent {
         //TODO Mostrar mensaje de error?
       }
     });
+  }
+
+  actualizarPerfil(){
+    
   }
 
 }

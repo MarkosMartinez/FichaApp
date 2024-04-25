@@ -1,1 +1,24 @@
-<p>profile works!</p>
+<h1>Mi perfil</h1>
+<form #formulario="ngForm">
+    <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input matInput required type="text" name="nombre" [(ngModel)]="name">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput required type="email" name="correo" [(ngModel)]="email">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Contraseña</mat-label>
+        <input matInput required minlength="4" type="password" name="contrasena" [(ngModel)]="password">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Nueva Contraseña</mat-label>
+        <input matInput type="password" minlength="4" name="nueva_contrasena" [(ngModel)]="new_password">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Confirma Nueva Contraseña</mat-label>
+        <input matInput type="password" minlength="4" name="confirmar_nueva_contrasena" [(ngModel)]="c_new_password">
+    </mat-form-field>
+    <button mat-flat-button color="primary" type="submit" (click)="actualizarPerfil()" [disabled]="formulario.invalid || !btnUpdate">{{'LOGIN.btn_login' | translate}}</button>
+</form>

@@ -10,14 +10,21 @@
     color: red;
 }
 
-#titulo{
+/* #titulo{
     position: absolute;
     top: 70px;
     left: 25px;
-}
+} */
 
 #fecha{
     position: absolute;
     top: 70px;
     right: 25px;
 }
+
+.loading-spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }

@@ -23,7 +23,7 @@ export class UsersComponent {
 
   users: any = [];
   colums = ["id", "name", "email", "role"];
-  refreshDisabled: boolean = false;
+  loading: boolean = true;
 
   constructor(private usersService: UsersService, private mainComponent: MainComponent, private translate: TranslateService, public dialog: MatDialog) { }
 
@@ -40,7 +40,7 @@ export class UsersComponent {
           usuario.role = this.translate.instant('USER_ROLE.' + usuario.role);
           this.users.push(usuario);
         });
-        this.refreshDisabled = false;
+        this.loading = false;
       }else{
         if(resultado.error == "Unauthorised"){
           this.mainComponent.cerrarSesion();
@@ -63,7 +63,7 @@ export class UsersComponent {
   }
 
   refresh(){
-    this.refreshDisabled = true;
+    this.loading = true;
     this.loadUsers();
   }
 }
