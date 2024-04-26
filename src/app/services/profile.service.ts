@@ -35,4 +35,35 @@ export class ProfileService {
       return of(false);
     }
   }
+  editProfile(name: string, email: string, password: string, new_password: string, c_new_password: string): Observable<boolean> {
+    let token = this.cookieService.get('token');
+    if (token) {
+      let headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
+      });
+      let datos = {};
+      if(new_password == "" || !new_password)
+        datos = {name: name, email: email, password: password};
+      else
+        datos = {name: name, email: email, password: password, new_password: new_password, c_new_password: c_new_password};
+
+      return this.http.post<any>(`${apiDomain}/api/edit-profile`, datos, { headers }).pipe(
+        map(response => {
+          //console.log('Respuesta de la API:', response);
+          if (response.success) {
+            return true;
+          } else {
+            return false;
+          }
+        }),
+        catchError(error => {
+          console.error('Error en la solicitud:', error);
+          return of(false);
+        })
+      );
+  } else {
+    return of(false);
+  }
+  }
 }

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { ProfileService } from '../../services/profile.service';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateService, TranslateModule } from "@ngx-translate/core";
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatButton } from '@angular/material/button';
 import { MatInput } from '@angular/material/input';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
@@ -24,11 +25,10 @@ export class ProfileComponent {
   role: string = "";
   //created_at: Date = new Date();
   //updated_at: Date = new Date();
-  profileForm: any;
 
   btnUpdate: boolean = true;
 
-  constructor(private authService: AuthService, private profileService: ProfileService) { }
+  constructor(private authService: AuthService, private translate: TranslateService, private _snackBar: MatSnackBar, private profileService: ProfileService) { }
 
   ngOnInit(): void {
     this.obtenerPerfil();
@@ -37,7 +37,7 @@ export class ProfileComponent {
   obtenerPerfil(){
     this.profileService.getProfile().subscribe(resultado =>{
       if(resultado){
-        console.log(resultado.data);
+        //console.log(resultado.data);
         this.id = resultado.data.id;
         this.name = resultado.data.name;
         this.email = resultado.data.email;
@@ -49,7 +49,20 @@ export class ProfileComponent {
   }
 
   actualizarPerfil(){
-    
+    this.profileService.editProfile(this.name, this.email, this.password, this.new_password, this.c_new_password).subscribe(resultado =>{
+      if(resultado){
+        this.password = '';
+        this.new_password = '';
+        this.c_new_password = '';
+        let message = this.translate.instant('PROFILE.updated_successfully_snack');
+        this._snackBar.open(message, this.translate.instant('PROFILE.accept_snack'), {
+          duration: 3 * 1000, // 3 Segundos
+        });
+      }else{
+        console.log("Error");
+        //TODO Mostrar mensaje de error?
+      }
+    });
   }
 
 }

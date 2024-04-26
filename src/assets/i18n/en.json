@@ -47,6 +47,17 @@
         "error_required_role": "You need to select a role",
         "error_msg": "Error creating user, check that the data is correct"
     },
+    "PROFILE": {
+        "edit_profile_lbl": "Edit Profile",
+        "email": "Email",
+        "name": "Name",
+        "password": "Password",
+        "new_password": "New Password",
+        "confirm_new_password": "Confirm password",
+        "btn_update": "Update",
+        "updated_successfully_snack": "User updated!",
+        "accept_snack": "Aceptar"
+    },
     "PAGE_NOT_FOUND": {
         "title": "ERROR 404",
         "label": "Oops, we couldn't find that page."

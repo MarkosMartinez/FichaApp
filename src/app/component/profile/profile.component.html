@@ -1,24 +1,24 @@
-<h1>Mi perfil</h1>
+<h1>{{'PROFILE.edit_profile_lbl' | translate}}</h1>
 <form #formulario="ngForm">
     <mat-form-field appearance="outline">
-        <mat-label>Nombre</mat-label>
-        <input matInput required type="text" name="nombre" [(ngModel)]="name">
+        <mat-label>{{'PROFILE.name' | translate}}</mat-label>
+        <input matInput required type="text" minlength="2" name="nombre" [(ngModel)]="name">
     </mat-form-field>
     <mat-form-field appearance="outline">
-        <mat-label>Email</mat-label>
+        <mat-label>{{'PROFILE.email' | translate}}</mat-label>
         <input matInput required type="email" name="correo" [(ngModel)]="email">
     </mat-form-field>
-    <mat-form-field appearance="outline">
-        <mat-label>Contraseña</mat-label>
+    <mat-form-field appearance="outline"> <!--TODO Poner ojo para ver la pass-->
+        <mat-label>{{'PROFILE.password' | translate}}</mat-label>
         <input matInput required minlength="4" type="password" name="contrasena" [(ngModel)]="password">
     </mat-form-field>
-    <mat-form-field appearance="outline">
-        <mat-label>Nueva Contraseña</mat-label>
+    <mat-form-field appearance="outline"> <!--TODO Poner ojo para ver la pass-->
+        <mat-label>{{'PROFILE.new_password' | translate}}</mat-label>
         <input matInput type="password" minlength="4" name="nueva_contrasena" [(ngModel)]="new_password">
     </mat-form-field>
-    <mat-form-field appearance="outline">
-        <mat-label>Confirma Nueva Contraseña</mat-label>
+    <mat-form-field appearance="outline"> <!--TODO Poner ojo para ver la pass-->
+        <mat-label>{{'PROFILE.confirm_new_password' | translate}}</mat-label>
         <input matInput type="password" minlength="4" name="confirmar_nueva_contrasena" [(ngModel)]="c_new_password">
     </mat-form-field>
-    <button mat-flat-button color="primary" type="submit" (click)="actualizarPerfil()" [disabled]="formulario.invalid || !btnUpdate">{{'LOGIN.btn_login' | translate}}</button>
+    <button mat-flat-button color="primary" type="submit" (click)="actualizarPerfil()" [disabled]="formulario.invalid || !btnUpdate || new_password != c_new_password">{{'PROFILE.btn_update' | translate}}</button>
 </form>

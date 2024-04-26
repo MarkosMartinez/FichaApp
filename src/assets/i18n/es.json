@@ -47,6 +47,17 @@
         "error_required_role": "Tienes que seleccionar un rol",
         "error_msg": "Error al crear el usuario, comprueba que los datos esten bien"
     },
+    "PROFILE": {
+        "edit_profile_lbl": "Editar Perfil",
+        "email": "Correo",
+        "name": "Nombre",
+        "password": "Contraseña",
+        "new_password": "Nueva contraseña",
+        "confirm_new_password": "Confirmar contraseña",
+        "btn_update": "Actualizar",
+        "updated_successfully_snack": "Usuario actualizado!",
+        "accept_snack": "Aceptar"
+    },
     "PAGE_NOT_FOUND": {
         "title": "ERROR 404",
         "label": "Vaya, no hemos podido encontrar esa página"
