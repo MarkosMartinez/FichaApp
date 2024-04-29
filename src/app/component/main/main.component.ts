@@ -25,13 +25,23 @@ export class MainComponent {
   app_name = 'FichaApp';
   isPinned: boolean = true;
   seleccion: number = 0;
+  isMobile: boolean = false;
   
   constructor(private authService: AuthService, private title: Title, public dialog: MatDialog, private translate: TranslateService, private router: Router, private cookieService: CookieService) { }
 
   ngOnInit(): void {
     this.aplicarConfig();  
     this.seleccion = Number(localStorage.getItem("seleccion"));
+    this.detectMobileDevice();
   }
+
+  detectMobileDevice() {
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    this.isMobile = /mobile|iphone|ipad|android|samsung/.test(userAgent);
+    if(this.isMobile){
+      this.pin();
+    }
+  }  
 
   aplicarConfig(){
     this.config = localStorage.getItem("config");

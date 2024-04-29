@@ -6,7 +6,7 @@
         "btn_login": "Acceder"
     },
     "MAIN": {
-        "error_logout": "Error al intentar cerrar la sesion. Quieres continuar de todas maneras?"
+        "error_logout": "Error al intentar cerrar la sesión. Quieres continuar de todas maneras?"
     },
     "DASHBOARD": {
         "punchinout_successfully": "Fichado correctamente",
@@ -16,7 +16,8 @@
         "btn_punchin": "Fichar la entrada",
         "btn_punchout": "Fichar la salida",
         "label_last_signings": "Ultimos fichajes",
-        "label_no_signings": "No hay ningun fichaje todavia"
+        "label_no_signings": "No hay ningun fichaje todavia",
+        "current_time": "Hora actual"
     },
     "USER_ROLE": {
         "manager": "Gestor",
@@ -60,7 +61,7 @@
     },
     "PAGE_NOT_FOUND": {
         "title": "ERROR 404",
-        "label": "Vaya, no hemos podido encontrar esa página"
+        "label": "Vaya, no hemos podido encontrar la página que buscas"
     },
     "ALERT": {
         "btn_ok": "Aceptar",

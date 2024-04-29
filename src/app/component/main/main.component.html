@@ -11,7 +11,7 @@
         </button>
       </mat-toolbar>
 
-    <mat-drawer #drawer class="sidenav" mode="side" opened> <!--opened-->
+    <mat-drawer #drawer class="sidenav" mode="side" [opened]="!isMobile">
       @if(isPinned){
         <button mat-icon-button style="position: absolute; right: 0; top: 5px;" class="pin-button" (click)="pin(); drawer.toggle()">
           <mat-icon style="transform: scale(1.1);">push_pin</mat-icon>

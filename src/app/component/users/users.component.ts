@@ -10,6 +10,7 @@ import { MatFabButton } from '@angular/material/button';
 import { MatTable, MatColumnDef, MatHeaderCellDef, MatHeaderCell, MatCellDef, MatCell, MatHeaderRowDef, MatHeaderRow, MatRowDef, MatRow } from '@angular/material/table';
 import { MatProgressBar } from '@angular/material/progress-bar';
 import { TitleCasePipe } from '@angular/common';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 interface Usuario {
   id: number;
@@ -31,8 +32,16 @@ export class UsersComponent {
   users: any = [];
   colums = ["id", "name", "email", "role"];
   loading: boolean = true;
+  isMobile: boolean = false;
 
-  constructor(private usersService: UsersService, private mainComponent: MainComponent, private translate: TranslateService, public dialog: MatDialog) { }
+  constructor(private usersService: UsersService, private breakpointObserver: BreakpointObserver, private mainComponent: MainComponent, private translate: TranslateService, public dialog: MatDialog) { 
+    this.breakpointObserver.observe([
+      Breakpoints.XSmall,
+      Breakpoints.Small
+    ]).subscribe(result => {
+      this.isMobile = result.matches;
+    });
+   }
 
   ngOnInit(): void {
     this.loadUsers();
@@ -57,9 +66,10 @@ export class UsersComponent {
   }
 
   addUser(){
+    // TODO Mejorar la vista en móviles
     let dialogRef = this.dialog.open(AdduserComponent, {
-      height: '400px',
-      width: '540px',
+      height: this.isMobile ? '90%' : '400px',
+      width: this.isMobile ? '95%' : '540px',
     });
 
     dialogRef.afterClosed().subscribe(result => {

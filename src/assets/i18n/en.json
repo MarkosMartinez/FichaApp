@@ -16,7 +16,8 @@
         "btn_punchin": "Punch In",
         "btn_punchout": "Punch Out",
         "label_last_signings": "Last signings",
-        "label_no_signings": "There is no signing yet"
+        "label_no_signings": "There is no signing yet",
+        "current_time": "Current time"
     },
     "USER_ROLE": {
         "manager": "Manager",
