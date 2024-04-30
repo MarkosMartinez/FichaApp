@@ -91,7 +91,7 @@ export class DashboardComponent {
       this.modoEntrada = false;
     this.ficharHabilitado = true;
     if(fichado){
-      let message = this.modoEntrada ? this.translate.instant('DASHBOARD.punchin_successfully') : this.translate.instant('DASHBOARD.punchout_successfully');
+      let message = this.modoEntrada ? this.translate.instant('DASHBOARD.punchout_successfully') : this.translate.instant('DASHBOARD.punchin_successfully');
       this._snackBar.open(message, this.translate.instant('CONFIG.accept_snack'), {
         duration: 3 * 1000, // 3 Segundos
       });

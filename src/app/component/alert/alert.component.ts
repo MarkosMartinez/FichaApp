@@ -13,13 +13,15 @@ import { MatButton } from '@angular/material/button';
 })
 export class AlertComponent {
   btn: number = 1;
-  msg: string = "" //TODO MSG Default?
+  msg: string = ""
+  title: string = "ERROR"
   btnOk = "Ok";
   btnCancel = "Cancelar";
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private translate: TranslateService, public dialogRef: MatDialogRef<AlertComponent>) { 
     this.btn = data.btn;
     this.msg = data.msg;
+    if(data.title && data.title != undefined) this.title = data.title;
 
    }
 

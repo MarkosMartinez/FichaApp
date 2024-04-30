@@ -1,8 +1,9 @@
-<p>{{ msg }}</p>
+<h3 style="margin-left: 10px;">{{ title }}</h3>
+<p style="margin-top: -5px;">{{ msg }}</p>
 <div id="botones">
-    <button mat-flat-button color="primary" (click)="ok()">{{ btnOk }}</button>
     @if( btn != 1){
-        <button style="margin-left: 5px;" mat-flat-button color="warn" (click)="cancel()">{{ btnCancel }}</button>
+        <button style="margin-right: 5px;" mat-flat-button color="warn" (click)="cancel()">{{ btnCancel }}</button>
     }
+    <button mat-flat-button color="primary" (click)="ok()">{{ btnOk }}</button>
 </div>
 

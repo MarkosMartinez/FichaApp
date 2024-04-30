@@ -46,7 +46,7 @@ export class MainComponent {
   aplicarConfig(){
     this.config = localStorage.getItem("config");
     //console.log(this.config);
-    if(this.config && this.config != undefined){
+    if(this.config && this.config != 'undefined'){
       this.config = JSON.parse(this.config);
       this.app_name = this.config[0].app_name;
       this.title.setTitle(this.config[0].app_name);
@@ -73,9 +73,9 @@ export class MainComponent {
         this.router.navigate(['login']);
       }else{
         let dialogRef = this.dialog.open(AlertComponent, {
-          height: '250px',
+          height: '200px',
           width: '400px',
-          data: {btn: 2, msg: this.translate.instant('MAIN.error_logout')}
+          data: {btn: 2, msg: this.translate.instant('MAIN.error_logout'), title: "ERROR"}
         });
         dialogRef.afterClosed().subscribe(result => {
          if (result == "Ok"){
