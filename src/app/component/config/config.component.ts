@@ -25,8 +25,8 @@ export class ConfigComponent {
 
   config: any;
   idiomas = ["es", "en"];
-  idiomaSeleccionado = "";
-  appName = ""
+  idiomaSeleccionado = '';
+  appName = '';
   updateDesactivado: boolean = false;
   loading: boolean = true;
 

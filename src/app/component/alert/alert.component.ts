@@ -13,7 +13,7 @@ import { MatButton } from '@angular/material/button';
 })
 export class AlertComponent {
   btn: number = 1;
-  msg: string = ""
+  msg: string = '';
   title: string = "ERROR"
   btnOk = "Ok";
   btnCancel = "Cancelar";

@@ -24,7 +24,7 @@ export class DashboardComponent {
   registros = [];
   modoEntrada: boolean = true;
   ficharHabilitado: boolean = false;
-  userName = "";
+  userName = '';
   serverTime: Date = new Date(0);
   errorTime: Date = new Date(0);
   loading: boolean = true;

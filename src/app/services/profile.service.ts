@@ -43,7 +43,7 @@ export class ProfileService {
         Authorization: `Bearer ${token}`
       });
       let datos = {};
-      if(new_password == "" || !new_password)
+      if(new_password == '' || !new_password || new_password == undefined)
         datos = {name: name, email: email, password: password};
       else
         datos = {name: name, email: email, password: password, new_password: new_password, c_new_password: c_new_password};

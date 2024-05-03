@@ -8,6 +8,7 @@ import { MatInput } from '@angular/material/input';
 import { MatFormField, MatLabel, MatSuffix } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatIcon } from '@angular/material/icon';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
     selector: 'app-profile',
@@ -17,20 +18,20 @@ import { MatIcon } from '@angular/material/icon';
     imports: [FormsModule, MatFormField, MatLabel, MatInput, MatSuffix, MatButton, TranslateModule, MatIcon]
 })
 export class ProfileComponent {
-  id: string = "";
-  name: string = "";
-  email: string = "";
-  password: string = "";
-  new_password: string = "";
-  c_new_password: string = "";
-  role: string = "";
+  id: string = '';
+  name: string = '';
+  email: string = '';
+  password: string = '';
+  new_password: string = '';
+  c_new_password: string = '';
+  role: string = '';
   //created_at: Date = new Date();
   //updated_at: Date = new Date();
 
   btnUpdate: boolean = true;
   hide: boolean = true;
 
-  constructor(private authService: AuthService, private translate: TranslateService, private _snackBar: MatSnackBar, private profileService: ProfileService) { }
+  constructor(private authService: AuthService, private cookieService: CookieService, private translate: TranslateService, private _snackBar: MatSnackBar, private profileService: ProfileService) { }
 
   ngOnInit(): void {
     this.obtenerPerfil();
@@ -56,6 +57,7 @@ export class ProfileComponent {
         this.password = '';
         this.new_password = '';
         this.c_new_password = '';
+        this.cookieService.set('name', this.name);
         let message = this.translate.instant('PROFILE.updated_successfully_snack');
         this._snackBar.open(message, this.translate.instant('PROFILE.accept_snack'), {
           duration: 3 * 1000, // 3 Segundos

@@ -19,8 +19,8 @@ import { FormsModule } from '@angular/forms';
 export class LoginComponent {
 
   btnLogin: boolean = false;
-  email: string = "";
-  password: string = "";
+  email: string = '';
+  password: string = '';
   hide: boolean = true;
   title: string = "FichaApp";
   config: any;
