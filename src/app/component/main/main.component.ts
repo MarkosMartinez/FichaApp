@@ -66,6 +66,7 @@ export class MainComponent {
   cerrarSesion(){
     this.authService.cerrarSesion().subscribe(resultado =>{
       if(resultado){
+        this.seleccionar(0);
         this.cookieService.delete('token');
         this.cookieService.delete('name');
         this.cookieService.delete('role');
@@ -79,6 +80,7 @@ export class MainComponent {
         });
         dialogRef.afterClosed().subscribe(result => {
          if (result == "Ok"){
+          this.seleccionar(0);
           this.cookieService.delete('token');
           this.cookieService.delete('name');
           this.cookieService.delete('role');

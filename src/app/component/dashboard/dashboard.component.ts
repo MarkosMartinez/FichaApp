@@ -34,6 +34,7 @@ export class DashboardComponent {
   ngOnInit(): void {
     this.authService.checkValidToken().subscribe(resultado =>{
       if(!resultado){
+        localStorage.setItem("seleccion", "0");
         this.cookieService.delete('token');
         this.cookieService.delete('rol');
         this.cookieService.delete('name');
