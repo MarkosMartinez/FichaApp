@@ -2,9 +2,9 @@ import { Component, Inject, Optional } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { ProfileService } from '../../services/profile.service';
 import { TranslateService, TranslateModule } from "@ngx-translate/core";
-import { MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatButton } from '@angular/material/button';
+import { MatButton, MatFabButton } from '@angular/material/button';
 import { MatInput } from '@angular/material/input';
 import { MatFormField, MatLabel, MatSuffix } from '@angular/material/form-field';
 import { MatProgressBar } from '@angular/material/progress-bar';
@@ -18,7 +18,7 @@ import { CookieService } from 'ngx-cookie-service';
     templateUrl: './profile.component.html',
     styleUrl: './profile.component.css',
     standalone: true,
-    imports: [MatProgressBar, MatProgressSpinner, FormsModule, MatFormField, MatLabel, MatInput, MatSuffix, MatButton, TranslateModule, MatIcon]
+    imports: [MatProgressBar, MatFabButton, MatProgressSpinner, FormsModule, MatFormField, MatLabel, MatInput, MatSuffix, MatButton, TranslateModule, MatIcon]
 })
 export class ProfileComponent {
   loading: boolean = true;
@@ -35,7 +35,7 @@ export class ProfileComponent {
   btnUpdate: boolean = true;
   hide: boolean = true;
 
-  constructor(private authService: AuthService, public dialogRef: MatDialogRef<ProfileComponent>, @Optional() @Inject(MAT_DIALOG_DATA) public data: any, private cookieService: CookieService, private translate: TranslateService, private _snackBar: MatSnackBar, private profileService: ProfileService) { 
+  constructor(private authService: AuthService, @Optional() public dialogRef: MatDialogRef<ProfileComponent>, @Optional() @Inject(MAT_DIALOG_DATA) public data: any, private cookieService: CookieService, private translate: TranslateService, private _snackBar: MatSnackBar, private profileService: ProfileService) { 
     this.id = data ? data.id : '';
    }
 
@@ -44,6 +44,7 @@ export class ProfileComponent {
   }
 
   obtenerPerfil(){
+    this.loading = true;
     this.profileService.getProfile(this.id).subscribe(resultado =>{
       if(resultado){
         //console.log(resultado.data);

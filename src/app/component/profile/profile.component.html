@@ -52,4 +52,7 @@
         <button mat-flat-button color="primary" type="submit" (click)="actualizarPerfil()" [disabled]="formulario.invalid || !btnUpdate || new_password != c_new_password">{{'PROFILE.btn_update' | translate}}</button>
     </div>
 </form>
+@if(id == ''){
+<button mat-fab color="primary" id="btnRefresh" [disabled]="loading" (click)="obtenerPerfil()"><mat-icon>refresh</mat-icon></button>
+}
 }
