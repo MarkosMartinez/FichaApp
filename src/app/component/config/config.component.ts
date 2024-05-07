@@ -4,6 +4,7 @@ import { TranslateService, TranslateModule } from "@ngx-translate/core";
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { MainComponent } from '../main/main.component';
+import { AlertComponent } from '../alert/alert.component';
 import { MatIcon } from '@angular/material/icon';
 import { MatButton, MatFabButton } from '@angular/material/button';
 import { MatInput } from '@angular/material/input';
@@ -12,14 +13,16 @@ import { FormsModule } from '@angular/forms';
 import { MatSelect } from '@angular/material/select';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
-
+import { MatDialog } from '@angular/material/dialog';
+import { CookieService } from 'ngx-cookie-service';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
     selector: 'app-config',
     templateUrl: './config.component.html',
     styleUrl: './config.component.css',
     standalone: true,
-    imports: [MatProgressSpinner, MatFormField, MatLabel, MatSelect, FormsModule, MatOption, MatInput, MatButton, MatFabButton, MatIcon, TranslateModule]
+    imports: [RouterLink, RouterOutlet, MatProgressSpinner, MatFormField, MatLabel, MatSelect, FormsModule, MatOption, MatInput, MatButton, MatFabButton, MatIcon, TranslateModule]
 })
 export class ConfigComponent {
 
@@ -30,7 +33,7 @@ export class ConfigComponent {
   updateDesactivado: boolean = false;
   loading: boolean = true;
 
-  constructor(private translate: TranslateService, private mainComponent: MainComponent, private _snackBar: MatSnackBar, private configService: ConfigService) { }
+  constructor(private translate: TranslateService, private router: Router, private cookieService: CookieService, public dialog: MatDialog, private mainComponent: MainComponent, private _snackBar: MatSnackBar, private configService: ConfigService) { }
 
   ngOnInit(): void {
     this.loadConfig();
@@ -69,6 +72,33 @@ export class ConfigComponent {
         });
         this.updateDesactivado = false;
       }
+    });
+  }
+
+  resetDb(){
+    let dialogRef = this.dialog.open(AlertComponent, {
+      height: '200px',
+      width: '400px',
+      data: {btn: 2, msg: this.translate.instant('CONFIG.db_reset_label'), title: this.translate.instant('ALERT.label_warning').toUpperCase()}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+     if (result == "Ok"){
+      this.configService.resetDb().subscribe(resultado =>{
+        if(resultado.success){
+          this._snackBar.open(this.translate.instant('CONFIG.db_reset_successfully'), this.translate.instant('CONFIG.accept_snack'), {
+            duration: 3 * 1000,
+          });
+        }
+      setTimeout(() => {
+        localStorage.setItem("seleccion", String(0));
+        this.cookieService.delete('token');
+        this.cookieService.delete('name');
+        this.cookieService.delete('role');
+        localStorage.removeItem("seleccion");
+        this.router.navigate(['login']);
+      }, 3000);
+      });
+     }
     });
   }
 

@@ -65,7 +65,8 @@
     },
     "ALERT": {
         "btn_ok": "Acept",
-        "btn_cancel": "Cancel"
+        "btn_cancel": "Cancel",
+        "label_warning": "Warning"
     },
     "CONFIG": {
         "lang_label": "App language",
@@ -73,6 +74,9 @@
         "config_updated_error_snack": "Error updating config",
         "accept_snack": "Accept",
         "update_label": "Update",
-        "app_name_label": "App Name"
+        "app_name_label": "App Name",
+        "btn_reset-db": "Restore DB",
+        "db_reset_label": "Are you sure you want to restore the DB? The new configurations will be deleted and you will not be able to recover them again!",
+        "db_reset_successfully": "Database restored successfully!"
     }
 }

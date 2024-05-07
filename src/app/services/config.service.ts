@@ -55,4 +55,26 @@ export class ConfigService {
   }
   }
 
+  resetDb() {
+    let token = this.cookieService.get('token');
+    if (token) {
+      let headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
+      });
+      return this.http.get<any>(`${apiDomain}/api/reset-db`, { headers }).pipe(
+        map(response => {
+          //console.log('Respuesta de la API:', response);
+          return response;
+        }),
+        catchError(error => {
+          console.error('Error en la solicitud:', error);
+          return of(false);
+        })
+      );
+    } else {
+      return of(false);
+    }
+  }
+
 }

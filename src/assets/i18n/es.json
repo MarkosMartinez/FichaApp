@@ -65,7 +65,8 @@
     },
     "ALERT": {
         "btn_ok": "Aceptar",
-        "btn_cancel": "Cancelar"
+        "btn_cancel": "Cancelar",
+        "label_warning": "Advertencia"
     },
     "CONFIG": {
         "lang_label": "Idioma de la aplicación",
@@ -73,6 +74,9 @@
         "config_updated_error_snack": "Error al actualizar la configuración",
         "accept_snack": "Aceptar",
         "update_label": "Actualizar",
-        "app_name_label": "Nombre de la aplicación"
+        "app_name_label": "Nombre de la aplicación",
+        "btn_reset-db": "Restaurar DB",
+        "db_reset_label": "Estas seguro que deseas restaurar la DB? Las nuevas configuraciones seran eliminadas y no podras volver a recuperarlas!",
+        "db_reset_successfully": "Base de datos restaurada correctamente!"
     }
 }
