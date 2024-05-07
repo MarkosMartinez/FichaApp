@@ -24,7 +24,7 @@
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="colums"></tr>
-  <tr mat-row *matRowDef="let row; columns: colums;"></tr>
+  <tr mat-row *matRowDef="let row; columns: colums;" class="table-row" (click)="editUser(row.id)"></tr>
 </table>
 <!-- <mat-progress-bar mode="indeterminate" *ngIf="users.length === 0"></mat-progress-bar> -->
 

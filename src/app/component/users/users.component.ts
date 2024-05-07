@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { UsersService } from '../../services/users.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AdduserComponent } from '../adduser/adduser.component';
+import { ProfileComponent } from '../profile/profile.component';
 import { MainComponent } from '../main/main.component';
 import { TranslateService, TranslateModule } from "@ngx-translate/core";
 import { MatIcon } from '@angular/material/icon';
@@ -61,6 +62,8 @@ export class UsersComponent {
         if(resultado.error == "Unauthorised"){
           this.mainComponent.cerrarSesion();
         }
+        //TODO Mostrar mensaje de error
+        this.loading = false;
       }
     });
   }
@@ -68,7 +71,7 @@ export class UsersComponent {
   addUser(){
     // TODO Mejorar la vista en móviles
     let dialogRef = this.dialog.open(AdduserComponent, {
-      height: this.isMobile ? '90%' : '400px',
+      height: this.isMobile ? '90%' : '360px',
       width: this.isMobile ? '95%' : '540px',
     });
 
@@ -77,6 +80,26 @@ export class UsersComponent {
       //if(result == "Success")
         this.loadUsers();
     });
+  }
+
+  editUser(id: number){
+    if(!id) return;
+    //console.log("ID: " + id);
+
+    let dialogRef = this.dialog.open(ProfileComponent, {
+      height: this.isMobile ? '48%' : '440px',
+      width: this.isMobile ? '80%' : '480px',
+      data: {
+        id: id
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      //console.log(result);
+      //if(result == "Success")
+        this.loadUsers();
+    });
+
   }
 
   refresh(){
