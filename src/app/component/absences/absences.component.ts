@@ -57,7 +57,7 @@ export class AbsencesComponent {
   ordenarAusencias(){
     let fechaActual = new Date();
 
-    this.ausenciasDenegadas = this.ausencias.filter(ausencia => ausencia['approved'] === false);
+    this.ausenciasDenegadas = this.ausencias.filter(ausencia => ausencia['approved'] === 0);
     this.ausenciasPendientes = this.ausencias.filter(ausencia => ausencia['approved'] === null);
     this.ausenciasPasadas = this.ausencias.filter(ausencia => {
         let fechaFin = new Date(ausencia['end_time']);
@@ -65,7 +65,7 @@ export class AbsencesComponent {
     });
     this.ausenciasAprobadas = this.ausencias.filter(ausencia => {
         let fechaFin = new Date(ausencia['end_time']);
-        return fechaFin >= fechaActual && ausencia['approved'] === true;
+        return fechaFin >= fechaActual && ausencia['approved'] === 1;
     });
 
     // console.log("Ausencias (todas/pasadas/denegadas/Aprobadas/pendientes): ");
@@ -78,8 +78,6 @@ export class AbsencesComponent {
   }
 
   eliminar(id: number){
-    console.log("Se va a eliminar la ausencia con el id: " + id);
-    //TODO alert de confirmación
     let dialogRef = this.dialog.open(AlertComponent, {
       height: '200px',
       width: '400px',
@@ -103,5 +101,7 @@ export class AbsencesComponent {
   }
 
   addAbsence(){
+
   }
+  
 }
