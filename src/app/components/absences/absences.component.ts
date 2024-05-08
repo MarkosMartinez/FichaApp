@@ -10,7 +10,10 @@ import { MatTableModule } from '@angular/material/table';
 import { CommonModule } from '@angular/common';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { MatProgressBar } from '@angular/material/progress-bar';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+
 import { AlertComponent } from '../alert/alert.component';
+import { AddabsenceComponent } from '../addabsence/addabsence.component';
 
 
 @Component({
@@ -31,7 +34,17 @@ export class AbsencesComponent {
   ausenciasDenegadas = [];
   ausenciasAprobadas = [];
   ausenciasPendientes = [];
-  constructor(private absencesService: AbsencesService, private translate: TranslateService, public dialog: MatDialog) {}
+  isMobile: boolean = false;
+
+  constructor(private absencesService: AbsencesService, private breakpointObserver: BreakpointObserver, private translate: TranslateService, public dialog: MatDialog) { 
+    this.breakpointObserver.observe([
+      Breakpoints.XSmall,
+      Breakpoints.Small
+    ]).subscribe(result => {
+      this.isMobile = result.matches;
+    });
+
+   }
 
 
   ngOnInit(): void {
@@ -101,7 +114,14 @@ export class AbsencesComponent {
   }
 
   addAbsence(){
+    let dialogRef = this.dialog.open(AddabsenceComponent, {
+      height: this.isMobile ? '60%' : '360px',
+      width: this.isMobile ? '95%' : '540px',
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+        this.getAbsences();
+    });
   }
   
 }
