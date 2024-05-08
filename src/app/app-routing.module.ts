@@ -2,14 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard } from './guards/auth.guard';
-import { MainComponent } from './component/main/main.component';
-import { LoginComponent } from './component/login/login.component';
-import { PagenotfoundComponent } from './component/pagenotfound/pagenotfound.component';
-import { DashboardComponent } from './component/dashboard/dashboard.component';
-import { UsersComponent } from './component/users/users.component';
-import { ConfigComponent } from './component/config/config.component';
-import { ProfileComponent } from './component/profile/profile.component';
-import { AbsencesComponent } from './component/absences/absences.component';
+import { MainComponent } from './components/main/main.component';
+import { LoginComponent } from './components/login/login.component';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { UsersComponent } from './components/users/users.component';
+import { ConfigComponent } from './components/config/config.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { AbsencesComponent } from './components/absences/absences.component';
 
 
 const routes: Routes = [
