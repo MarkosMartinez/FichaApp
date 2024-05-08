@@ -27,7 +27,7 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
 export class ConfigComponent {
 
   config: any;
-  idiomas = ["es", "en"];
+  idiomas = ["es", "en", "eu"];
   idiomaSeleccionado = '';
   appName = '';
   updateDesactivado: boolean = false;

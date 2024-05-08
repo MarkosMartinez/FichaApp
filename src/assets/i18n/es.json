@@ -59,6 +59,21 @@
         "updated_successfully_snack": "Usuario actualizado!",
         "accept_snack": "Aceptar"
     },
+    "ABSENCES": {
+        "label_absence_history": "Historial de ausencias",
+        "column_status": "Estado",
+        "column_start_time": "Fecha inicio",
+        "column_end_time": "Fecha fin",
+        "column_type": "Tipo",
+        "column_notes": "Notas",
+        "status_pending": "Pendiente",
+        "status_approved": "Aprobado",
+        "status_denied": "Denegado",
+        "label_pending": "Pendientes",
+        "label_approved": "Aprobadas",
+        "label_denied": "Denegado",
+        "label_past": "Pasadas"
+    },
     "PAGE_NOT_FOUND": {
         "title": "ERROR 404",
         "label": "Vaya, no hemos podido encontrar la página que buscas"

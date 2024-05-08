@@ -59,6 +59,21 @@
         "updated_successfully_snack": "User updated!",
         "accept_snack": "Aceptar"
     },
+    "ABSENCES": {
+        "label_absence_history": "Absence history",
+        "column_status": "Status",
+        "column_start_time": "Start date",
+        "column_end_time": "End date",
+        "column_type": "Type",
+        "column_notes": "Notes",
+        "status_pending": "Pending",
+        "status_approved": "Approved",
+        "status_denied": "Denied",
+        "label_pending": "Pending",
+        "label_approved": "Approved",
+        "label_denied": "Denied",
+        "label_past": "Past"
+      },
     "PAGE_NOT_FOUND": {
         "title": "ERROR 404",
         "label": "Oops, we couldn't find that page."

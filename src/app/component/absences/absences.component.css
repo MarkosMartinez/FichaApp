@@ -1,0 +1,11 @@
+#btnAddUser{
+position: absolute;
+right: 20px;
+bottom: 20px;
+}
+
+#btnRefresh{
+position: absolute;
+right: 85px;
+bottom: 20px;
+}

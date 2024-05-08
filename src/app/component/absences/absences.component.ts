@@ -71,4 +71,12 @@ export class AbsencesComponent {
 
   }
 
+  eliminar(id: number){
+    console.log("Se va a eliminar la ausencia con el id: " + id);
+    //TODO alert de confirmación
+  }
+
+  addAbsence(){
+    
+  }
 }
