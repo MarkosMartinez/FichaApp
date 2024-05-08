@@ -8,6 +8,9 @@ import { MatFabButton } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
 import { CommonModule } from '@angular/common';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { MatProgressBar } from '@angular/material/progress-bar';
+import { AlertComponent } from '../alert/alert.component';
 
 
 @Component({
@@ -15,11 +18,12 @@ import { CommonModule } from '@angular/common';
   templateUrl: './absences.component.html',
   styleUrl: './absences.component.css',
   standalone: true,
-  imports: [CommonModule, MatFabButton, MatTableModule, MatIcon, TranslateModule, MatTabsModule]
+  imports: [CommonModule, MatProgressSpinner, MatProgressBar, MatFabButton, MatTableModule, MatIcon, TranslateModule, MatTabsModule]
 })
 
 export class AbsencesComponent {
   loading = true;
+  loading2 = true;;
   colums = ["approved", "start_time", "end_time", "type", "notes"];
   columsPendiente = ["approved", "start_time", "end_time", "type", "notes", "delete"];
   ausencias = [];
@@ -36,15 +40,17 @@ export class AbsencesComponent {
   }
 
   getAbsences(){
+    this.loading2 = true;
     this.absencesService.getAbsences().subscribe(resultado =>{
       if(resultado.success){
         this.ausencias = resultado.data;
         // console.log(resultado);
         this.ordenarAusencias();
-        this.loading = false;
       }else{
-        //TODO Mostrar mensaje de error y poner loading a false?
+        //TODO Mostrar mensaje de error
       }
+      this.loading2 = false;
+      this.loading = false;
     });
   }
 
@@ -74,9 +80,28 @@ export class AbsencesComponent {
   eliminar(id: number){
     console.log("Se va a eliminar la ausencia con el id: " + id);
     //TODO alert de confirmación
+    let dialogRef = this.dialog.open(AlertComponent, {
+      height: '200px',
+      width: '400px',
+      data: {btn: 2, msg: this.translate.instant('ABSENCES.label_delete'), title: this.translate.instant('ALERT.label_warning').toUpperCase()}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result == "Ok"){
+        this.absencesService.deleteAbsences(id).subscribe(resultado =>{
+          if(resultado.success)
+            this.getAbsences();
+          else{
+            let dialogRef = this.dialog.open(AlertComponent, {
+              height: '200px',
+              width: '400px',
+              data: {btn: 1, msg: this.translate.instant('ABSENCES.label_error_delete'), title: this.translate.instant('ALERT.label_error').toUpperCase()}
+            });
+          }
+        });
+      }
+     });
   }
 
   addAbsence(){
-    
   }
 }

@@ -72,7 +72,10 @@
         "label_pending": "Pending",
         "label_approved": "Approved",
         "label_denied": "Denied",
-        "label_past": "Past"
+        "label_past": "Past",
+        "label_delete": "Are you sure you want to cancel that absence?",
+        "label_error_delete": "Error deleting absence, try again later.",
+        "label_error": "Error"
       },
     "PAGE_NOT_FOUND": {
         "title": "ERROR 404",

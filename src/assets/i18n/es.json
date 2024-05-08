@@ -72,7 +72,9 @@
         "label_pending": "Pendientes",
         "label_approved": "Aprobadas",
         "label_denied": "Denegado",
-        "label_past": "Pasadas"
+        "label_past": "Pasadas",
+        "label_delete": "Estas seguro que quieres cancelar esa ausencia?",
+        "label_error_delete": "Error al eliminar la ausencia, intentalo de nuevo mas tarde."
     },
     "PAGE_NOT_FOUND": {
         "title": "ERROR 404",
@@ -81,7 +83,8 @@
     "ALERT": {
         "btn_ok": "Aceptar",
         "btn_cancel": "Cancelar",
-        "label_warning": "Advertencia"
+        "label_warning": "Advertencia",
+        "label_error": "Error"
     },
     "CONFIG": {
         "lang_label": "Idioma de la aplicación",

@@ -1,4 +1,10 @@
+@if (loading) {
+  <mat-progress-spinner mode="indeterminate" class="loading-spinner"></mat-progress-spinner>
+} @else {
 <h1>{{'ABSENCES.label_absence_history' | translate}}:</h1>
+@if (loading2 && !loading){
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+} 
 <mat-tab-group>
     <mat-tab [label]="'ABSENCES.label_pending' | translate">
         
@@ -134,7 +140,9 @@
         <tr mat-row *matRowDef="let row; columns: colums;" class="table-row"></tr>
     </table>
     </mat-tab>
-</mat-tab-group>  
+</mat-tab-group>
 
 <button mat-fab color="primary" id="btnAddUser" (click)="addAbsence()"><mat-icon>add</mat-icon></button>
-<button mat-fab color="primary" id="btnRefresh" [disabled]="loading" (click)="getAbsences()"><mat-icon>refresh</mat-icon></button>
+<button mat-fab color="primary" id="btnRefresh" [disabled]="loading || loading2" (click)="getAbsences()"><mat-icon>refresh</mat-icon></button>
+
+}

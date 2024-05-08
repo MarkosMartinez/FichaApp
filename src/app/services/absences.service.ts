@@ -34,4 +34,26 @@ export class AbsencesService {
     }
   }
 
+  deleteAbsences(id: number) {
+    let token = this.cookieService.get('token');
+    if (token) {
+      let headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
+      });
+      return this.http.post<any>(`${apiDomain}/api/delete-absence`, {"absenceid": id}, { headers }).pipe(
+        map(response => {
+          // console.log('Respuesta de la API:', response);
+          return response;
+        }),
+        catchError(error => {
+          console.error('Error en la solicitud:', error);
+          return of(false);
+        })
+      );
+    } else {
+      return of(false);
+    }
+  }
+
 }
