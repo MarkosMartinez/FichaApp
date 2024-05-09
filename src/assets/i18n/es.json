@@ -77,6 +77,16 @@
         "label_error_delete": "Error al eliminar la ausencia, intentalo de nuevo mas tarde.",
         "successfully_deleted_snack": "Eliminado correctamente!"
     },
+    "ADD_ABSENCE":{
+        "successfully_created_snack": "Creado correctamente!",
+        "error_creating_snack": "Error al intentar crear la ausencia!",
+        "label_absence_type": "Selecciona el tipo de ausencia",
+        "label_date_range": "Selecciona el rango de fechas",
+        "btn_return": "Volver",
+        "btn_next": "Siguiente",
+        "label_notes": "Notas",
+        "label_write_a_note": "Escribe una Nota (opcional)"
+    },
     "PAGE_NOT_FOUND": {
         "title": "ERROR 404",
         "label": "Vaya, no hemos podido encontrar la página que buscas"

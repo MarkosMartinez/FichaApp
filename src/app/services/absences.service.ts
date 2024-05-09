@@ -56,7 +56,7 @@ export class AbsencesService {
     }
   }
 
-  addAbsence(type: string, start_time: Date | null, end_time: Date | null, notes: string | null = null, id: number | null = null) {
+  addAbsence(type: string, start_time: string, end_time: string, notes: string | null = null, id: number | null = null) {
     let token = this.cookieService.get('token');
     if (token) {
       let headers = new HttpHeaders({

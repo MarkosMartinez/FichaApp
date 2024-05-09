@@ -1,9 +1,9 @@
 <mat-stepper #stepper> <!--[linear]="true"-->
     <mat-step [stepControl]="firstFormGroup">
-        <ng-template matStepLabel>Tipo</ng-template>
-        <h4>Selecciona el tipo de ausencia:</h4>
+        <ng-template matStepLabel>{{'ADD_ABSENCE.label_absence_type' | translate}}</ng-template>
+        <h4>{{'ADD_ABSENCE.label_absence_type' | translate}}:</h4>
         <mat-form-field appearance="outline">
-            <mat-label>Tipo de ausencia</mat-label>
+            <mat-label>{{'ADD_ABSENCE.label_absence_type' | translate}}</mat-label>
             <mat-select [(ngModel)]="type" [required]="true" required>
                 @for (tipo of tipos; track tipo) {
                   <mat-option [value]="tipo.value">{{tipo.viewValue}}</mat-option>
@@ -11,11 +11,11 @@
             </mat-select>
         </mat-form-field>
         <div>
-          <button mat-button mat-stroked-button matStepperNext color="primary" class="btnNext">Next</button>
+          <button mat-button mat-stroked-button matStepperNext color="primary" class="btnNext">{{'ADD_ABSENCE.btn_next' | translate}}</button>
         </div>
     </mat-step>
     <mat-step [stepControl]="secondFormGroup" label="Fechas">
-        <h4>Selecciona el rango de fechas:</h4>
+        <h4>{{'ADD_ABSENCE.label_date_range' | translate}}</h4>
         <mat-form-field>
             <mat-date-range-input [dateFilter]="filtroFechas" [min]="minDate" [rangePicker]="rangePicker">
                 <input matStartDate placeholder="Fecha inicio" [(ngModel)]="start_time" [required]="true" required>
@@ -25,26 +25,26 @@
               <mat-datepicker-toggle matIconSuffix [for]="rangePicker"></mat-datepicker-toggle>
               <mat-date-range-picker #rangePicker>
                 <mat-date-range-picker-actions>
-                  <button mat-button matDateRangePickerCancel>Cancelar</button>
-                  <button mat-raised-button color="primary" matDateRangePickerApply>Aceptar</button>
+                  <button mat-button matDateRangePickerCancel>{{'ALERT.btn_cancel' | translate}}</button>
+                  <button mat-raised-button color="primary" matDateRangePickerApply>{{'ALERT.btn_ok' | translate}}</button>
                 </mat-date-range-picker-actions>
               </mat-date-range-picker>
         </mat-form-field>
         <div>
-            <button mat-button mat-stroked-button matStepperPrevious color="warn" class="btnBack">Back</button>
-            <button mat-button mat-stroked-button matStepperNext color="primary" class="btnNext">Next</button>
+            <button mat-button mat-stroked-button matStepperPrevious color="warn" class="btnBack">{{'ADD_ABSENCE.btn_return' | translate}}</button>
+            <button mat-button mat-stroked-button matStepperNext color="primary" class="btnNext">{{'ADD_ABSENCE.btn_next' | translate}}</button>
         </div>
     </mat-step>
     <mat-step>
-      <ng-template matStepLabel>Notas</ng-template>
-        <h4>Escribe una Nota (opcional): </h4>
+      <ng-template matStepLabel>{{'ADD_ABSENCE.label_notes' | translate}}</ng-template>
+        <h4>{{'ADD_ABSENCE.label_write_a_note' | translate}}: </h4>
         <mat-form-field appearance="outline" style="width: 350px;">
-            <mat-label>Notas</mat-label>
+            <mat-label>{{'ADD_ABSENCE.label_notes' | translate}}</mat-label>
             <textarea [(ngModel)]="notes" matInput rows="3"></textarea>
         </mat-form-field>
       <div>
-        <button mat-button matStepperPrevious color="warn" class="btnBack">Back</button>
-        <button mat-button (click)="addAbsence()" [disabled]="!type || !start_time || start_time == null || !end_time || end_time == null" color="primary" class="btnNext">Añadir</button>
+        <button mat-button matStepperPrevious color="warn" class="btnBack">{{'ADD_ABSENCE.btn_return' | translate}}</button>
+        <button mat-button (click)="addAbsence()" [disabled]="!type || !start_time || start_time == null || !end_time || end_time == null" color="primary" class="btnNext">{{'ADD_ABSENCE.btn_next' | translate}}</button>
       </div>
     </mat-step>
   </mat-stepper>

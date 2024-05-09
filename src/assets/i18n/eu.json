@@ -77,6 +77,16 @@
       "label_error_delete": "Errore bat gertatu da absentzia ezabatzean. Saiatu berriro geroago.",
       "successfully_deleted_snack": "Ondo kenduta!"
     },
+    "ADD_ABSENCE": {
+        "successfully_created_snack": "Ondo sortua!",
+        "error_creating_snack": "Errore bat gertatu da absentzia sortzen saiatzean!",
+        "label_absence_type": "Aukeratu absentzia mota",
+        "label_date_range": "Hautatu data-tartea",
+        "btn_return": "Itzuli",
+        "btn_next": "Jarraitu",
+        "label_notes": "Oharrak",
+        "label_write_a_note": "Idatzi ohar bat (aukerakoa)"
+    },
     "PAGE_NOT_FOUND": {
       "title": "404 ERROREA",
       "label": "Ezin izan dugu bilatzen ari zaren orria aurkitu."

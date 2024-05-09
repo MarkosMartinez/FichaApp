@@ -78,6 +78,16 @@
         "label_error": "Error",
         "successfully_deleted_snack": "Deleted successfully!"
       },
+    "ADD_ABSENCE": {
+        "successfully_created_snack": "Created correctly!",
+        "error_creating_snack": "Error when trying to create the absence!",
+        "label_absence_type": "Select the type of absence",
+        "label_date_range": "Select the date range",
+        "btn_return": "Return",
+        "btn_next": "Next",
+        "label_notes": "Notes",
+        "label_write_a_note": "Write a Note (optional)"
+    },
     "PAGE_NOT_FOUND": {
         "title": "ERROR 404",
         "label": "Oops, we couldn't find that page."

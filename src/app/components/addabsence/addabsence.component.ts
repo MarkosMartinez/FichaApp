@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { AbsencesService } from '../../services/absences.service';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService, TranslateModule } from "@ngx-translate/core"; //TODO Quitarlo?
 import { MatIcon } from '@angular/material/icon';
 import { MatFabButton } from '@angular/material/button';
@@ -24,7 +24,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   selector: 'app-addabsence',
   standalone: true,
   imports: [FormsModule, MatCardModule, MatDatepickerModule, MatSelectModule, ReactiveFormsModule, MatIcon,
-    MatFabButton, MatTabsModule, MatInputModule, MatFormFieldModule, MatStepperModule, MatButtonModule],
+    MatFabButton, MatTabsModule, MatInputModule, MatFormFieldModule, MatStepperModule, MatButtonModule, TranslateModule],
   providers: [provideNativeDateAdapter()],
   templateUrl: './addabsence.component.html',
   styleUrl: './addabsence.component.css'
@@ -59,7 +59,7 @@ export class AddabsenceComponent {
     return day !== 0 && day !== 6;
   };
 
-  constructor(private absencesService: AbsencesService, private _snackBar: MatSnackBar, private _formBuilder: FormBuilder, private translate: TranslateService, public dialog: MatDialog) { }
+  constructor(private absencesService: AbsencesService, private translate: TranslateService, public dialogRef: MatDialogRef<AddabsenceComponent>, private _snackBar: MatSnackBar, private _formBuilder: FormBuilder, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     
@@ -73,18 +73,21 @@ export class AddabsenceComponent {
 
     if(this.validarDatos()){
       //TODO Cerrar y actualizar mensajes si la llamada esta ok, sino cerrar y mostrar mensaje error?
-      this.absencesService.addAbsence(this.type, this.start_time, this.end_time, this.notes).subscribe(resultado =>{
+
+    this.absencesService.addAbsence(this.type, (this.start_time as Date).toLocaleDateString('zh-Hans-CN'), (this.end_time as Date).toLocaleDateString('zh-Hans-CN'), this.notes).subscribe(resultado =>{
+
         console.log(resultado);
         if(resultado.sucess){
-          this._snackBar.open(this.translate.instant('CONFIG.config_updated_snack'), this.translate.instant('CONFIG.accept_snack'), {
+          this._snackBar.open(this.translate.instant('ADD_ABSENCE.successfully_created_snack'), this.translate.instant('CONFIG.accept_snack'), {
             duration: 3 * 1000, // 3 Segundos
           });
 
         }else{
-          this._snackBar.open(this.translate.instant('CONFIG.config_updated_error_snack'), this.translate.instant('CONFIG.accept_snack'), {
+          this._snackBar.open(this.translate.instant('ADD_ABSENCE.error_creating_snack'), this.translate.instant('CONFIG.accept_snack'), {
             duration: 3 * 1000, // 3 Segundos
           });
         }
+        this.dialogRef.close("Success");
       });
 
     }else{
@@ -92,7 +95,7 @@ export class AddabsenceComponent {
       this.dialog.open(AlertComponent, {
         height: '200px',
         width: '400px',
-        data: {btn: 1, msg: this.translate.instant('CONFIG.db_reset_label'), title: this.translate.instant('ALERT.label_error').toUpperCase()}
+        data: {btn: 1, msg: this.translate.instant('ADD_ABSENCE.error_creating_snack'), title: this.translate.instant('ALERT.label_error').toUpperCase()}
       });
     }
     
