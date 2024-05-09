@@ -16,6 +16,9 @@ import { MatCardModule } from '@angular/material/card';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 
+import { AlertComponent } from '../alert/alert.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-addabsence',
@@ -34,7 +37,7 @@ export class AddabsenceComponent {
     {value: 'other', viewValue: 'Otro'},
   ];
 
-  start_time: Date | null = null; //TODO Minimo mañana
+  start_time: Date | null = null;
   end_time: Date | null = null;
   type: any = "";
   notes = "";
@@ -56,22 +59,43 @@ export class AddabsenceComponent {
     return day !== 0 && day !== 6;
   };
 
-  constructor(private absencesService: AbsencesService, private _formBuilder: FormBuilder, private translate: TranslateService, public dialog: MatDialog) { }
+  constructor(private absencesService: AbsencesService, private _snackBar: MatSnackBar, private _formBuilder: FormBuilder, private translate: TranslateService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     
   }
 
   addAbsence(){
+    // console.log("Tipo: " + this.type);
+    // console.log("Fecha inicio: " + this.start_time);
+    // console.log("Fecha fin: " + this.end_time);
+    // console.log("Notas: " + this.notes);
+
     if(this.validarDatos()){
-      //TODO Cerrar
+      //TODO Cerrar y actualizar mensajes si la llamada esta ok, sino cerrar y mostrar mensaje error?
+      this.absencesService.addAbsence(this.type, this.start_time, this.end_time, this.notes).subscribe(resultado =>{
+        console.log(resultado);
+        if(resultado.sucess){
+          this._snackBar.open(this.translate.instant('CONFIG.config_updated_snack'), this.translate.instant('CONFIG.accept_snack'), {
+            duration: 3 * 1000, // 3 Segundos
+          });
+
+        }else{
+          this._snackBar.open(this.translate.instant('CONFIG.config_updated_error_snack'), this.translate.instant('CONFIG.accept_snack'), {
+            duration: 3 * 1000, // 3 Segundos
+          });
+        }
+      });
+
     }else{
-      //TODO Mostrar mensaje error
+      //TODO Cambiar mensaje error
+      this.dialog.open(AlertComponent, {
+        height: '200px',
+        width: '400px',
+        data: {btn: 1, msg: this.translate.instant('CONFIG.db_reset_label'), title: this.translate.instant('ALERT.label_error').toUpperCase()}
+      });
     }
-    console.log("Tipo: " + this.type);
-    console.log("Fecha inicio: " + this.start_time);
-    console.log("Fecha fin: " + this.end_time);
-    console.log("Notas: " + this.notes);
+    
   }
 
   validarDatos(): boolean{

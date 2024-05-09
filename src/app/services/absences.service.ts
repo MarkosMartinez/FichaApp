@@ -56,4 +56,32 @@ export class AbsencesService {
     }
   }
 
+  addAbsence(type: string, start_time: Date | null, end_time: Date | null, notes: string | null = null, id: number | null = null) {
+    let token = this.cookieService.get('token');
+    if (token) {
+      let headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
+      });
+      let datos = {};
+      if(id)
+        datos = {"id": id, "type": type, "start_time": start_time, "end_time": end_time, "notes": notes};
+      else
+        datos = {"type": type, "start_time": start_time, "end_time": end_time, "notes": notes};
+
+      return this.http.post<any>(`${apiDomain}/api/add-absence`, datos, { headers }).pipe(
+        map(response => {
+          // console.log('Respuesta de la API:', response);
+          return response;
+        }),
+        catchError(error => {
+          console.error('Error en la solicitud:', error);
+          return of(false);
+        })
+      );
+    } else {
+      return of(false);
+    }
+  }
+
 }

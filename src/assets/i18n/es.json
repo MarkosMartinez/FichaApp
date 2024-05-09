@@ -74,7 +74,8 @@
         "label_denied": "Denegado",
         "label_past": "Pasadas",
         "label_delete": "Estas seguro que quieres cancelar esa ausencia?",
-        "label_error_delete": "Error al eliminar la ausencia, intentalo de nuevo mas tarde."
+        "label_error_delete": "Error al eliminar la ausencia, intentalo de nuevo mas tarde.",
+        "successfully_deleted_snack": "Eliminado correctamente!"
     },
     "PAGE_NOT_FOUND": {
         "title": "ERROR 404",

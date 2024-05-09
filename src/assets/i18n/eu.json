@@ -74,7 +74,8 @@
       "label_denied": "Ukatuak",
       "label_past": "Iragana",
       "label_delete": "Ziur absentzia bertan behera utzi nahi duzula?",
-      "label_error_delete": "Errore bat gertatu da absentzia ezabatzean. Saiatu berriro geroago."
+      "label_error_delete": "Errore bat gertatu da absentzia ezabatzean. Saiatu berriro geroago.",
+      "successfully_deleted_snack": "Ondo kenduta!"
     },
     "PAGE_NOT_FOUND": {
       "title": "404 ERROREA",
