@@ -12,7 +12,7 @@ import { RouterOutlet } from '@angular/router';
     imports: [RouterOutlet]
 })
 export class AppComponent {
-  app_name = 'FichaApp'; //TODO Usar esto
+  app_name = 'FichaApp';
   language = 'es';
   config: any;
 

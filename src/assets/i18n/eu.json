@@ -83,12 +83,15 @@
     "ADD_ABSENCE": {
         "successfully_created_snack": "Ondo sortua!",
         "error_creating_snack": "Errore bat gertatu da absentzia sortzen saiatzean!",
+        "error_values_creating_snack": "Errore bat gertatu da absentzia sortzen saiatzean. Egiaztatu datuak eta saiatu berriro!",
         "label_absence_type": "Aukeratu absentzia mota",
         "label_date_range": "Hautatu data-tartea",
         "btn_return": "Itzuli",
         "btn_next": "Jarraitu",
         "label_notes": "Oharrak",
-        "label_write_a_note": "Idatzi ohar bat (aukerakoa)"
+        "label_write_a_note": "Idatzi ohar bat (aukerakoa)",
+        "label_start_time": "Hasiera Data",
+        "label_end_time": "Amaiera Data"
     },
     "MANAGE_ABSENCES": {
       "label_manage_absence_title": "Kudeatu beharreko ausentziak",

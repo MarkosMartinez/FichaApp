@@ -60,9 +60,13 @@ export class AbsencesComponent {
       if(resultado.success){
         this.ausencias = resultado.data;
         // console.log(resultado);
-        this.ordenarAusencias();
+        if(resultado.data.length > 0) this.ordenarAusencias();
       }else{
-        //TODO Mostrar mensaje de error
+        this.dialog.open(AlertComponent, {
+          height: '200px',
+          width: '400px',
+          data: {btn: 1, msg: this.translate.instant('ABSENCES.label_error'), title: this.translate.instant('ALERT.label_error').toUpperCase()}
+        });
       }
       this.loading2 = false;
       this.loading = false;
@@ -109,7 +113,7 @@ export class AbsencesComponent {
               duration: 3 * 1000, // 3 Segundos
             });
           }else{
-            let dialogRef = this.dialog.open(AlertComponent, {
+            this.dialog.open(AlertComponent, {
               height: '200px',
               width: '400px',
               data: {btn: 1, msg: this.translate.instant('ABSENCES.label_error_delete'), title: this.translate.instant('ALERT.label_error').toUpperCase()}

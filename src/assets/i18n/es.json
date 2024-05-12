@@ -74,7 +74,8 @@
         "label_denied": "Denegado",
         "label_past": "Pasadas",
         "label_delete": "Estas seguro que quieres cancelar esa ausencia?",
-        "label_error_delete": "Error al eliminar la ausencia, intentalo de nuevo mas tarde",
+        "label_error_delete": "Error al eliminar la ausencia. Intentalo de nuevo mas tarde",
+        "label_error": "Error alobtener las ausencias, intentalo de nuevo mas tarde",
         "successfully_deleted_snack": "Eliminado correctamente!",
         "holiday_type": "Vacaciones",
         "medical_type": "Medica",
@@ -83,12 +84,15 @@
     "ADD_ABSENCE": {
         "successfully_created_snack": "Creado correctamente!",
         "error_creating_snack": "Error al intentar crear la ausencia!",
+        "error_values_creating_snack": "Error al intentar crear la ausencia. Comprueba los datos y vuelve a intentarlo!",
         "label_absence_type": "Selecciona el tipo de ausencia",
         "label_date_range": "Selecciona el rango de fechas",
         "btn_return": "Volver",
         "btn_next": "Siguiente",
         "label_notes": "Notas",
-        "label_write_a_note": "Escribe una Nota (opcional)"
+        "label_write_a_note": "Escribe una Nota (opcional)",
+        "label_start_time": "Fecha Inicio",
+        "label_end_time": "Fecha Fin"
     },
     "MANAGE_ABSENCES": {
         "label_manage_absence_title": "Ausencias a gestionar",

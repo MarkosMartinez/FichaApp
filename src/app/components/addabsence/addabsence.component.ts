@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 import { AbsencesService } from '../../services/absences.service';
-import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { TranslateService, TranslateModule } from "@ngx-translate/core"; //TODO Quitarlo?
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { TranslateService, TranslateModule } from "@ngx-translate/core";
 import { MatIcon } from '@angular/material/icon';
 import { MatFabButton } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -32,9 +32,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class AddabsenceComponent {
 
   tipos = [
-    {value: 'holiday', viewValue: 'Vacaciones'},
-    {value: 'medical', viewValue: 'Medica'},
-    {value: 'other', viewValue: 'Otro'},
+    {value: 'holiday', viewValue: this.translate.instant('ABSENCES.holiday_type')},
+    {value: 'medical', viewValue: this.translate.instant('ABSENCES.medical_type')},
+    {value: 'other', viewValue: this.translate.instant('ABSENCES.other_type')},
   ];
 
   start_time: Date | null = null;
@@ -45,7 +45,6 @@ export class AddabsenceComponent {
 
   isManager: boolean = false;
 
-  //TODO Traducir esto
   firstFormGroup = this._formBuilder.group({
     firstCtrl: ['', Validators.required],
   });
@@ -75,8 +74,6 @@ export class AddabsenceComponent {
     // console.log("Notas: " + this.notes);
 
     if(this.validarDatos()){
-      //TODO Cerrar y actualizar mensajes si la llamada esta ok, sino cerrar y mostrar mensaje error?
-
     this.absencesService.addAbsence(this.type, (this.start_time as Date).toLocaleDateString('zh-Hans-CN'), (this.end_time as Date).toLocaleDateString('zh-Hans-CN'), this.notes).subscribe(resultado =>{
 
         console.log(resultado);
@@ -94,11 +91,10 @@ export class AddabsenceComponent {
       });
 
     }else{
-      //TODO Cambiar mensaje error
       this.dialog.open(AlertComponent, {
         height: '200px',
         width: '400px',
-        data: {btn: 1, msg: this.translate.instant('ADD_ABSENCE.error_creating_snack'), title: this.translate.instant('ALERT.label_error').toUpperCase()}
+        data: {btn: 1, msg: this.translate.instant('ADD_ABSENCE.error_values_creating_snack'), title: this.translate.instant('ALERT.label_error').toUpperCase()}
       });
     }
     
