@@ -42,9 +42,9 @@ export class ManageabsencesComponent {
     this.absencesService.getPendingAbsences().subscribe(resultado =>{
       if(resultado.success){
         this.ausencias = resultado.data;
-        console.log(resultado);
+        // console.log(resultado);
       }else{
-        //TODO Mostrar mensaje de error
+        //TODO Mostrar mensaje de error y cambiar vista si no hay pendings
       }
       this.loading2 = false;
       this.loading = false;
@@ -56,9 +56,9 @@ export class ManageabsencesComponent {
     this.absencesService.approveAbsences(id, approved).subscribe(resultado =>{
       if(resultado.success){
         this.ausencias = resultado.data;
-        console.log(resultado);
+        // console.log(resultado);
         if(resultado.success){
-            msg = approved ? 'MANAGE_ABSENCES.successfully_aproved' : 'MANAGE_ABSENCES.successfully_rejected'; //TODO Traducir
+            msg = approved ? 'MANAGE_ABSENCES.successfully_aproved' : 'MANAGE_ABSENCES.successfully_rejected';
           this._snackBar.open(this.translate.instant(msg), this.translate.instant('CONFIG.accept_snack'), {
             duration: 3 * 1000, // 3 Segundos
           });
@@ -77,7 +77,7 @@ export class ManageabsencesComponent {
         });
       }
       this.getPendingAbsences();
-      this.mainCmponent.absenceBadge();
+      this.mainCmponent.getAbsenceBadge();
     });
   }
 

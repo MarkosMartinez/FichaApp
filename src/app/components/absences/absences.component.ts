@@ -15,6 +15,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { AlertComponent } from '../alert/alert.component';
 import { AddabsenceComponent } from '../addabsence/addabsence.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MainComponent } from '../main/main.component';
 
 
 @Component({
@@ -37,7 +38,7 @@ export class AbsencesComponent {
   ausenciasPendientes = [];
   isMobile: boolean = false;
 
-  constructor(private absencesService: AbsencesService, private _snackBar: MatSnackBar, private breakpointObserver: BreakpointObserver, private translate: TranslateService, public dialog: MatDialog) { 
+  constructor(private absencesService: AbsencesService, private _snackBar: MatSnackBar, private mainComponent: MainComponent, private breakpointObserver: BreakpointObserver, private translate: TranslateService, public dialog: MatDialog) { 
     this.breakpointObserver.observe([
       Breakpoints.XSmall,
       Breakpoints.Small
@@ -102,6 +103,8 @@ export class AbsencesComponent {
         this.absencesService.deleteAbsences(id).subscribe(resultado =>{
           if(resultado.success){
             this.getAbsences();
+            this.mainComponent.getAbsenceBadge();
+
             this._snackBar.open(this.translate.instant('ABSENCES.successfully_deleted_snack'), this.translate.instant('CONFIG.accept_snack'), {
               duration: 3 * 1000, // 3 Segundos
             });
@@ -125,6 +128,7 @@ export class AbsencesComponent {
 
     dialogRef.afterClosed().subscribe(result => {
         this.getAbsences();
+        this.mainComponent.getAbsenceBadge();
     });
   }
   

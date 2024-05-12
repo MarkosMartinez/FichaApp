@@ -74,8 +74,11 @@
       "label_denied": "Ukatuak",
       "label_past": "Iragana",
       "label_delete": "Ziur absentzia bertan behera utzi nahi duzula?",
-      "label_error_delete": "Errore bat gertatu da absentzia ezabatzean. Saiatu berriro geroago.",
-      "successfully_deleted_snack": "Ondo kenduta!"
+      "label_error_delete": "Errore bat gertatu da absentzia ezabatzean. Saiatu berriro geroago",
+      "successfully_deleted_snack": "Ondo kenduta!",
+      "holiday_type": "Oporrak",
+      "medical_type": "Medikua",
+      "other_type": "Bestelakoak"
     },
     "ADD_ABSENCE": {
         "successfully_created_snack": "Ondo sortua!",
@@ -87,9 +90,16 @@
         "label_notes": "Oharrak",
         "label_write_a_note": "Idatzi ohar bat (aukerakoa)"
     },
+    "MANAGE_ABSENCES": {
+      "label_manage_absence_title": "Kudeatu beharreko ausentziak",
+      "label_no_manage_absences": "❌ | Ez kudeatzeko absentziarik",
+      "successfully_aproved": "Ondo onartu da absentzia",
+      "successfully_rejected": "Absentzia behar bezala baztertu da",
+      "label_error": "Errore bat gertatu da absentzia onartzean/baztertzean. Saiatu berriro geroago "
+    },
     "PAGE_NOT_FOUND": {
       "title": "404 ERROREA",
-      "label": "Ezin izan dugu bilatzen ari zaren orria aurkitu."
+      "label": "Ezin izan dugu bilatzen ari zaren orria aurkitu"
     },
     "ALERT": {
       "btn_ok": "Onartu",

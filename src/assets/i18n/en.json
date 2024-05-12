@@ -74,9 +74,12 @@
         "label_denied": "Denied",
         "label_past": "Past",
         "label_delete": "Are you sure you want to cancel that absence?",
-        "label_error_delete": "Error deleting absence, try again later.",
+        "label_error_delete": "Error deleting absence, try again later",
         "label_error": "Error",
-        "successfully_deleted_snack": "Deleted successfully!"
+        "successfully_deleted_snack": "Deleted successfully!",
+        "holiday_type": "Holiday",
+        "medical_type": "Medical",
+        "other_type": "Other"
       },
     "ADD_ABSENCE": {
         "successfully_created_snack": "Created correctly!",
@@ -88,9 +91,16 @@
         "label_notes": "Notes",
         "label_write_a_note": "Write a Note (optional)"
     },
+    "MANAGE_ABSENCES": {
+        "label_manage_absence_title": "Absences to manage",
+        "label_no_manage_absences": "❌ | There's no absence to manage",
+        "successfully_aproved": "Absence successfully approved",
+        "successfully_rejected": "Absence successfully rejected",
+        "label_error": "Error approving/rejecting absence. Please try again later"
+      },
     "PAGE_NOT_FOUND": {
         "title": "ERROR 404",
-        "label": "Oops, we couldn't find that page."
+        "label": "Oops, we couldn't find that page"
     },
     "ALERT": {
         "btn_ok": "Acept",

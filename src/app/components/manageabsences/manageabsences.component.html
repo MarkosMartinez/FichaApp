@@ -1,10 +1,11 @@
 @if (loading) {
     <mat-progress-spinner mode="indeterminate" class="loading-spinner"></mat-progress-spinner>
   } @else {
-  <h1>{{'ABSENCES.label_absence_history' | translate}}:</h1>
+  <h1>{{'MANAGE_ABSENCES.label_manage_absence_title' | translate}}:</h1>
   @if (loading2 && !loading){
     <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-  }  
+  }
+  @if(ausencias.length > 0){
           <table mat-table [dataSource]="ausencias" class="mat-elevation-z8">
             
               <ng-container matColumnDef="approved">
@@ -46,4 +47,7 @@
   
   <button mat-fab color="primary" id="btnRefresh" [disabled]="loading || loading2" (click)="getPendingAbsences()"><mat-icon>refresh</mat-icon></button>
   
+        } @else {
+          <h2><i>{{'MANAGE_ABSENCES.label_no_manage_absences' | translate}}.</i></h2>
+        }
   }

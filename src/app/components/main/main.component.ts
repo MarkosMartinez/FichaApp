@@ -40,7 +40,7 @@ export class MainComponent {
     this.seleccion = Number(localStorage.getItem("seleccion"));
     this.detectMobileDevice();
     if(this.isManager())
-      this.absenceBadge();
+      this.getAbsenceBadge();
   }
 
   detectMobileDevice() {
@@ -71,12 +71,12 @@ export class MainComponent {
     return false;
   }
 
-  absenceBadge(){
+  getAbsenceBadge(){
     this.absencesService.getPendingAbsences().subscribe(resultado =>{
       if(resultado.success){
         this.absenceBagNumber = resultado.data.length;
-        console.log(resultado.data);
-        console.log(this.absenceBagNumber);
+        // console.log(resultado.data);
+        // console.log(this.absenceBagNumber);
         this.absenceBagVisible = this.absenceBagNumber > 0;
       }else{
         this.absenceBagNumber = 0;

@@ -74,10 +74,13 @@
         "label_denied": "Denegado",
         "label_past": "Pasadas",
         "label_delete": "Estas seguro que quieres cancelar esa ausencia?",
-        "label_error_delete": "Error al eliminar la ausencia, intentalo de nuevo mas tarde.",
-        "successfully_deleted_snack": "Eliminado correctamente!"
+        "label_error_delete": "Error al eliminar la ausencia, intentalo de nuevo mas tarde",
+        "successfully_deleted_snack": "Eliminado correctamente!",
+        "holiday_type": "Vacaciones",
+        "medical_type": "Medica",
+        "other_type": "Otro"
     },
-    "ADD_ABSENCE":{
+    "ADD_ABSENCE": {
         "successfully_created_snack": "Creado correctamente!",
         "error_creating_snack": "Error al intentar crear la ausencia!",
         "label_absence_type": "Selecciona el tipo de ausencia",
@@ -86,6 +89,13 @@
         "btn_next": "Siguiente",
         "label_notes": "Notas",
         "label_write_a_note": "Escribe una Nota (opcional)"
+    },
+    "MANAGE_ABSENCES": {
+        "label_manage_absence_title": "Ausencias a gestionar",
+        "label_no_manage_absences": "❌ | No hay ninguna ausencia para gestionar",
+        "successfully_aproved": "Ausencia aprobada correctamente",
+        "successfully_rejected": "Ausencia rechazada correctamente",
+        "label_error": "Error al aprobar/rechazar la ausencia. Vuelve a intentarlo mas tarde"
     },
     "PAGE_NOT_FOUND": {
         "title": "ERROR 404",
