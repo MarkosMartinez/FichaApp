@@ -10,6 +10,7 @@ import { UsersComponent } from './components/users/users.component';
 import { ConfigComponent } from './components/config/config.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AbsencesComponent } from './components/absences/absences.component';
+import { ManageabsencesComponent } from './components/manageabsences/manageabsences.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent, pathMatch: 'full', canActivate: [AuthGuard] },
   { path: 'users', component: UsersComponent, pathMatch: 'full', canActivate: [AuthGuard], data: { roles: ['manager']} },
   { path: 'config', component: ConfigComponent, pathMatch: 'full', canActivate: [AuthGuard], data: { roles: ['manager']} },
+  { path: 'manage-absences', component: ManageabsencesComponent, pathMatch: 'full', canActivate: [AuthGuard], data: { roles: ['manager']} },
   { path: '', component: DashboardComponent, pathMatch: 'full', canActivate: [AuthGuard] },
   { path: '**', component: PagenotfoundComponent, pathMatch: 'full', canActivate: [AuthGuard] }
   ]}

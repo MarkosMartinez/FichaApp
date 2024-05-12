@@ -27,7 +27,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 export class AbsencesComponent {
   loading = true;
-  loading2 = true;;
+  loading2 = true;
   colums = ["approved", "start_time", "end_time", "type", "notes"];
   columsPendiente = ["approved", "start_time", "end_time", "type", "notes", "delete"];
   ausencias = [];

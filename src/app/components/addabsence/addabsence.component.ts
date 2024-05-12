@@ -52,6 +52,9 @@ export class AddabsenceComponent {
   secondFormGroup = this._formBuilder.group({
     secondCtrl: ['', Validators.required],
   });
+  thirdFormGroup = this._formBuilder.group({
+    thirdCtrl: ['', Validators.required],
+  });
 
   filtroFechas = (d: Date | null): boolean => {
     const day = (d || new Date()).getDay();

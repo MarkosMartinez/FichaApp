@@ -35,7 +35,7 @@
             <button mat-button mat-stroked-button matStepperNext color="primary" class="btnNext">{{'ADD_ABSENCE.btn_next' | translate}}</button>
         </div>
     </mat-step>
-    <mat-step>
+    <mat-step [stepControl]="thirdFormGroup">
       <ng-template matStepLabel>{{'ADD_ABSENCE.label_notes' | translate}}</ng-template>
         <h4>{{'ADD_ABSENCE.label_write_a_note' | translate}}: </h4>
         <mat-form-field appearance="outline" style="width: 350px;">

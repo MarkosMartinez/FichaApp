@@ -34,6 +34,28 @@ export class AbsencesService {
     }
   }
 
+  getPendingAbsences() {
+    let token = this.cookieService.get('token');
+    if (token) {
+      let headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
+      });
+      return this.http.get<any>(`${apiDomain}/api/get-pending-absences`, { headers }).pipe(
+        map(response => {
+          //console.log('Respuesta de la API:', response);
+          return response;
+        }),
+        catchError(error => {
+          console.error('Error en la solicitud:', error);
+          return of(false);
+        })
+      );
+    } else {
+      return of(false);
+    }
+  }
+
   deleteAbsences(id: number) {
     let token = this.cookieService.get('token');
     if (token) {
@@ -42,6 +64,28 @@ export class AbsencesService {
         Authorization: `Bearer ${token}`
       });
       return this.http.post<any>(`${apiDomain}/api/delete-absence`, {"absenceid": id}, { headers }).pipe(
+        map(response => {
+          // console.log('Respuesta de la API:', response);
+          return response;
+        }),
+        catchError(error => {
+          console.error('Error en la solicitud:', error);
+          return of(false);
+        })
+      );
+    } else {
+      return of(false);
+    }
+  }
+
+  approveAbsences(id: number, approved: boolean) {
+    let token = this.cookieService.get('token');
+    if (token) {
+      let headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
+      });
+      return this.http.post<any>(`${apiDomain}/api/approve-absence`, {"absenceid": id, "approved": approved}, { headers }).pipe(
         map(response => {
           // console.log('Respuesta de la API:', response);
           return response;

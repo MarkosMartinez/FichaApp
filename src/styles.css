@@ -2,3 +2,19 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* #btnAddUser{
+    background-color: #009fe3;
+}
+
+#btnRefresh{
+    background-color: #009fe3;
+} */
+
+.primary-color{
+    color: #009fe3;
+}
+
+.primary-background{
+    background-color: #009fe3;
+}
