@@ -12,13 +12,17 @@ import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
 import { MatToolbar } from '@angular/material/toolbar';
 import { MatDrawerContainer, MatDrawer } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatBadgeModule}  from '@angular/material/badge';
+import { AbsencesService } from '../../services/absences.service';
 
 @Component({
     selector: 'app-main',
     templateUrl: './main.component.html',
     styleUrl: './main.component.css',
     standalone: true,
-    imports: [MatDrawerContainer, MatToolbar, MatIconButton, MatIcon, MatDrawer, NgClass, RouterLink, RouterOutlet]
+    imports: [MatBadgeModule, MatButtonModule, MatIconModule, MatDrawerContainer, MatToolbar, MatIconButton, MatIcon, MatDrawer, NgClass, RouterLink, RouterOutlet]
 })
 export class MainComponent {
   config: any;
@@ -26,13 +30,17 @@ export class MainComponent {
   isPinned: boolean = true;
   seleccion: number = 0;
   isMobile: boolean = false;
+  absenceBagNumber: number = 0;
+  absenceBagVisible: boolean = false;
   
-  constructor(private authService: AuthService, private title: Title, public dialog: MatDialog, private translate: TranslateService, private router: Router, private cookieService: CookieService) { }
+  constructor(private authService: AuthService, private absencesService: AbsencesService, private title: Title, public dialog: MatDialog, private translate: TranslateService, private router: Router, private cookieService: CookieService) { }
 
   ngOnInit(): void {
     this.aplicarConfig();  
     this.seleccion = Number(localStorage.getItem("seleccion"));
     this.detectMobileDevice();
+    if(this.isManager())
+      this.absenceBadge();
   }
 
   detectMobileDevice() {
@@ -61,6 +69,20 @@ export class MainComponent {
   isManager(): boolean {
     if(this.cookieService.get('role') == "manager") return true;
     return false;
+  }
+
+  absenceBadge(){
+    this.absencesService.getPendingAbsences().subscribe(resultado =>{
+      if(resultado.success){
+        this.absenceBagNumber = resultado.data.length;
+        console.log(resultado.data);
+        console.log(this.absenceBagNumber);
+        this.absenceBagVisible = this.absenceBagNumber > 0;
+      }else{
+        this.absenceBagNumber = 0;
+        this.absenceBagVisible = false;
+      }
+    });
   }
 
   cerrarSesion(){

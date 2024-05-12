@@ -10,6 +10,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { MatProgressBar } from '@angular/material/progress-bar';
 import { AlertComponent } from '../alert/alert.component';
+import { MainComponent } from '../main/main.component';
 import { CommonModule } from '@angular/common';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -29,7 +30,7 @@ export class ManageabsencesComponent {
   columsPendiente = ["approved", "start_time", "end_time", "type", "notes", "approve", "reject"];
   isMobile: boolean = false;
 
-  constructor(private absencesService: AbsencesService, private _snackBar: MatSnackBar, private translate: TranslateService, public dialog: MatDialog) { }
+  constructor(private absencesService: AbsencesService, private mainCmponent: MainComponent, private _snackBar: MatSnackBar, private translate: TranslateService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getPendingAbsences();
@@ -76,6 +77,7 @@ export class ManageabsencesComponent {
         });
       }
       this.getPendingAbsences();
+      this.mainCmponent.absenceBadge();
     });
   }
 
