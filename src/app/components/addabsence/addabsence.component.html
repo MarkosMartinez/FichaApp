@@ -17,7 +17,7 @@
     <mat-step [stepControl]="secondFormGroup" label="{{'ADD_ABSENCE.label_date_range' | translate}}">
         <h4>{{'ADD_ABSENCE.label_date_range' | translate}}</h4>
         <mat-form-field>
-            <mat-date-range-input [dateFilter]="filtroFechas" [min]="minDate" [rangePicker]="rangePicker">
+            <mat-date-range-input [dateFilter]="filtroFechas" [min]="minDate" [max]="maxDate" [rangePicker]="rangePicker">
                 <input matStartDate placeholder="{{'ADD_ABSENCE.label_start_time' | translate}}" [(ngModel)]="start_time" [required]="true" required>
                 <input matEndDate placeholder="{{'ADD_ABSENCE.label_end_time' | translate}}" [(ngModel)]="end_time" [required]="true" required>
               </mat-date-range-input>

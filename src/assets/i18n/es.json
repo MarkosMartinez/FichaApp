@@ -66,6 +66,7 @@
     },
     "ABSENCES": {
         "label_absence_history": "Historial de ausencias",
+        "column_user": "Usuario",
         "column_status": "Estado",
         "column_start_time": "Fecha inicio",
         "column_end_time": "Fecha fin",

@@ -66,6 +66,7 @@
     },
     "ABSENCES": {
       "label_absence_history": "Absentziaren historia",
+      "column_user": "Erabiltzailea",
       "column_status": "Egoera",
       "column_start_time": "Hasiera-data",
       "column_end_time": "Amaiera-data",

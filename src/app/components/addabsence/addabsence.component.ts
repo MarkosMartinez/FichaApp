@@ -42,6 +42,7 @@ export class AddabsenceComponent {
   type: any = "";
   notes = "";
   minDate: Date = new Date();
+  maxDate: Date = new Date('2038-01-18');
 
   isManager: boolean = false;
 

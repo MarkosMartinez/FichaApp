@@ -66,6 +66,7 @@
     },
     "ABSENCES": {
         "label_absence_history": "Absence history",
+        "column_user": "User",
         "column_status": "Status",
         "column_start_time": "Start date",
         "column_end_time": "End date",
