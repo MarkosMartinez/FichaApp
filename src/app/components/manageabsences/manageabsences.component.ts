@@ -44,7 +44,11 @@ export class ManageabsencesComponent {
         this.ausencias = resultado.data;
         // console.log(resultado);
       }else{
-        //TODO Mostrar mensaje de error y cambiar vista si no hay pendings
+        this.dialog.open(AlertComponent, {
+          height: '200px',
+          width: '400px',
+          data: {btn: 1, msg: this.translate.instant('MANAGE_ABSENCES.label_get_pending_error'), title: this.translate.instant('ALERT.label_error').toUpperCase()}
+        });
       }
       this.loading2 = false;
       this.loading = false;

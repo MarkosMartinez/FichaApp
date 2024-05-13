@@ -17,7 +17,9 @@
       "btn_punchout": "Irteera sinatu",
       "label_last_signings": "Azkenengo erregistroak",
       "label_no_signings": "Oraindik ez daude erregistrorik",
-      "current_time": "Uneko ordua"
+      "current_time": "Uneko ordua",
+      "label_error": "Errore bat gertatu da erregistroak lortzean. Saiatu berriro geroago",
+      "label_signinout_error": "Errore bat gertatu da srrera edo irteera sinatzean. Saiatu berriro geroago"
     },
     "USER_ROLE": {
       "manager": "Kudeatzailea",
@@ -27,7 +29,8 @@
       "id": "ID",
       "name": "Izena",
       "email": "Posta elektronikoa",
-      "role": "Rola"
+      "role": "Rola",
+      "error_loading": "Errore bat gertatu da erabiltzaileak eskuratzean. Saiatu berriro geroago"
     },
     "ADD_USER": {
       "email": "Posta elektronikoa",
@@ -57,7 +60,9 @@
       "confirm_new_password": "Pasahitza baieztatu",
       "btn_update": "Eguneratu",
       "updated_successfully_snack": "Erabiltzailea eguneratuta!",
-      "accept_snack": "Onartu"
+      "accept_snack": "Onartu",
+      "error_geting": "Errore bat gertatu da profila eskuratzean. Saiatu berriro geroago",
+      "error_updating": "Errore bat gertatu da profila eguneratzean. Saiatu berriro geroago"
     },
     "ABSENCES": {
       "label_absence_history": "Absentziaren historia",
@@ -75,6 +80,7 @@
       "label_past": "Iragana",
       "label_delete": "Ziur absentzia bertan behera utzi nahi duzula?",
       "label_error_delete": "Errore bat gertatu da absentzia ezabatzean. Saiatu berriro geroago",
+      "label_error": "Errore bat gertatu da absentziak lortzean. Saiatu berriro geroago",
       "successfully_deleted_snack": "Ondo kenduta!",
       "holiday_type": "Oporrak",
       "medical_type": "Medikua",
@@ -95,10 +101,11 @@
     },
     "MANAGE_ABSENCES": {
       "label_manage_absence_title": "Kudeatu beharreko ausentziak",
-      "label_no_manage_absences": "❌ | Ez kudeatzeko absentziarik",
+      "label_no_manage_absences": "❌ | Ez daude kudeatzeko absentziarik",
       "successfully_aproved": "Ondo onartu da absentzia",
       "successfully_rejected": "Absentzia behar bezala baztertu da",
-      "label_error": "Errore bat gertatu da absentzia onartzean/baztertzean. Saiatu berriro geroago "
+      "label_error": "Errore bat gertatu da absentzia onartzean/baztertzean. Saiatu berriro geroago",
+      "label_get_pending_error": "Errore bat gertatu da zain dauden ausentziak lortzean. Mesedez, saiatu berriro geroago"
     },
     "PAGE_NOT_FOUND": {
       "title": "404 ERROREA",
@@ -119,6 +126,9 @@
       "app_name_label": "Aplikazioaren izena",
       "btn_reset-db": "Berreskuratu DB",
       "db_reset_label": "Ziur Datu-Base berreskuratu nahi duzula? Ezarpen berriak ezabatu egingo dira eta ezin izango dituzu berriro berreskuratu!",
-      "db_reset_successfully": "Datu-basea ondo leheneratu da!"
+      "db_reset_successfully": "Datu-basea ondo leheneratu da!",
+      "lang_es": "Gaztelania",
+      "lang_en": "Ingelera",
+      "lang_eu": "Euskara"
     }
   }

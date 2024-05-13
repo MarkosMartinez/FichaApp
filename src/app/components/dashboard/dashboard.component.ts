@@ -4,6 +4,7 @@ import { AuthService } from '../../services/auth.service';
 import { TimeService } from '../../services/time.service';
 import { PunchinoutService } from '../../services/punchinout.service';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
 import { CookieService } from 'ngx-cookie-service';
 import { TranslateService, TranslateModule } from "@ngx-translate/core";
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -11,6 +12,7 @@ import { MatIcon } from '@angular/material/icon';
 import { MatButton } from '@angular/material/button';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { DatePipe } from '@angular/common';
+import { AlertComponent } from '../alert/alert.component';
 
 @Component({
     selector: 'app-dashboard',
@@ -29,7 +31,7 @@ export class DashboardComponent {
   errorTime: Date = new Date(0);
   loading: boolean = true;
 
-  constructor(private translate: TranslateService, private timeService: TimeService, private authService: AuthService, private punchinoutService: PunchinoutService, private _snackBar: MatSnackBar, private router: Router, private cookieService: CookieService){}
+  constructor(private translate: TranslateService, public dialog: MatDialog, private timeService: TimeService, private authService: AuthService, private punchinoutService: PunchinoutService, private _snackBar: MatSnackBar, private router: Router, private cookieService: CookieService){}
 
   ngOnInit(): void {
     this.authService.checkValidToken().subscribe(resultado =>{
@@ -80,7 +82,12 @@ export class DashboardComponent {
         this.loading = false;
         //console.log(resultado);
       }else{
-        //TODO Mensaje de error?
+        this.dialog.open(AlertComponent, {
+          height: '200px',
+          width: '400px',
+          data: {btn: 1, msg: this.translate.instant('DASHBOARD.label_error'), title: this.translate.instant('ALERT.label_error').toUpperCase()}
+        });
+        this.loading = false;
       }
     });
   }
@@ -107,7 +114,11 @@ export class DashboardComponent {
       if(resultado){
         this.obtenerRegistros(true);
       }else{
-        //TODO Mensaje de error?
+        this.dialog.open(AlertComponent, {
+          height: '200px',
+          width: '400px',
+          data: {btn: 1, msg: this.translate.instant('DASHBOARD.label_signinout_error'), title: this.translate.instant('ALERT.label_error').toUpperCase()}
+        });
       }
     });
   }

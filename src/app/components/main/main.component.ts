@@ -98,7 +98,7 @@ export class MainComponent {
         let dialogRef = this.dialog.open(AlertComponent, {
           height: '200px',
           width: '400px',
-          data: {btn: 2, msg: this.translate.instant('MAIN.error_logout'), title: "ERROR"}
+          data: {btn: 2, msg: this.translate.instant('MAIN.error_logout'), title: this.translate.instant('ALERT.label_error').toUpperCase()}
         });
         dialogRef.afterClosed().subscribe(result => {
          if (result == "Ok"){

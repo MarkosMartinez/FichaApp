@@ -12,6 +12,7 @@ import { MatTable, MatColumnDef, MatHeaderCellDef, MatHeaderCell, MatCellDef, Ma
 import { MatProgressBar } from '@angular/material/progress-bar';
 import { TitleCasePipe } from '@angular/common';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { AlertComponent } from '../alert/alert.component';
 
 interface Usuario {
   id: number;
@@ -62,7 +63,11 @@ export class UsersComponent {
         if(resultado.error == "Unauthorised"){
           this.mainComponent.cerrarSesion();
         }
-        //TODO Mostrar mensaje de error
+        this.dialog.open(AlertComponent, {
+          height: '200px',
+          width: '400px',
+          data: {btn: 1, msg: this.translate.instant('USERS.error_loading'), title: this.translate.instant('ALERT.label_error').toUpperCase()}
+        });
         this.loading = false;
       }
     });

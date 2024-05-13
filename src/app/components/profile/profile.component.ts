@@ -12,6 +12,8 @@ import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { FormsModule } from '@angular/forms';
 import { MatIcon } from '@angular/material/icon';
 import { CookieService } from 'ngx-cookie-service';
+import { MatDialog } from '@angular/material/dialog';
+import { AlertComponent } from '../alert/alert.component';
 
 @Component({
     selector: 'app-profile',
@@ -35,7 +37,7 @@ export class ProfileComponent {
   btnUpdate: boolean = true;
   hide: boolean = true;
 
-  constructor(private authService: AuthService, @Optional() public dialogRef: MatDialogRef<ProfileComponent>, @Optional() @Inject(MAT_DIALOG_DATA) public data: any, private cookieService: CookieService, private translate: TranslateService, private _snackBar: MatSnackBar, private profileService: ProfileService) { 
+  constructor(private authService: AuthService, public dialog: MatDialog, @Optional() public dialogRef: MatDialogRef<ProfileComponent>, @Optional() @Inject(MAT_DIALOG_DATA) public data: any, private cookieService: CookieService, private translate: TranslateService, private _snackBar: MatSnackBar, private profileService: ProfileService) { 
     this.id = data ? data.id : '';
    }
 
@@ -54,7 +56,11 @@ export class ProfileComponent {
         this.role = resultado.data.role;
         this.loading = false;
       }else{
-        //TODO Mostrar mensaje de error?
+        this.dialog.open(AlertComponent, {
+          height: '200px',
+          width: '400px',
+          data: {btn: 1, msg: this.translate.instant('PROFILE.error_geting'), title: this.translate.instant('ALERT.label_error').toUpperCase()}
+        });
         this.loading = false;
       }
     });
@@ -74,8 +80,12 @@ export class ProfileComponent {
             duration: 3 * 1000, // 3 Segundos
           });
         }else{
-          console.log("Error");
-          //TODO Mostrar mensaje de error?
+          // console.error("Error");
+          this.dialog.open(AlertComponent, {
+            height: '200px',
+            width: '400px',
+            data: {btn: 1, msg: this.translate.instant('PROFILE.error_updating'), title: this.translate.instant('ALERT.label_error').toUpperCase()}
+          });
         }
       });
     }else{
@@ -90,8 +100,12 @@ export class ProfileComponent {
             duration: 3 * 1000, // 3 Segundos
           });
         }else{
-          console.log("Error");
-          //TODO Mostrar mensaje de error?
+          // console.error("Error");
+          this.dialog.open(AlertComponent, {
+            height: '200px',
+            width: '400px',
+            data: {btn: 1, msg: this.translate.instant('PROFILE.error_updating'), title: this.translate.instant('ALERT.label_error').toUpperCase()}
+          });
         }
       });
     }

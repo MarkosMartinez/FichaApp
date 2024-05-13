@@ -17,7 +17,9 @@
         "btn_punchout": "Fichar la salida",
         "label_last_signings": "Ultimos fichajes",
         "label_no_signings": "No hay ningun fichaje todavia",
-        "current_time": "Hora actual"
+        "current_time": "Hora actual",
+        "label_error": "Error al obtener los registros, intentalo de nuevo mas tarde",
+        "label_signinout_error": "Error al fichar, intentalo de nuevo mas tarde"
     },
     "USER_ROLE": {
         "manager": "Gestor",
@@ -27,7 +29,8 @@
         "id": "Id",
         "name": "Nombre",
         "email": "Correo",
-        "role": "Rol"
+        "role": "Rol",
+        "error_loading": "Error al obtener los usuarios. Vuelve a intentarlo mas tarde"
     },
     "ADD_USER": {
         "email": "Correo",
@@ -57,7 +60,9 @@
         "confirm_new_password": "Confirmar contraseña",
         "btn_update": "Actualizar",
         "updated_successfully_snack": "Usuario actualizado!",
-        "accept_snack": "Aceptar"
+        "accept_snack": "Aceptar",
+        "error_geting": "Error al obtener el perfil. Vuelve a intentarlo mas tarde",
+        "error_updating": "Error actualizando el perfil. Vuelve a intentarlo mas tarde"
     },
     "ABSENCES": {
         "label_absence_history": "Historial de ausencias",
@@ -75,7 +80,7 @@
         "label_past": "Pasadas",
         "label_delete": "Estas seguro que quieres cancelar esa ausencia?",
         "label_error_delete": "Error al eliminar la ausencia. Intentalo de nuevo mas tarde",
-        "label_error": "Error alobtener las ausencias, intentalo de nuevo mas tarde",
+        "label_error": "Error al obtener las ausencias, intentalo de nuevo mas tarde",
         "successfully_deleted_snack": "Eliminado correctamente!",
         "holiday_type": "Vacaciones",
         "medical_type": "Medica",
@@ -99,7 +104,8 @@
         "label_no_manage_absences": "❌ | No hay ninguna ausencia para gestionar",
         "successfully_aproved": "Ausencia aprobada correctamente",
         "successfully_rejected": "Ausencia rechazada correctamente",
-        "label_error": "Error al aprobar/rechazar la ausencia. Vuelve a intentarlo mas tarde"
+        "label_error": "Error al aprobar/rechazar la ausencia. Vuelve a intentarlo mas tarde",
+        "label_get_pending_error": "Error al obtener las ausencias pendientes. Vueve a intentarlo mas tarde"
     },
     "PAGE_NOT_FOUND": {
         "title": "ERROR 404",
@@ -120,6 +126,9 @@
         "app_name_label": "Nombre de la aplicación",
         "btn_reset-db": "Restaurar DB",
         "db_reset_label": "Estas seguro que deseas restaurar la DB? Las nuevas configuraciones seran eliminadas y no podras volver a recuperarlas!",
-        "db_reset_successfully": "Base de datos restaurada correctamente!"
+        "db_reset_successfully": "Base de datos restaurada correctamente!",
+        "lang_es": "Español",
+        "lang_en": "Ingles",
+        "lang_eu": "Vasco"
     }
 }

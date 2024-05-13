@@ -6,7 +6,7 @@
     <mat-label>{{'CONFIG.lang_label' | translate}}</mat-label>
     <mat-select [(ngModel)]="idiomaSeleccionado">
       @for (idioma of idiomas; track idioma) {
-        <mat-option [value]=idioma>{{ idioma }}</mat-option>
+        <mat-option [value]=idioma>{{'CONFIG.lang_' + idioma | translate}}</mat-option>
       }
     </mat-select>
   </mat-form-field>

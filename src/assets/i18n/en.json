@@ -17,7 +17,9 @@
         "btn_punchout": "Punch Out",
         "label_last_signings": "Last signings",
         "label_no_signings": "There is no signing yet",
-        "current_time": "Current time"
+        "current_time": "Current time",
+        "label_error": "Error getting signings, try again later",
+        "label_signinout_error": "Error signing/out in, try again later"
     },
     "USER_ROLE": {
         "manager": "Manager",
@@ -27,7 +29,8 @@
         "id": "Id",
         "name": "Name",
         "email": "Email",
-        "role": "Role"
+        "role": "Role",
+        "error_loading": "Error getting users. Try again later"
     },
     "ADD_USER": {
         "email": "Email",
@@ -57,7 +60,9 @@
         "confirm_new_password": "Confirm password",
         "btn_update": "Update",
         "updated_successfully_snack": "User updated!",
-        "accept_snack": "Aceptar"
+        "accept_snack": "Aceptar",
+        "error_geting": "Error getting profile. Try again later",
+        "error_updating": "Error updating profile. Try again later"
     },
     "ABSENCES": {
         "label_absence_history": "Absence history",
@@ -75,7 +80,7 @@
         "label_past": "Past",
         "label_delete": "Are you sure you want to cancel that absence?",
         "label_error_delete": "Error deleting absence, try again later",
-        "label_error": "Error",
+        "label_error": "Error getting absences, try again later",
         "successfully_deleted_snack": "Deleted successfully!",
         "holiday_type": "Holiday",
         "medical_type": "Medical",
@@ -99,7 +104,8 @@
         "label_no_manage_absences": "❌ | There's no absence to manage",
         "successfully_aproved": "Absence successfully approved",
         "successfully_rejected": "Absence successfully rejected",
-        "label_error": "Error approving/rejecting absence. Please try again later"
+        "label_error": "Error approving/rejecting absence. Please try again later",
+        "label_get_pending_error": "Error obtaining pending absences. Please try again later"
       },
     "PAGE_NOT_FOUND": {
         "title": "ERROR 404",
@@ -108,7 +114,8 @@
     "ALERT": {
         "btn_ok": "Acept",
         "btn_cancel": "Cancel",
-        "label_warning": "Warning"
+        "label_warning": "Warning",
+        "label_error": "Error"
     },
     "CONFIG": {
         "lang_label": "App language",
@@ -119,6 +126,9 @@
         "app_name_label": "App Name",
         "btn_reset-db": "Restore DB",
         "db_reset_label": "Are you sure you want to restore the DB? The new configurations will be deleted and you will not be able to recover them again!",
-        "db_reset_successfully": "Database restored successfully!"
+        "db_reset_successfully": "Database restored successfully!",
+        "lang_es": "Spanish",
+        "lang_en": "English",
+        "lang_eu": "Basque"
     }
 }
