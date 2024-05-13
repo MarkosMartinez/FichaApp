@@ -40,8 +40,7 @@ export class MainComponent {
     this.seleccion = Number(localStorage.getItem("seleccion"));
     this.checkSesion();
     this.detectMobileDevice();
-    if(this.isManager())
-      this.getAbsenceBadge();
+    this.getAbsenceBadge();
   }
 
   checkSesion(){
@@ -81,8 +80,7 @@ export class MainComponent {
   }
 
   isManager(): boolean {
-    if(this.cookieService.get('role') == "manager") return true;
-    return false;
+    return this.cookieService.get('role') == "manager";
   }
 
   getAbsenceBadge(){

@@ -8,6 +8,7 @@ import { MatIcon } from '@angular/material/icon';
 import { MatInput } from '@angular/material/input';
 import { MatFormField, MatLabel, MatSuffix } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
+import { MainComponent } from '../main/main.component';
 
 @Component({
     selector: 'app-login',
@@ -26,7 +27,7 @@ export class LoginComponent {
   config: any;
 
 
-  constructor(private authService: AuthService, private router: Router){
+  constructor(private authService: AuthService, private router: Router, private mainComponent: MainComponent){
 
   }
 
@@ -53,6 +54,7 @@ export class LoginComponent {
     this.btnLogin = false;
     this.authService.iniciarSesion(this.email, this.password).subscribe(resultado =>{
       if(resultado){
+        this.mainComponent.getAbsenceBadge();
         this.router.navigate(['dashboard']);
       }else{
         //TODO Mostrar mensaje de error
