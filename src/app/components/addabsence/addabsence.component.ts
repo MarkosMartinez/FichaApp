@@ -77,17 +77,16 @@ export class AddabsenceComponent {
     this.absencesService.addAbsence(this.type, (this.start_time as Date).toLocaleDateString('zh-Hans-CN'), (this.end_time as Date).toLocaleDateString('zh-Hans-CN'), this.notes).subscribe(resultado =>{
 
         console.log(resultado);
-        if(resultado.sucess){
+        if(resultado.success){
           this._snackBar.open(this.translate.instant('ADD_ABSENCE.successfully_created_snack'), this.translate.instant('CONFIG.accept_snack'), {
             duration: 3 * 1000, // 3 Segundos
           });
-
+          this.dialogRef.close("Success");
         }else{
           this._snackBar.open(this.translate.instant('ADD_ABSENCE.error_creating_snack'), this.translate.instant('CONFIG.accept_snack'), {
             duration: 3 * 1000, // 3 Segundos
           });
         }
-        this.dialogRef.close("Success");
       });
 
     }else{

@@ -38,9 +38,23 @@ export class MainComponent {
   ngOnInit(): void {
     this.aplicarConfig();  
     this.seleccion = Number(localStorage.getItem("seleccion"));
+    this.checkSesion();
     this.detectMobileDevice();
     if(this.isManager())
       this.getAbsenceBadge();
+  }
+
+  checkSesion(){
+    this.authService.checkValidToken().subscribe(resultado =>{
+      if(!resultado){
+        localStorage.setItem("seleccion", "0");
+        this.cookieService.delete('token');
+        this.cookieService.delete('rol');
+        this.cookieService.delete('name');
+        localStorage.removeItem("seleccion");
+        this.router.navigate(['login']);
+      }
+    });
   }
 
   detectMobileDevice() {

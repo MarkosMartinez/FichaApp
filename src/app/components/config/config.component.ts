@@ -90,7 +90,7 @@ export class ConfigComponent {
           });
         }
       setTimeout(() => {
-        localStorage.setItem("seleccion", String(0));
+        localStorage.setItem("seleccion", '0');
         this.cookieService.delete('token');
         this.cookieService.delete('name');
         this.cookieService.delete('role');

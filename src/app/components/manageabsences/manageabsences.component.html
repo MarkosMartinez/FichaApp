@@ -45,9 +45,8 @@
               <tr mat-row *matRowDef="let row; columns: columsPendiente;" class="table-row"></tr>
           </table>          
   
-  <button mat-fab color="primary" id="btnRefresh" [disabled]="loading || loading2" (click)="getPendingAbsences()"><mat-icon>refresh</mat-icon></button>
-  
         } @else {
           <h2><i>{{'MANAGE_ABSENCES.label_no_manage_absences' | translate}}.</i></h2>
         }
+        <button mat-fab color="primary" id="btnRefresh" [disabled]="loading || loading2" (click)="getPendingAbsences()"><mat-icon>refresh</mat-icon></button>
   }

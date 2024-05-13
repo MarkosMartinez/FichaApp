@@ -1,11 +1,8 @@
 import { Component } from '@angular/core';
 
-import { AuthService } from '../../services/auth.service';
 import { TimeService } from '../../services/time.service';
 import { PunchinoutService } from '../../services/punchinout.service';
-import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { CookieService } from 'ngx-cookie-service';
 import { TranslateService, TranslateModule } from "@ngx-translate/core";
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatIcon } from '@angular/material/icon';
@@ -26,26 +23,14 @@ export class DashboardComponent {
   registros = [];
   modoEntrada: boolean = true;
   ficharHabilitado: boolean = false;
-  userName = '';
   serverTime: Date = new Date(0);
   errorTime: Date = new Date(0);
   loading: boolean = true;
 
-  constructor(private translate: TranslateService, public dialog: MatDialog, private timeService: TimeService, private authService: AuthService, private punchinoutService: PunchinoutService, private _snackBar: MatSnackBar, private router: Router, private cookieService: CookieService){}
+  constructor(private translate: TranslateService, public dialog: MatDialog, private timeService: TimeService, private punchinoutService: PunchinoutService, private _snackBar: MatSnackBar){}
 
   ngOnInit(): void {
-    this.authService.checkValidToken().subscribe(resultado =>{
-      if(!resultado){
-        localStorage.setItem("seleccion", "0");
-        this.cookieService.delete('token');
-        this.cookieService.delete('rol');
-        this.cookieService.delete('name');
-        localStorage.removeItem("seleccion");
-        this.router.navigate(['login']);
-      }
-    });
     this.obtenerHora();
-    this.userName = this.cookieService.get('name');
     this.obtenerRegistros();
   }
 

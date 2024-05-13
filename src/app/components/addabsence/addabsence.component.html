@@ -18,8 +18,8 @@
         <h4>{{'ADD_ABSENCE.label_date_range' | translate}}</h4>
         <mat-form-field>
             <mat-date-range-input [dateFilter]="filtroFechas" [min]="minDate" [rangePicker]="rangePicker">
-                <input matStartDate placeholder="{{'ADD_ABSENCE.start_time_label' | translate}}" [(ngModel)]="start_time" [required]="true" required>
-                <input matEndDate placeholder="{{'ADD_ABSENCE.end_time_label' | translate}}" [(ngModel)]="end_time" [required]="true" required>
+                <input matStartDate placeholder="{{'ADD_ABSENCE.label_start_time' | translate}}" [(ngModel)]="start_time" [required]="true" required>
+                <input matEndDate placeholder="{{'ADD_ABSENCE.label_end_time' | translate}}" [(ngModel)]="end_time" [required]="true" required>
               </mat-date-range-input>
               <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
               <mat-datepicker-toggle matIconSuffix [for]="rangePicker"></mat-datepicker-toggle>
