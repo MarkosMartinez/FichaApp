@@ -107,7 +107,7 @@
         "successfully_aproved": "Ausencia aprobada correctamente",
         "successfully_rejected": "Ausencia rechazada correctamente",
         "label_error": "Error al aprobar/rechazar la ausencia. Vuelve a intentarlo mas tarde",
-        "label_get_pending_error": "Error al obtener las ausencias pendientes. Vueve a intentarlo mas tarde"
+        "label_get_pending_error": "Error al obtener las ausencias pendientes. Vuelve a intentarlo mas tarde"
     },
     "PAGE_NOT_FOUND": {
         "title": "ERROR 404",

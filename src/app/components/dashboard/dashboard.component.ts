@@ -10,6 +10,7 @@ import { MatButton } from '@angular/material/button';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { DatePipe } from '@angular/common';
 import { AlertComponent } from '../alert/alert.component';
+import { timeout } from 'rxjs';
 
 @Component({
     selector: 'app-dashboard',
@@ -61,6 +62,9 @@ export class DashboardComponent {
           this.checkEntradaSalida(true);
         else
           this.checkEntradaSalida();
+        setTimeout(() => {
+          this.cargarBarra();
+        }, 10);
         }else{
           this.ficharHabilitado = true;
         }
@@ -77,6 +81,40 @@ export class DashboardComponent {
     });
   }
 
+  cargarBarra(){
+    let start: Date = new Date(this.registros[0]["enter_time"]);
+    let end: Date = this.registros[0]["exit_time"] != null ? new Date(this.registros[0]["exit_time"]) : new Date();
+    if(start.getDate() < new Date().getDate()) start.setHours(0);
+    let startHour = start.getHours();
+    let endHour = end.getHours();
+    // console.log("Start/end: " + startHour + " / " + endHour);
+    let barra;
+
+    for (let i = startHour; i < endHour; i++) {
+      barra = document.getElementById("barra_" + i);
+      if(barra){
+        barra.style.backgroundColor  = "green";
+      } 
+    }
+    if(startHour === endHour){
+      barra = document.getElementById("barra_" + startHour);
+      if(barra){
+        barra.style.backgroundColor  = "green";
+      } 
+    }
+  }
+
+  resetearBarra(){
+    let barra;
+    for (let i = 0; i < 24; i++) {
+      barra = document.getElementById("barra_" + i);
+      if(barra){
+        barra.style.backgroundColor  = "darkslategray";
+      } 
+    }
+    return true;
+  }
+
   checkEntradaSalida(fichado: boolean = false){
     if(this.registros[0]["exit_time"] != null)
       this.modoEntrada = true;
@@ -88,7 +126,7 @@ export class DashboardComponent {
       this._snackBar.open(message, this.translate.instant('CONFIG.accept_snack'), {
         duration: 3 * 1000, // 3 Segundos
       });
-
+      if(this.resetearBarra()) this.cargarBarra();
     }
     //console.log("Modo entrada: " + this.modoEntrada);
   }

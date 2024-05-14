@@ -93,7 +93,7 @@ export class UsersComponent {
 
     let dialogRef = this.dialog.open(ProfileComponent, {
       height: this.isMobile ? '48%' : '360px',
-      width: this.isMobile ? '80%' : '480px',
+      width: this.isMobile ? '80%' : '500px',
       data: {
         id: id
       }

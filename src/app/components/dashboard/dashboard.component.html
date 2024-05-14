@@ -8,15 +8,50 @@
   }
 </div>
 
-<button mat-flat-button color="primary" [disabled]="!ficharHabilitado" (click)="fichar()">
-  @if(modoEntrada){
-    {{'DASHBOARD.btn_punchin' | translate}}
-    }@else{
-    {{'DASHBOARD.btn_punchout' | translate}}
-  }
-</button>
+<div>
+  <h1>Fichaje actual:</h1>
+  <div id="barra-progreso">
+    <div class="barra" id="barra_0"></div>
+    <div class="barra" id="barra_1"></div>
+    <div class="barra" id="barra_2"></div>
+    <div class="barra" id="barra_3"></div>
+    <div class="barra" id="barra_4"></div>
+    <div class="barra" id="barra_5"></div>
+    <div class="barra" id="barra_6"></div>
+    <div class="barra" id="barra_7"></div>
+    <div class="barra" id="barra_8"></div>
+    <div class="barra" id="barra_9"></div>
+    <div class="barra" id="barra_10"></div>
+    <div class="barra" id="barra_11"></div>
+    <div class="barra" id="barra_12"></div>
+    <div class="barra" id="barra_13"></div>
+    <div class="barra" id="barra_14"></div>
+    <div class="barra" id="barra_15"></div>
+    <div class="barra" id="barra_16"></div>
+    <div class="barra" id="barra_17"></div>
+    <div class="barra" id="barra_18"></div>
+    <div class="barra" id="barra_19"></div>
+    <div class="barra" id="barra_20"></div>
+    <div class="barra" id="barra_21"></div>
+    <div class="barra" id="barra_22"></div>
+    <div class="barra" id="barra_23"></div>
+  </div>
 
-<div> <!--TODO Poner icono cargando?-->
+  <div style="display: flex; gap: 10px;">
+    <p>00:00</p>
+    <p>02:00</p>
+    <p>04:00</p>
+    <p>06:00</p>
+    <p>08:00</p>
+    <p>10:00</p>
+    <p>12:00</p>
+    <p>14:00</p>
+    <p>16:00</p>
+    <p>18:00</p>
+    <p>20:00</p>
+    <p>22:00</p>
+  </div>
+
   <h2>{{'DASHBOARD.label_last_signings' | translate}}:</h2>
   <ul id="lista_registros">
     @for (registro of registros; track registro) {
@@ -28,5 +63,15 @@
       <li>{{'DASHBOARD.label_no_signings' | translate}}</li>
     }
   </ul>
+</div>
+
+<div style="display: flex; justify-content: center; margin-top: 20px;">
+  <button mat-flat-button color="primary" [disabled]="!ficharHabilitado" (click)="fichar()">
+    @if(modoEntrada){
+      {{'DASHBOARD.btn_punchin' | translate}}
+      }@else{
+      {{'DASHBOARD.btn_punchout' | translate}}
+    }
+  </button>
 </div>
 }

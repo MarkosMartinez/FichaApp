@@ -16,9 +16,9 @@
     padding-right: 5px;
 }
 
-#input-mitad-derecha{
+/* #input-mitad-derecha{
     padding-left: 5px;
-}
+} */
 
 #btnRefresh{
     position: absolute;
@@ -32,6 +32,10 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
+}
+
+#titulo{
+    margin-left: 10px;
 }
 
 @media screen and (max-width: 600px) {
@@ -65,9 +69,4 @@
     .mat-form-field {
         width: 100%;
     }
-
-    #titulo{
-        margin-left: 10px;
-    }
-    
 }

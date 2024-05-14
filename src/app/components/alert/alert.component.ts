@@ -31,7 +31,7 @@ export class AlertComponent {
    };
 
    ok(){
-    console.log("OK pulsado");
+    // console.log("OK pulsado");
     if(this.btn == 1)
       this.dialogRef.close("Ok");
     else

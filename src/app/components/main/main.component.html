@@ -4,7 +4,10 @@
         <button mat-icon-button (click)="drawer.toggle()" aria-label="Ocultar / Mostrar menu lateral">
           <mat-icon>menu</mat-icon>
         </button>
-        <span>{{ app_name }}</span>
+        <div style="align-items: center; display: flex;">
+          <img src="assets/img/icon.svg" style="height: 50px;" id="logo" height="100px">
+          <span style="margin-left: 10px;">{{ app_name }}</span>
+        </div>
         <span class="example-spacer"></span>
         <button mat-icon-button class="example-icon" aria-label="Cerrar sesion" (click)="cerrarSesion()">
           <mat-icon>logout</mat-icon>

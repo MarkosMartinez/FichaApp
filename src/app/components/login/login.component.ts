@@ -57,6 +57,8 @@ export class LoginComponent {
     this.authService.iniciarSesion(this.email, this.password).subscribe(resultado =>{
       if(resultado){
         this.mainComponent.getAbsenceBadge();
+        this.mainComponent.seleccion = 0;
+        localStorage.setItem("seleccion", "0");
         this.router.navigate(['dashboard']);
       }else{
         this.dialog.open(AlertComponent, {

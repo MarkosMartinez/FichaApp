@@ -1,5 +1,6 @@
 <div id="loginTitle">
-  <h1>{{ title }}</h1>
+  <img src="assets/img/icon.svg" id="logo" height="100px">
+  <h1 style="font-size: 4em; margin-left: 15px"> {{ title }}</h1>
 </div>
 <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
   <form (ngSubmit)="iniciarSesion()" #formulario="ngForm">
@@ -20,6 +21,6 @@
         </button>
       </mat-form-field>
     </div>
-    <button mat-flat-button color="primary" type="submit" (click)="iniciarSesion()" [disabled]="formulario.invalid || !btnLogin">{{'LOGIN.btn_login' | translate}}</button>
+    <button mat-flat-button color="primary" type="submit" style="width: 250px;" (click)="iniciarSesion()" [disabled]="formulario.invalid || !btnLogin">{{'LOGIN.btn_login' | translate}}</button>
   </form>
 </div>

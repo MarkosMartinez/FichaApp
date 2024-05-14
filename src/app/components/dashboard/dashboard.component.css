@@ -1,13 +1,22 @@
-/* #lista_registros {
+#lista_registros {
     list-style-type: none;
-} */
+    columns: 2;
+}
+
+li{
+    display: flex;
+    align-items: center;
+    padding-block: 5px;
+}
 
 .enter_time_icon{
     color: green;
+    margin-right: 5px;
 }
 
 .exit_time_icon{
     color: red;
+    margin-right: 5px;
 }
 
 /* #titulo{
@@ -27,4 +36,22 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
+}
+
+#barra-progreso{
+    /* border-radius: 10px; */
+    display: flex;
+}
+.barra{
+    height: 10px;
+    width: 25px;
+    background-color: darkslategray;
+}
+
+#barra_0{
+    border-radius: 10px 0px 0px 10px;
+}
+
+#barra_23{
+    border-radius: 0px 10px 10px 0px;
+}
