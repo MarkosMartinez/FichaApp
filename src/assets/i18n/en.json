@@ -3,7 +3,8 @@
         "label_login": "Login",
         "email": "Email",
         "password": "Password",
-        "btn_login": "Sign in"
+        "btn_login": "Sign in",
+        "label_invalid_credentials_error": "The credentials are not valid!"
     },
     "MAIN": {
         "error_logout": "Error when trying to log out. Do you want to continue anyway?"

@@ -3,7 +3,8 @@
       "label_login": "Saioa hasi",
       "email": "Posta elektronikoa",
       "password": "Pasahitza",
-      "btn_login": "Hasi saioa"
+      "btn_login": "Hasi saioa",
+      "label_invalid_credentials_error": "Kredentzialak ez dira baliozkoak!"
     },
     "MAIN": {
       "error_logout": "Errore bat gertatu da saioa amaitzen saiatzean. Hala ere jarraitu nahi duzu?"

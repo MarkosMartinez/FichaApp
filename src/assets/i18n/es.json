@@ -3,7 +3,8 @@
         "label_login": "Inicio de Sesión",
         "email": "Correo",
         "password": "Contraseña",
-        "btn_login": "Acceder"
+        "btn_login": "Acceder",
+        "label_invalid_credentials_error": "Las credenciales no son válidas!"
     },
     "MAIN": {
         "error_logout": "Error al intentar cerrar la sesión. Quieres continuar de todas maneras?"

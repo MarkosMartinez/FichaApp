@@ -2,13 +2,15 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../../services/auth.service';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { MatIconButton, MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatInput } from '@angular/material/input';
 import { MatFormField, MatLabel, MatSuffix } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MainComponent } from '../main/main.component';
+import { MatDialog } from '@angular/material/dialog';
+import { AlertComponent } from '../alert/alert.component';
 
 @Component({
     selector: 'app-login',
@@ -27,7 +29,7 @@ export class LoginComponent {
   config: any;
 
 
-  constructor(private authService: AuthService, private router: Router, private mainComponent: MainComponent){
+  constructor(private authService: AuthService, private translate: TranslateService, public dialog: MatDialog, private router: Router, private mainComponent: MainComponent){
 
   }
 
@@ -57,7 +59,11 @@ export class LoginComponent {
         this.mainComponent.getAbsenceBadge();
         this.router.navigate(['dashboard']);
       }else{
-        //TODO Mostrar mensaje de error
+        this.dialog.open(AlertComponent, {
+          height: '200px',
+          width: '400px',
+          data: {btn: 1, msg: this.translate.instant('LOGIN.label_invalid_credentials_error'), title: this.translate.instant('ALERT.label_error').toUpperCase()}
+        });
         this.btnLogin = true;
       }
     });
