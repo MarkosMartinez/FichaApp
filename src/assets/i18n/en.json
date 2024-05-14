@@ -16,6 +16,7 @@
         "btn_punchinout": "Punch In/Out",
         "btn_punchin": "Punch In",
         "btn_punchout": "Punch Out",
+        "label_actual_signing": "Current signings",
         "label_last_signings": "Last signings",
         "label_no_signings": "There is no signing yet",
         "current_time": "Current time",

@@ -74,7 +74,6 @@ export class UsersComponent {
   }
 
   addUser(){
-    // TODO Mejorar la vista en móviles
     let dialogRef = this.dialog.open(AdduserComponent, {
       height: this.isMobile ? '60%' : '360px',
       width: this.isMobile ? '95%' : '540px',

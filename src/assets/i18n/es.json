@@ -16,6 +16,7 @@
         "btn_punchinout": "Fichar",
         "btn_punchin": "Fichar la entrada",
         "btn_punchout": "Fichar la salida",
+        "label_actual_signing": "Fichaje actual",
         "label_last_signings": "Ultimos fichajes",
         "label_no_signings": "No hay ningun fichaje todavia",
         "current_time": "Hora actual",
