@@ -1,4 +1,4 @@
-import { HttpLoaderFactory } from './app/app.module';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { importProvidersFrom } from '@angular/core';
 import { AppComponent } from './app/components/app/app.component';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -8,6 +8,9 @@ import { AppRoutingModule } from './app/app-routing.module';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http);
+  }
 
 bootstrapApplication(AppComponent, {
     providers: [
