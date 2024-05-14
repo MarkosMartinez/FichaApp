@@ -1,0 +1,58 @@
+@if (loading && (id == '' || !id)) {
+    <mat-progress-spinner mode="indeterminate" class="loading-spinner"></mat-progress-spinner>
+    
+}@else{
+@if (loading){
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+}
+<h1 id="titulo">{{'PROFILE.edit_profile_lbl' | translate}}</h1>
+<form #formulario="ngForm" fxLayout="column">
+    <div>
+        <mat-form-field appearance="outline" class="input-completo">
+            <mat-label>{{'PROFILE.name' | translate}}</mat-label>
+            <input matInput required type="text" name="nombre" [(ngModel)]="name">
+            <mat-icon matSuffix>mail</mat-icon>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="outline" class="input-completo">
+            <mat-label>{{'PROFILE.email' | translate}}</mat-label>
+            <input matInput required type="email" name="correo" [(ngModel)]="email">
+            <mat-icon matSuffix>badge</mat-icon>
+        </mat-form-field>
+    </div>
+    @if(id == ''){
+    <div>
+        <mat-form-field appearance="outline" class="input-completo">
+            <mat-label>{{'PROFILE.password' | translate}}</mat-label>
+            <input matInput required type="password" name="contrasena" [type]="hide ? 'password' : 'text'" [(ngModel)]="password">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Ocultar contraseña'" [attr.aria-pressed]="hide" class="btnOjo">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>
+    </div>
+    }
+    <div>
+        <mat-form-field appearance="outline" fxFlex="50%" id="input-mitad-izquierda">
+            <mat-label>{{'PROFILE.new_password' | translate}}</mat-label>
+            <input matInput type="password" name="nueva_contrasena" [(ngModel)]="new_password" [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Ocultar contraseña'" [attr.aria-pressed]="hide" class="btnOjo">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>
+        <mat-form-field appearance="outline" fxFlex="50%" id="input-mitad-derecha">
+            <mat-label>{{'PROFILE.confirm_new_password' | translate}}</mat-label>
+            <input matInput type="password" name="confirmar_nueva_contrasena" [(ngModel)]="c_new_password" [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Ocultar contraseña'" [attr.aria-pressed]="hide" class="btnOjo">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>
+    </div>
+    <div id="btnActualizar">
+        <button mat-flat-button color="primary" type="submit" (click)="actualizarPerfil()" [disabled]="formulario.invalid || !btnUpdate || new_password != c_new_password">{{'PROFILE.btn_update' | translate}}</button>
+    </div>
+</form>
+@if(id == ''){
+<button mat-fab color="primary" id="btnRefresh" [disabled]="loading" (click)="obtenerPerfil()"><mat-icon>refresh</mat-icon></button>
+}
+}

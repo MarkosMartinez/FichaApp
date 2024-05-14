@@ -3,7 +3,8 @@
         "label_login": "Login",
         "email": "Email",
         "password": "Password",
-        "btn_login": "Sign in"
+        "btn_login": "Sign in",
+        "label_invalid_credentials_error": "The credentials are not valid!"
     },
     "MAIN": {
         "error_logout": "Error when trying to log out. Do you want to continue anyway?"
@@ -17,7 +18,9 @@
         "btn_punchout": "Punch Out",
         "label_last_signings": "Last signings",
         "label_no_signings": "There is no signing yet",
-        "current_time": "Current time"
+        "current_time": "Current time",
+        "label_error": "Error getting signings, try again later",
+        "label_signinout_error": "Error signing/out in, try again later"
     },
     "USER_ROLE": {
         "manager": "Manager",
@@ -27,7 +30,8 @@
         "id": "Id",
         "name": "Name",
         "email": "Email",
-        "role": "Role"
+        "role": "Role",
+        "error_loading": "Error getting users. Try again later"
     },
     "ADD_USER": {
         "email": "Email",
@@ -57,15 +61,63 @@
         "confirm_new_password": "Confirm password",
         "btn_update": "Update",
         "updated_successfully_snack": "User updated!",
-        "accept_snack": "Aceptar"
+        "accept_snack": "Aceptar",
+        "error_geting": "Error getting profile. Try again later",
+        "error_updating": "Error updating profile. Try again later"
     },
+    "ABSENCES": {
+        "label_absence_history": "Absence history",
+        "column_user": "User",
+        "column_status": "Status",
+        "column_start_time": "Start date",
+        "column_end_time": "End date",
+        "column_type": "Type",
+        "column_notes": "Notes",
+        "status_pending": "Pending",
+        "status_approved": "Approved",
+        "status_denied": "Denied",
+        "label_pending": "Pending",
+        "label_approved": "Approved",
+        "label_denied": "Denied",
+        "label_past": "Past",
+        "label_delete": "Are you sure you want to cancel that absence?",
+        "label_error_delete": "Error deleting absence, try again later",
+        "label_error": "Error getting absences, try again later",
+        "successfully_deleted_snack": "Deleted successfully!",
+        "holiday_type": "Holiday",
+        "medical_type": "Medical",
+        "other_type": "Other"
+      },
+    "ADD_ABSENCE": {
+        "successfully_created_snack": "Created correctly!",
+        "error_creating_snack": "Error when trying to create the absence!",
+        "error_values_creating_snack": "Error when trying to create the absence. Check the data and try again!",
+        "label_absence_type": "Select the type of absence",
+        "label_date_range": "Select the date range",
+        "btn_return": "Return",
+        "btn_next": "Next",
+        "label_notes": "Notes",
+        "label_write_a_note": "Write a Note (optional)",
+        "label_start_time": "Start Time",
+        "label_end_time": "End Time"
+    },
+    "MANAGE_ABSENCES": {
+        "label_manage_absence_title": "Absences to manage",
+        "label_no_manage_absences": "❌ | There's no absence to manage",
+        "successfully_aproved": "Absence successfully approved",
+        "successfully_rejected": "Absence successfully rejected",
+        "label_error": "Error approving/rejecting absence. Please try again later",
+        "label_get_pending_error": "Error obtaining pending absences. Please try again later"
+      },
     "PAGE_NOT_FOUND": {
         "title": "ERROR 404",
-        "label": "Oops, we couldn't find that page."
+        "label": "Oops, we couldn't find that page"
     },
     "ALERT": {
         "btn_ok": "Acept",
-        "btn_cancel": "Cancel"
+        "btn_cancel": "Cancel",
+        "label_warning": "Warning",
+        "label_error": "Error"
     },
     "CONFIG": {
         "lang_label": "App language",
@@ -73,6 +125,12 @@
         "config_updated_error_snack": "Error updating config",
         "accept_snack": "Accept",
         "update_label": "Update",
-        "app_name_label": "App Name"
+        "app_name_label": "App Name",
+        "btn_reset-db": "Restore DB",
+        "db_reset_label": "Are you sure you want to restore the DB? The new configurations will be deleted and you will not be able to recover them again!",
+        "db_reset_successfully": "Database restored successfully!",
+        "lang_es": "Spanish",
+        "lang_en": "English",
+        "lang_eu": "Basque"
     }
 }

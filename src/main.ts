@@ -1,6 +1,6 @@
 import { HttpLoaderFactory } from './app/app.module';
 import { importProvidersFrom } from '@angular/core';
-import { AppComponent } from './app/component/app/app.component';
+import { AppComponent } from './app/components/app/app.component';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { withInterceptorsFromDi, provideHttpClient, HttpClient } from '@angular/common/http';

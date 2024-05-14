@@ -1,0 +1,136 @@
+{
+    "LOGIN": {
+      "label_login": "Saioa hasi",
+      "email": "Posta elektronikoa",
+      "password": "Pasahitza",
+      "btn_login": "Hasi saioa",
+      "label_invalid_credentials_error": "Kredentzialak ez dira baliozkoak!"
+    },
+    "MAIN": {
+      "error_logout": "Errore bat gertatu da saioa amaitzen saiatzean. Hala ere jarraitu nahi duzu?"
+    },
+    "DASHBOARD": {
+      "punchinout_successfully": "Sarra/Irteera sinatuta",
+      "punchin_successfully": "Sarrera sinatuta",
+      "punchout_successfully": "Irteera sinatuta",
+      "btn_punchinout": "Sarrara/Irteera sinatu",
+      "btn_punchin": "Sarrera sinatu",
+      "btn_punchout": "Irteera sinatu",
+      "label_last_signings": "Azkenengo erregistroak",
+      "label_no_signings": "Oraindik ez daude erregistrorik",
+      "current_time": "Uneko ordua",
+      "label_error": "Errore bat gertatu da erregistroak lortzean. Saiatu berriro geroago",
+      "label_signinout_error": "Errore bat gertatu da srrera edo irteera sinatzean. Saiatu berriro geroago"
+    },
+    "USER_ROLE": {
+      "manager": "Kudeatzailea",
+      "employee": "Langilea"
+    },
+    "USERS": {
+      "id": "ID",
+      "name": "Izena",
+      "email": "Posta elektronikoa",
+      "role": "Rola",
+      "error_loading": "Errore bat gertatu da erabiltzaileak eskuratzean. Saiatu berriro geroago"
+    },
+    "ADD_USER": {
+      "email": "Posta elektronikoa",
+      "name": "Izena",
+      "password": "Pasahitza",
+      "confirm_password": "Pasahitza baieztatu",
+      "role": "Rola",
+      "btn_add": "Gehitu",
+      "error_required_email": "Posta elektroniko bat idatzi behar duzu",
+      "error_invalid_email": "Ez da baliozko posta elektronikoa",
+      "error_required_password": "Pasahitz bat sartu behar duzu",
+      "error_invalid_password": "Pasahitzak 4 karaktere izan behar ditu gutxienez",
+      "error_required_confirm_password": "Pasahitza berretsi behar duzu",
+      "error_invalid_confirm_password": "Pasahitzaren berrespenak gutxienez 4 karaktere izan behar ditu",
+      "error_different_password": "Pasahitzaren berrespena ez dator bat",
+      "error_required_name": "Izen bat idatzi behar duzu",
+      "error_invalid_name": "Izenak gutxienez 2 karaktere izan behar ditu",
+      "error_required_role": "Rol bat hautatu behar duzu",
+      "error_msg": "Errore bat gertatu da erabiltzailea sortzean, egiaztatu datuak zuzenak direla"
+    },
+    "PROFILE": {
+      "edit_profile_lbl": "Editatu profila",
+      "email": "Posta elektronikoa",
+      "name": "Izena",
+      "password": "Pasahitza",
+      "new_password": "Pasahitz berria",
+      "confirm_new_password": "Pasahitza baieztatu",
+      "btn_update": "Eguneratu",
+      "updated_successfully_snack": "Erabiltzailea eguneratuta!",
+      "accept_snack": "Onartu",
+      "error_geting": "Errore bat gertatu da profila eskuratzean. Saiatu berriro geroago",
+      "error_updating": "Errore bat gertatu da profila eguneratzean. Saiatu berriro geroago"
+    },
+    "ABSENCES": {
+      "label_absence_history": "Absentziaren historia",
+      "column_user": "Erabiltzailea",
+      "column_status": "Egoera",
+      "column_start_time": "Hasiera-data",
+      "column_end_time": "Amaiera-data",
+      "column_type": "Mota",
+      "column_notes": "Kalifikazioak",
+      "status_pending": "Zain",
+      "status_approved": "Onartua",
+      "status_denied": "Ukatua",
+      "label_pending": "Zain",
+      "label_approved": "Onartuak",
+      "label_denied": "Ukatuak",
+      "label_past": "Iragana",
+      "label_delete": "Ziur absentzia bertan behera utzi nahi duzula?",
+      "label_error_delete": "Errore bat gertatu da absentzia ezabatzean. Saiatu berriro geroago",
+      "label_error": "Errore bat gertatu da absentziak lortzean. Saiatu berriro geroago",
+      "successfully_deleted_snack": "Ondo kenduta!",
+      "holiday_type": "Oporrak",
+      "medical_type": "Medikua",
+      "other_type": "Bestelakoak"
+    },
+    "ADD_ABSENCE": {
+        "successfully_created_snack": "Ondo sortua!",
+        "error_creating_snack": "Errore bat gertatu da absentzia sortzen saiatzean!",
+        "error_values_creating_snack": "Errore bat gertatu da absentzia sortzen saiatzean. Egiaztatu datuak eta saiatu berriro!",
+        "label_absence_type": "Aukeratu absentzia mota",
+        "label_date_range": "Hautatu data-tartea",
+        "btn_return": "Itzuli",
+        "btn_next": "Jarraitu",
+        "label_notes": "Oharrak",
+        "label_write_a_note": "Idatzi ohar bat (aukerakoa)",
+        "label_start_time": "Hasiera Data",
+        "label_end_time": "Amaiera Data"
+    },
+    "MANAGE_ABSENCES": {
+      "label_manage_absence_title": "Kudeatu beharreko ausentziak",
+      "label_no_manage_absences": "❌ | Ez daude kudeatzeko absentziarik",
+      "successfully_aproved": "Ondo onartu da absentzia",
+      "successfully_rejected": "Absentzia behar bezala baztertu da",
+      "label_error": "Errore bat gertatu da absentzia onartzean/baztertzean. Saiatu berriro geroago",
+      "label_get_pending_error": "Errore bat gertatu da zain dauden ausentziak lortzean. Mesedez, saiatu berriro geroago"
+    },
+    "PAGE_NOT_FOUND": {
+      "title": "404 ERROREA",
+      "label": "Ezin izan dugu bilatzen ari zaren orria aurkitu"
+    },
+    "ALERT": {
+      "btn_ok": "Onartu",
+      "btn_cancel": "Utzi",
+      "label_warning": "Abisua",
+      "label_error": "Akatsa"
+    },
+    "CONFIG": {
+      "lang_label": "Aplikazio-hizkuntza",
+      "config_updated_snack": "Ezarpenak eguneratuak",
+      "config_updated_error_snack": "Errore bat gertatu da ezarpenak eguneratzean",
+      "accept_snack": "Onartu",
+      "update_label": "Eguneratu",
+      "app_name_label": "Aplikazioaren izena",
+      "btn_reset-db": "Berreskuratu DB",
+      "db_reset_label": "Ziur Datu-Base berreskuratu nahi duzula? Ezarpen berriak ezabatu egingo dira eta ezin izango dituzu berriro berreskuratu!",
+      "db_reset_successfully": "Datu-basea ondo leheneratu da!",
+      "lang_es": "Gaztelania",
+      "lang_en": "Ingelera",
+      "lang_eu": "Euskara"
+    }
+  }

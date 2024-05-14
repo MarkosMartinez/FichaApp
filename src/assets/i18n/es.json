@@ -3,7 +3,8 @@
         "label_login": "Inicio de Sesión",
         "email": "Correo",
         "password": "Contraseña",
-        "btn_login": "Acceder"
+        "btn_login": "Acceder",
+        "label_invalid_credentials_error": "Las credenciales no son válidas!"
     },
     "MAIN": {
         "error_logout": "Error al intentar cerrar la sesión. Quieres continuar de todas maneras?"
@@ -17,7 +18,9 @@
         "btn_punchout": "Fichar la salida",
         "label_last_signings": "Ultimos fichajes",
         "label_no_signings": "No hay ningun fichaje todavia",
-        "current_time": "Hora actual"
+        "current_time": "Hora actual",
+        "label_error": "Error al obtener los registros, intentalo de nuevo mas tarde",
+        "label_signinout_error": "Error al fichar, intentalo de nuevo mas tarde"
     },
     "USER_ROLE": {
         "manager": "Gestor",
@@ -27,7 +30,8 @@
         "id": "Id",
         "name": "Nombre",
         "email": "Correo",
-        "role": "Rol"
+        "role": "Rol",
+        "error_loading": "Error al obtener los usuarios. Vuelve a intentarlo mas tarde"
     },
     "ADD_USER": {
         "email": "Correo",
@@ -57,7 +61,53 @@
         "confirm_new_password": "Confirmar contraseña",
         "btn_update": "Actualizar",
         "updated_successfully_snack": "Usuario actualizado!",
-        "accept_snack": "Aceptar"
+        "accept_snack": "Aceptar",
+        "error_geting": "Error al obtener el perfil. Vuelve a intentarlo mas tarde",
+        "error_updating": "Error actualizando el perfil. Vuelve a intentarlo mas tarde"
+    },
+    "ABSENCES": {
+        "label_absence_history": "Historial de ausencias",
+        "column_user": "Usuario",
+        "column_status": "Estado",
+        "column_start_time": "Fecha inicio",
+        "column_end_time": "Fecha fin",
+        "column_type": "Tipo",
+        "column_notes": "Notas",
+        "status_pending": "Pendiente",
+        "status_approved": "Aprobado",
+        "status_denied": "Denegado",
+        "label_pending": "Pendientes",
+        "label_approved": "Aprobadas",
+        "label_denied": "Denegado",
+        "label_past": "Pasadas",
+        "label_delete": "Estas seguro que quieres cancelar esa ausencia?",
+        "label_error_delete": "Error al eliminar la ausencia. Intentalo de nuevo mas tarde",
+        "label_error": "Error al obtener las ausencias, intentalo de nuevo mas tarde",
+        "successfully_deleted_snack": "Eliminado correctamente!",
+        "holiday_type": "Vacaciones",
+        "medical_type": "Medica",
+        "other_type": "Otro"
+    },
+    "ADD_ABSENCE": {
+        "successfully_created_snack": "Creado correctamente!",
+        "error_creating_snack": "Error al intentar crear la ausencia!",
+        "error_values_creating_snack": "Error al intentar crear la ausencia. Comprueba los datos y vuelve a intentarlo!",
+        "label_absence_type": "Selecciona el tipo de ausencia",
+        "label_date_range": "Selecciona el rango de fechas",
+        "btn_return": "Volver",
+        "btn_next": "Siguiente",
+        "label_notes": "Notas",
+        "label_write_a_note": "Escribe una Nota (opcional)",
+        "label_start_time": "Fecha Inicio",
+        "label_end_time": "Fecha Fin"
+    },
+    "MANAGE_ABSENCES": {
+        "label_manage_absence_title": "Ausencias a gestionar",
+        "label_no_manage_absences": "❌ | No hay ninguna ausencia para gestionar",
+        "successfully_aproved": "Ausencia aprobada correctamente",
+        "successfully_rejected": "Ausencia rechazada correctamente",
+        "label_error": "Error al aprobar/rechazar la ausencia. Vuelve a intentarlo mas tarde",
+        "label_get_pending_error": "Error al obtener las ausencias pendientes. Vueve a intentarlo mas tarde"
     },
     "PAGE_NOT_FOUND": {
         "title": "ERROR 404",
@@ -65,7 +115,9 @@
     },
     "ALERT": {
         "btn_ok": "Aceptar",
-        "btn_cancel": "Cancelar"
+        "btn_cancel": "Cancelar",
+        "label_warning": "Advertencia",
+        "label_error": "Error"
     },
     "CONFIG": {
         "lang_label": "Idioma de la aplicación",
@@ -73,6 +125,12 @@
         "config_updated_error_snack": "Error al actualizar la configuración",
         "accept_snack": "Aceptar",
         "update_label": "Actualizar",
-        "app_name_label": "Nombre de la aplicación"
+        "app_name_label": "Nombre de la aplicación",
+        "btn_reset-db": "Restaurar DB",
+        "db_reset_label": "Estas seguro que deseas restaurar la DB? Las nuevas configuraciones seran eliminadas y no podras volver a recuperarlas!",
+        "db_reset_successfully": "Base de datos restaurada correctamente!",
+        "lang_es": "Español",
+        "lang_en": "Ingles",
+        "lang_eu": "Vasco"
     }
 }
