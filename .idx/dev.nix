@@ -4,6 +4,7 @@
     pkgs.nodejs
     pkgs.zip
     pkgs.unzip
+    pkgs.bun
   ];
   idx.extensions = [
     "angular.ng-template"

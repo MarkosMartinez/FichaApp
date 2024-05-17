@@ -83,24 +83,31 @@ export class DashboardComponent {
 
   cargarBarra(){
     let start: Date = new Date(this.registros[0]["enter_time"]);
-    let end: Date = this.registros[0]["exit_time"] != null ? new Date(this.registros[0]["exit_time"]) : new Date();
-    if(start.getDate() < new Date().getDate()) start.setHours(0);
+    let ahora = new Date();
+    let hoyVacio: Boolean = false;
+    let end: Date = this.registros[0]["exit_time"] != null ? new Date(this.registros[0]["exit_time"]) : ahora;
+    if(start.getDate() < new Date().getDate() && end.getDate() == ahora.getDate())
+      start.setHours(0);
+    else if(start.getDate() < new Date().getDate() && end.getDate() != ahora.getDate())
+      hoyVacio = true;
     let startHour = start.getHours();
     let endHour = end.getHours();
     // console.log("Start/end: " + startHour + " / " + endHour);
     let barra;
 
-    for (let i = startHour; i < endHour; i++) {
-      barra = document.getElementById("barra_" + i);
-      if(barra){
-        barra.style.backgroundColor  = "green";
-      } 
-    }
-    if(startHour === endHour){
-      barra = document.getElementById("barra_" + startHour);
-      if(barra){
-        barra.style.backgroundColor  = "green";
-      } 
+    if(!hoyVacio){
+      for (let i = startHour; i < endHour; i++) {
+        barra = document.getElementById("barra_" + i);
+        if(barra){
+          barra.style.backgroundColor  = "green";
+        } 
+      }
+      if(startHour === endHour){
+        barra = document.getElementById("barra_" + startHour);
+        if(barra){
+          barra.style.backgroundColor  = "green";
+        } 
+      }
     }
   }
 
